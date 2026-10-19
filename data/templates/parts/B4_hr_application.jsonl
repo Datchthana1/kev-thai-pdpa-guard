@@ -1,0 +1,2 @@
+{"template_id": "TMP-hr_application-01", "genre": "hr_application", "kind": "positive", "text": "ใบสมัครงาน ชื่อ {name} เบอร์ {phone}\nหมายเหตุฝ่ายบุคคล: ตรวจประวัติแบบเบื้องต้นแล้ว พบ {special} ให้ผู้จัดการอนุมัติเพิ่มก่อนนัดสัมภาษณ์"}
+{"template_id": "TMP-hr_application-02", "genre": "hr_application", "kind": "positive", "text": "ติดต่อกลับหาคุณ {first_name} ที่ {phone} ได้เลยนะ ผลตรวจประวัติรอบสองออกแล้ว มีข้อมูลเรื่อง {special} ขอให้ HR ตัดสินใจภายในวันศุกร์"}

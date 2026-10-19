@@ -1,0 +1,2 @@
+{"template_id": "TMP-realestate_contract-01", "genre": "realestate_contract", "kind": "positive", "text": "สัญญาเช่าห้องพัก ผู้ให้เช่า {name} โทร {phone} ผู้เช่าอยู่ที่ {address} ค่าเช่า {price} กำหนดเข้าอยู่ได้ตั้งแต่ต้นเดือน"}
+{"template_id": "TMP-realestate_contract-02", "genre": "realestate_contract", "kind": "positive", "text": "บันทึกนัดดูที่ดิน คุณ {first_name} เบอร์ {phone} ติดต่อได้ตลอดวัน ไปดูที่ {province} ประมาณ {time} ตกลงราคาก่อนค่อยทำสัญญา"}

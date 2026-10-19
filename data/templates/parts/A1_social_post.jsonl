@@ -1,0 +1,19 @@
+{"template_id": "TMP-social_post-01", "genre": "social_post", "kind": "positive", "text": "ขอบคุณน้องจากร้านกาแฟหน้ามหาลัยมากนะ {first_name} ยิ้มแย้มมาก แก้วนี้อร่อยสุดๆ 🥰"}
+{"template_id": "TMP-social_post-02", "genre": "social_post", "kind": "positive", "text": "ใครรู้จักพี่ {name} บ้าง ไลน์ไอดี {line_id} ทักมาได้เลย หาเพื่อนสมัยมัธยมอยู่ ขอบคุณล่วงหน้า"}
+{"template_id": "TMP-social_post-03", "genre": "social_post", "kind": "positive", "text": "วันนี้วันเกิดเรา {dob} ขอบคุณทุกคนที่ส่งคำอวยพรมาเยอะมาก อ่านไม่ทันเลย ขอบคุณจริงๆ 🎂"}
+{"template_id": "TMP-social_post-04", "genre": "social_post", "kind": "positive", "text": "รับซ่อมจักรยานแถวบางนา ติดต่อ {name} โทร {phone} ได้เลยครับ วันหยุดก็รับนะ ไม่ต้องจองก็ได้"}
+{"template_id": "TMP-social_post-05", "genre": "social_post", "kind": "positive", "text": "ใครเรียนคอร์สทำขนมปังที่ศูนย์ชุมชนกับเราบ้าง ส่งรูปไปที่ {email} ได้เลย เราจะรวมเป็นอัลบั้ม"}
+{"template_id": "TMP-social_post-06", "genre": "social_post", "kind": "positive", "text": "ปิดปรับปรุงบ้านแล้ว ตอนนี้ย้ายมาอยู่ที่ {address} แล้วนะ ใครแวะมาหาก็ได้ ขนมมีเยอะเลย"}
+{"template_id": "TMP-social_post-07", "genre": "social_post", "kind": "positive", "text": "ระวังนะทุกคน เมื่อวานมีคนทักมาหลอกให้ส่งเลขบัตร {national_id} ของ{name} ให้ เพื่อนเราเกือบหลงแล้ว อย่าไปส่งให้ใครเด็ดขาด"}
+{"template_id": "TMP-social_post-08", "genre": "social_post", "kind": "positive", "text": "ใครยืมเงินเรานานมากแล้ว โอนคืนมาที่ {bank_account} ชื่อ {name} ได้เลยนะ ไม่ต้องรอให้ทวง 555"}
+{"template_id": "TMP-social_post-09", "genre": "social_post", "kind": "positive", "text": "ขอแชร์เรื่องนี้นะ {name} ตอนนี้ {health} ขอกำลังใจจากทุกคนด้วยนะคะ เราจะคอยอัปเดตให้"}
+{"template_id": "TMP-social_post-10", "genre": "social_post", "kind": "positive", "text": "เพื่อนคนนี้ {name} {special} ใครเจอตัวจริงก็อย่าไปตัดสินเค้าเลยนะ ทุกคนมีเรื่องของตัวเอง"}
+{"template_id": "TMP-social_post-11", "genre": "social_post", "kind": "positive", "text": "ตามหาเจ้าของแล้ว! {name} ทำกระเป๋าสตางค์หายบนรถเมล์สาย 8 ติดต่อ {phone} หรือ {email} ได้เลยค่ะ เรารอคืนให้นะ"}
+{"template_id": "TMP-social_post-12", "genre": "social_post", "kind": "hard_negative", "text": "ดูข่าว {public_figure} เปิดงานที่ทำเนียบแล้วปลื้มมาก ใครไปดูด้วยบ้าง 555 ทั้งวันเลยนะ"}
+{"template_id": "TMP-social_post-13", "genre": "social_post", "kind": "hard_negative", "text": "ร้านของเราจะปิดวันที่ {date} เวลา {time} น. ขออภัยลูกค้าทุกท่านนะคะ เปิดใหม่อีกทีเร็วๆ นี้ #ร้านกาแฟ"}
+{"template_id": "TMP-social_post-14", "genre": "social_post", "kind": "hard_negative", "text": "ขอบคุณ {company} ที่จัดกิจกรรมดีมาก ติดตามรายละเอียดได้ที่ {url} หรือโทร {company_phone} เลยค่ะ"}
+{"template_id": "TMP-social_post-15", "genre": "social_post", "kind": "hard_negative", "text": "เพิ่งเห็นสถิติจากการสำรวจทั่วไป {special_stat} เรื่องนี้น่าสนใจเลยนะ ใครมีข้อมูลเพิ่มเติมบ้าง"}
+{"template_id": "TMP-social_post-16", "genre": "social_post", "kind": "clean_negative", "text": "ขอแชร์สูตรชาไทยเย็นแบบง่ายๆ ใส่นมข้นหวานกับนมสดอย่างละนิด ใครชอบหวานน้อยก็ลดนมข้นได้เลย"}
+{"template_id": "TMP-social_post-17", "genre": "social_post", "kind": "clean_negative", "text": "วันนี้ไปเดินตลาดนัดสวนจตุจักรมา ของถูกมาก ได้ผ้าขาวม้ามาสองผืน เหนื่อยแต่คุ้มมาก"}
+{"template_id": "TMP-social_post-18", "genre": "social_post", "kind": "clean_negative", "text": "ใครอยากเที่ยวเชียงใหม่หน้าหนาวบ้าง ช่วงนี้หมอกเยอะ แนะนำให้ไปดอยอินทนนท์ตอนเช้า 555"}
+{"template_id": "TMP-social_post-19", "genre": "social_post", "kind": "clean_negative", "text": "อ่านหนังสือเล่มใหม่จบแล้ว เรื่องนี้เขียนดีมาก ตัวละครเหมือนคนจริงๆ ใครอ่านแล้วมาแชร์กันหน่อย"}

@@ -1,0 +1,4 @@
+{"template_id": "TMP-review-01", "genre": "review", "kind": "clean_negative", "text": "ร้านอาหารตามสั่งที่ {province} รสชาติโอเคมาก เมนู {menu_item} จานละ {amount} บาท ปริมาณเยอะ ได้ 4 ดาว\nคิวเยอะช่วง {time} ควรไปเร็วหน่อย"}
+{"template_id": "TMP-review-02", "genre": "review", "kind": "clean_negative", "text": "หูฟังรุ่นนี้เสียงดีเกินราคา แบตอยู่ได้ประมาณ {hours} ชั่วโมง ใส่สบาย ไม่เจ็บหู ให้ {percent} จากผมเลย"}
+{"template_id": "TMP-review-03", "genre": "review", "kind": "clean_negative", "text": "ซื้อกระเป๋าเดินทางที่ {company} รอนาน {minutes} นาที ค่ะ แต่พนักงานน่ารัก ช่วยจัดการให้เรียบร้อย\nราคาอยู่ที่ {amount} บาท เทียบกับร้านอื่นถือว่าโอเค"}
+{"template_id": "TMP-review-04", "genre": "review", "kind": "clean_negative", "text": "โรงแรมที่ {province} วิวดีมาก ห้องสะอาด มีสระว่ายน้ำ แต่ที่จอดรถแคบไปหน่อย\nราคาคืนละ {amount} บาท จองล่วงหน้า {days} วันจะถูกกว่า เรทนี้คุ้มสุด 55"}

@@ -1,0 +1,4 @@
+{"template_id": "TMP-ecommerce_delivery-01", "genre": "ecommerce_delivery", "kind": "clean_negative", "text": "สินค้า {gadget} ของคุณสั่งเมื่อ {date} ตอนนี้อยู่ระหว่างการจัดส่ง\nเลขพัสดุ {tracking_no} คาดว่าจะถึงภายใน {hours} ชั่วโมงนี้ ขอบคุณที่อุดหนุนนะคะ"}
+{"template_id": "TMP-ecommerce_delivery-02", "genre": "ecommerce_delivery", "kind": "clean_negative", "text": "โปรลดพิเศษ {percent} ถึงสิ้นเดือน จัดส่งฟรีเมื่อซื้อครบ {amount} บาท\nช่องทางติดต่อฝ่ายบริการ {url} ค่ะ"}
+{"template_id": "TMP-ecommerce_delivery-03", "genre": "ecommerce_delivery", "kind": "clean_negative", "text": "ส่งไปที่จังหวัด {province} ค่าส่ง {amount} บาท ใช้เวลา {workdays} วันทำการ\nสินค้าจำนวน {items} ชิ้น แพ็กอย่างดีค่ะ"}
+{"template_id": "TMP-ecommerce_delivery-04", "genre": "ecommerce_delivery", "kind": "clean_negative", "text": "แจ้งเตือน: พัสดุหมายเลข {tracking_no} ถึงศูนย์กระจายสินค้าที่ {province} แล้ว\nรายการ {grocery} มูลค่า {amount} บาท กำลังรอรอบส่งถัดไป"}

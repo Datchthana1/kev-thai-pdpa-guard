@@ -1,0 +1,4 @@
+{"template_id": "TMP-news_article-01", "genre": "news_article", "kind": "clean_negative", "text": "รัฐบาลประกาศมาตรการช่วยเหลือค่าครองชีพ เริ่มวันที่ {date} วงเงินรวม {price} ล้านบาท\nคาดว่าจะมีผู้ได้รับสิทธิ์ราว {count} ล้านคนทั่วประเทศ"}
+{"template_id": "TMP-news_article-02", "genre": "news_article", "kind": "clean_negative", "text": "อากาศร้อนจัดในภาคกลาง อุณหภูมิสูงสุดแตะ {temp} องศาเซลเซียสที่ {province} และจังหวัดใกล้เคียง\nกรมอุตุนิยมวิทยาแนะนำให้หลีกเลี่ยงการทำกิจกรรมกลางแจ้งช่วง {time}"}
+{"template_id": "TMP-news_article-03", "genre": "news_article", "kind": "clean_negative", "text": "{public_figure} กล่าวในงานประชุมระดับภูมิภาคที่ {province} ว่าความร่วมมือด้านพลังงานสะอาดจะเติบโตอีก {percent} ในปีหน้า"}
+{"template_id": "TMP-news_article-04", "genre": "news_article", "kind": "clean_negative", "text": "ผลสำรวจของ {company} ระบุว่า {special_stat} และคนรุ่นใหม่ให้ความสนใจเพิ่มขึ้นเมื่อเทียบกับ {years} ปีที่แล้ว"}

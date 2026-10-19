@@ -1,0 +1,4 @@
+{"template_id": "TMP-support_ticket-01", "genre": "support_ticket", "kind": "positive", "text": "[Ticket] ลูกค้า {name} แจ้งว่าเห็นข้อความจากทีมงานที่มีการระบุ {special} อยู่ในระบบ ขอให้ลบออกและติดต่อกลับทาง {email} ด่วนค่ะ"}
+{"template_id": "TMP-support_ticket-02", "genre": "support_ticket", "kind": "positive", "text": "ลูกค้าส่งรหัส PIN {pin} มาทางแชท แจ้งว่าลืมบัตรและเข้าแอปไม่ได้ รบกวนรีเซ็ตให้ด้วยค่ะ ติดต่อกลับเบอร์ {phone} ตอนเช้าได้เลย"}
+{"template_id": "TMP-support_ticket-03", "genre": "support_ticket", "kind": "positive", "text": "[TK] ขอแก้ไขชื่อผู้ติดต่อเป็น {name} เบอร์ใหม่ {phone} เบอร์เก่าส่ง SMS ไม่เข้าแล้ว รบกวนอัปเดตข้อมูลให้ด้วยนะคะ"}
+{"template_id": "TMP-support_ticket-04", "genre": "support_ticket", "kind": "positive", "text": "[Ticket] ระบบล็อกอินไม่ได้จาก IP {ip} ลูกค้าบอกว่าเปลี่ยนเครื่องแล้วยังโดนบล็อก ช่วยปลดล็อกและตรวจสอบ log ให้หน่อยค่ะ"}

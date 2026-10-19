@@ -1,0 +1,43 @@
+{
+ "load_4bit": true,
+ "quant": "nf4+double_quant+bf16_compute",
+ "skip_quant": [
+  "in_proj_a",
+  "in_proj_b"
+ ],
+ "init_from": "jaredpalmer/kev-4b",
+ "argv": [
+  "--data",
+  "data/processed/kev/train.jsonl",
+  "--base",
+  "Qwen/Qwen3.5-4B-Base",
+  "--epochs",
+  "1",
+  "--lr",
+  "2e-05",
+  "--batch",
+  "1",
+  "--accum",
+  "8",
+  "--max_state",
+  "1024",
+  "--max_steps",
+  "0",
+  "--device",
+  "cuda",
+  "--dtype",
+  "bf16",
+  "--checkpointing",
+  "1",
+  "--out",
+  "runs/pdpa-4b",
+  "--init_from",
+  "jaredpalmer/kev-4b",
+  "--shared_prefix",
+  "1",
+  "--length_sort",
+  "1",
+  "--seed",
+  "1"
+ ]
+}

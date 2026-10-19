@@ -1,0 +1,19 @@
+{"template_id": "TMP-review-01", "genre": "review", "kind": "positive", "text": "รีวิวจากคุณ{first_name} หม้อทอดไร้น้ำมันเครื่องนี้ใช้มาสามเดือนแล้ว ตอนนี้ชอบมาก ปุ่มกดบางทีไม่ค่อยติดนิดหน่อย โดยรวม 4 ดาว"}
+{"template_id": "TMP-review-02", "genre": "review", "kind": "positive", "text": "รีวิวอู่แถวลาดพร้าว ทะเบียนรถ {plate} ของผมเข้าไปเปลี่ยนยางกับตั้งศูนย์ล้อ พนักงานอธิบายละเอียดดีมาก ราคาไม่แพงเลย"}
+{"template_id": "TMP-review-03", "genre": "review", "kind": "positive", "text": "ร้านข้าวมันไก่ตรงซอยนี้อร่อยมาก แต่ต้องโทรจองก่อนนะ เบอร์ {phone} ผมชื่อ {name} ไปกินมาสามรอบแล้วครับ ทุกรอบไม่เคยผิดหวัง"}
+{"template_id": "TMP-review-04", "genre": "review", "kind": "positive", "text": "รีวิวคอร์สทำอาหารออนไลน์ {name} กับ {name2} ลงทะเบียนเรียนด้วยกันผ่านอีเมล {email} ได้รับเมลยืนยันช้าไปหน่อย แต่เนื้อหาแน่นมาก"}
+{"template_id": "TMP-review-05", "genre": "review", "kind": "positive", "text": "ส่งของมาถึงเร็วมาก แพ็คมาดีด้วย เขียนที่อยู่ไว้ที่ {address} ไม่ผิดนะ รีวิวจาก {name} ให้ห้าดาวเลยค่ะ"}
+{"template_id": "TMP-review-06", "genre": "review", "kind": "positive", "text": "ได้คืนเงินจากการคืนเครื่องแล้ว เข้าบัญชี {bank_account} ชื่อ {name} ใช้เวลาสองวันทำการ ทางร้านติดต่อกลับเร็วมาก ประทับใจค่ะ"}
+{"template_id": "TMP-review-07", "genre": "review", "kind": "positive", "text": "รีวิวการทำประกันรถ ตอนยื่นเอกสารต้องใส่เลขบัตร {national_id} ของ {name} พนักงานทำให้เสร็จในสองวัน ไม่ต้องไปสาขาเลย"}
+{"template_id": "TMP-review-08", "genre": "review", "kind": "positive", "text": "สมัครสมาชิกด้วยบัตร {card} ตัดเงินปีละครั้ง เรื่องยกเลิกทำยากไหม ใครเคยยกเลิกบ้าง ขอแชร์ประสบการณ์หน่อย"}
+{"template_id": "TMP-review-09", "genre": "review", "kind": "positive", "text": "รีวิวเครื่องวัดความดัน ผม {name} {health} เลยซื้อเครื่องนี้มาใช้ที่บ้าน วัดแม่นกว่าเครื่องเก่าที่เคยใช้ ใช้มาสองอาทิตย์แล้ว"}
+{"template_id": "TMP-review-10", "genre": "review", "kind": "positive", "text": "{name} {special} เลยขอสั่งเมนูไม่มีเนื้อสัตว์ ร้านนี้ทำให้ได้หมดเลย ข้าวผัดกับแกงเขียวหวานอร่อยมาก ให้สี่ดาว"}
+{"template_id": "TMP-review-11", "genre": "review", "kind": "positive", "text": "รีวิวร้านเค้ก ชื่อผม {name} เบอร์ {phone} ที่อยู่ {address} สั่งเค้กวันเกิดแม่ให้ส่งถึงบ้าน หวานพอดี แม่ชอบมาก ตอนนี้มีนัดซื้อเพิ่มอีกแล้ว"}
+{"template_id": "TMP-review-12", "genre": "review", "kind": "hard_negative", "text": "รีวิวหม้อทอดตัวนี้ ราคา {price} ลดมาแล้ว {percent} ปรุงไก่สองชิ้นใช้เวลาประมาณ {minutes} นาที ให้สามดาวครับ"}
+{"template_id": "TMP-review-13", "genre": "review", "kind": "hard_negative", "text": "ลองสมัครยืนยันตัวตนด้วยบัตรเครดิต {fake_card} ไม่ผ่านตลอด เลยยังไม่ได้ลงทะเบียน รีวิวนี้เขียนตามที่เจอจริงเท่านั้น"}
+{"template_id": "TMP-review-14", "genre": "review", "kind": "hard_negative", "text": "ร้านอาหารแห่งนี้บริการดี โทร {company_phone} จองโต๊ะได้ ตั้งอยู่ที่ {company_address} อาหารอร่อย ราคาเป็นมิตร"}
+{"template_id": "TMP-review-15", "genre": "review", "kind": "hard_negative", "text": "ใช้เตาอบของ {company} มาหนึ่งเดือน ให้ความร้อนสม่ำเสมอ ไม่ต้องรอนาน ทำขนมปังปอนด์ออกมาสวยมาก"}
+{"template_id": "TMP-review-16", "genre": "review", "kind": "clean_negative", "text": "สูตรไข่เจียวฟูๆ ตีไข่สองฟองกับน้ำปลานิดหน่อย ใส่น้ำเปล่าหนึ่งช้อนโต๊ะ ทอดไฟกลางจนขอบกรอบ อร่อยกับข้าวสวยร้อนๆ"}
+{"template_id": "TMP-review-17", "genre": "review", "kind": "clean_negative", "text": "รองเท้าวิ่งคู่นี้ซัพพอร์ตเท้าดีมาก ใส่วิ่งห้าสิบกิโลแล้วยังไม่เจ็บ พื้นนุ่มแต่ไม่ยวบ ให้สี่ดาวครับ"}
+{"template_id": "TMP-review-18", "genre": "review", "kind": "clean_negative", "text": "สูตรต้มยำกุ้งน้ำใส ใส่ตะไคร้ ข่า ใบมะกรูด พริกขี้หนูทุบ น้ำมะนาวตอนท้าย ชิมดูให้รสเปรี้ยวนำนิดๆ แล้วปิดไฟ"}
+{"template_id": "TMP-review-19", "genre": "review", "kind": "clean_negative", "text": "เครื่องฟอกอากาศตัวนี้เสียงเบามาก ตอนนอนไม่รบกวนเลย ไส้กรองเปลี่ยนแล้วกลิ่นหายจริง ราคาสมเหตุสมผลมากค่ะ"}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "949fa4b9-4b53-4e40-8aa2-0aea57763a0b",
+  "status": "current",
+  "command": "deliver",
+  "type": "dataflow",
+  "input": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\.archify\\dataflow-dataset-20261019-215000\\candidate.json",
+  "output": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\docs\\architecture\\dataset-dataflow.html",
+  "specification": {
+    "sha256": "48ada4bb970a12faa41359b7043a254f9bd819d713f4e268fa207cbf60d0904c",
+    "bytes": 3341
+  },
+  "artifact": {
+    "sha256": "bcc0265f307cf267d016d293dd7af9f6a041fd28c9979ad737f4cece56aad984",
+    "bytes": 820836
+  }
+}

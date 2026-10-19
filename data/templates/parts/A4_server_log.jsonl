@@ -1,0 +1,9 @@
+{"template_id": "TMP-server_log-01", "genre": "server_log", "kind": "clean_negative", "text": "[INFO] scheduler: job=nightly-report started\n[INFO] scheduler: job=nightly-report finished duration={number}s rows={amount}\n[WARN] cache: hit ratio {percent} below threshold"}
+{"template_id": "TMP-server_log-02", "genre": "server_log", "kind": "clean_negative", "text": "2026-10-19 02:14:55 WARN disk usage on volume data01 reached {percent}, cleanup scheduled at {time}, retention={days}d"}
+{"template_id": "TMP-server_log-03", "genre": "server_log", "kind": "clean_negative", "text": "ERROR upload-service: request failed status=503 retry 2/3 ref={case_no} endpoint={url}"}
+{"template_id": "TMP-server_log-04", "genre": "server_log", "kind": "clean_negative", "text": "deploy build #{number} สำเร็จ เวลา {time} ใช้เวลา {number2} วินาที ไม่มีข้อผิดพลาดที่ต้องแก้ไข"}
+{"template_id": "TMP-server_log-05", "genre": "server_log", "kind": "clean_negative", "text": "[{time}] cron cleanup-temp: removed {count} files, freed {percent} of quota"}
+{"template_id": "TMP-server_log-06", "genre": "server_log", "kind": "clean_negative", "text": "health-check endpoint {url} returned 200 OK in {number} ms (threshold {number2} ms)"}
+{"template_id": "TMP-server_log-07", "genre": "server_log", "kind": "clean_negative", "text": "order-sync: batch {order_no} processed ok, quantity={count}, latency={number}ms, next run {time}"}
+{"template_id": "TMP-server_log-08", "genre": "server_log", "kind": "clean_negative", "text": "ticket queue: {case_no} moved to resolved by automation after {minutes} minutes (SLA {percent} met)"}
+{"template_id": "TMP-server_log-09", "genre": "server_log", "kind": "clean_negative", "text": "maintenance window: ปิดระบบชั่วคราววันที่ {date} เวลา {time} ถึง {time2} เพื่ออัปเกรดฐานข้อมูลเวอร์ชัน {count}"}

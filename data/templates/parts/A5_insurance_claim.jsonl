@@ -1,0 +1,3 @@
+{"template_id": "TMP-insurance_claim-01", "genre": "insurance_claim", "kind": "positive", "text": "เคลมประกันสุขภาพ ผู้เอาประกัน {name} โทรกลับเบอร์ {phone}\nหมายเหตุจากผู้ตรวจสอบ: พบข้อมูลว่า {special} ขอให้แนบเอกสารเพิ่มเติมก่อนพิจารณาค่ารักษา"}
+{"template_id": "TMP-insurance_claim-02", "genre": "insurance_claim", "kind": "positive", "text": "เคลมรถ ทะเบียน {plate} ชนท้ายที่หน้าห้าง ผู้เอาประกันเล่าว่าเบรกไม่ทัน ขอให้แนบรูปถ่ายจุดเกิดเหตุและใบแจ้งความมาด้วยค่ะ"}
+{"template_id": "TMP-insurance_claim-03", "genre": "insurance_claim", "kind": "positive", "text": "ผู้ขับ {name} ทะเบียน {plate} แจ้งเคลมชนท้ายรถคันหน้าที่สี่แยกไฟแดง ศูนย์รับเรื่องรอตรวจสภาพรถก่อนนัดซ่อม"}

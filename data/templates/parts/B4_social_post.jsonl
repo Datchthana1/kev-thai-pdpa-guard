@@ -1,0 +1,8 @@
+{"template_id": "TMP-social_post-01", "genre": "social_post", "kind": "positive", "text": "ถามหน่อยค่ะ ใครรู้จัก {name} บ้าง เห็นในกระทู้เก่าว่า {special} อยากรู้ว่าจริงไหมก่อนไปร่วมงานกับเขา"}
+{"template_id": "TMP-social_post-02", "genre": "social_post", "kind": "positive", "text": "โปรไฟล์ {first_name} อายุ {age} ปี ทำงานออฟฟิศ ชอบทำอาหาร {special} ถ้าสนใจทักมาแนะนำตัวได้เลยนะ"}
+{"template_id": "TMP-social_post-03", "genre": "social_post", "kind": "positive", "text": "รายชื่ออาสาสมัครประจำศูนย์ชุมชน\n- {name} โทร {phone}\n  หมายเหตุ: {special} จัดเวรเฉพาะวันอาทิตย์"}
+{"template_id": "TMP-social_post-04", "genre": "social_post", "kind": "positive", "text": "ใครช่วยดูหน่อย โพสต์ไปใน issue ลืมลบ token ตัวนี้ {api_key} ของ {first_name} ตอนนี้ต้องรีโวกให้เลยไหม"}
+{"template_id": "TMP-social_post-05", "genre": "social_post", "kind": "positive", "text": "ขายจักรยานมือสอง สภาพดีมาก ติดต่อคุณ {name} โทร {phone} นัดรับที่ {province} ราคา {price} ต่อรองได้นิดหน่อย"}
+{"template_id": "TMP-social_post-06", "genre": "social_post", "kind": "positive", "text": "สมัครชมรมวิ่งเช้าวันเสาร์ ชื่อ {first_name} กับ {name2} อีเมล {email} ยืนยันแล้วนะ ค่าสมาชิก {price} จ่ายตอนมาวิ่งครั้งแรก"}
+{"template_id": "TMP-social_post-07", "genre": "social_post", "kind": "positive", "text": "ประกาศหาคนมาช่วยให้อาหารแมวช่วงสุดสัปดาห์ ติดต่อ {first_name} โทร {phone} ที่อยู่แถว {address} ค่าตอบแทนคุยกันได้"}
+{"template_id": "TMP-social_post-08", "genre": "social_post", "kind": "positive", "text": "ใครเคยใช้บริการช่างแอร์ของ {first_name} บ้าง ไลน์ไอดี {line_id} ทักมาได้เลย ราคาเป็นกันเองมาก"}

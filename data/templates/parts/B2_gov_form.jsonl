@@ -1,0 +1,8 @@
+{"template_id": "TMP-gov_form-01", "genre": "gov_form", "kind": "positive", "text": "แบบคำขอรับสิทธิ\nชื่อ-สกุล: {name}\nเลขประจำตัวประชาชน: {national_id}\nหมายเลขโทรศัพท์: {phone}\nวันที่ยื่น: {date}"}
+{"template_id": "TMP-gov_form-02", "genre": "gov_form", "kind": "positive", "text": "ที่อยู่ตามทะเบียนบ้าน {address}\nจังหวัด {province} (ขอเอกสารรับรองภูมิลำเนาเพิ่ม 1 ชุด)"}
+{"template_id": "TMP-gov_form-03", "genre": "gov_form", "kind": "positive", "text": "ขอรับบัตรผู้พิการ ประเภท: ความพิการทางการเคลื่อนไหว ผู้ยื่น {first_name} ประวัติ {health} แนบใบรับรองแพทย์ฉบับล่าสุดแล้วค่ะ"}
+{"template_id": "TMP-gov_form-04", "genre": "gov_form", "kind": "positive", "text": "ยื่นขอทุนการศึกษาต่อเนื่อง ชื่อ {first_name} รหัสนักศึกษา {student_id} คณะวิศวกรรมศาสตร์ ชั้นปีที่ 3 เกรดเฉลี่ยผ่านเกณฑ์"}
+{"template_id": "TMP-gov_form-05", "genre": "gov_form", "kind": "positive", "text": "ผู้ยื่นคำขอ {name} เกิดวันที่ {dob} สัญชาติไทย ประสงค์ขอเปลี่ยนคำนำหน้าชื่อในทะเบียน กรอกแบบฟอร์มส่วนนี้ให้ครบด้วยนะ"}
+{"template_id": "TMP-gov_form-06", "genre": "gov_form", "kind": "hard_negative", "text": "หน่วยงาน {company} หนังสือเลขที่ {case_no} เรื่องแจ้งผลการพิจารณา กำหนดยื่นเอกสารภายใน {date} เวลา {time} ที่ศาลากลาง{province}"}
+{"template_id": "TMP-gov_form-07", "genre": "gov_form", "kind": "hard_negative", "text": "จากการสำรวจของหน่วยงานรัฐ {special_stat} ซึ่งเป็นตัวเลขภาพรวมของประเทศ ดูรายละเอียดเพิ่มได้ที่ {url} ปรับปรุงเมื่อ {date}"}
+{"template_id": "TMP-gov_form-08", "genre": "gov_form", "kind": "clean_negative", "text": "ขั้นตอนการขอใบรับรองความประพฤติ เตรียมบัตรประชาชนตัวจริง สำเนาทะเบียนบ้าน และรูปถ่ายสองใบ ยื่นได้ทุกวันทำการ ไม่ต้องจองคิว"}

@@ -1,0 +1,9 @@
+{"template_id": "TMP-review-01", "genre": "review", "kind": "clean_negative", "text": "รีวิวเครื่องปั่นอเนกประสงค์ตัวนี้ ใช้มา {weeks} สัปดาห์ แรงดีมาก น้ำแข็งละเอียดสุดๆ ราคาตอนนี้ {price} คุ้มค่าสำหรับคนทำน้ำผลไม้ทุกวัน"}
+{"template_id": "TMP-review-02", "genre": "review", "kind": "clean_negative", "text": "สูตรต้มยำกุ้งน้ำข้น ใส่กะทิ {count} ถ้วย ตะไคร้ {count2} ต้น ปรุงให้เปรี้ยวนำ ใช้เวลาประมาณ {minutes} นาที เสิร์ฟร้อนๆ"}
+{"template_id": "TMP-review-03", "genre": "review", "kind": "clean_negative", "text": "ร้านนี้ราคาไม่แรง อาหารจานละประมาณ {price} รสจัดจ้านตามสไตล์ เด็ดคือไก่ย่างหนังกรอบ ถ้าจะไปตอน {time} ควรจองก่อน คะแนนรวม {percent}"}
+{"template_id": "TMP-review-04", "genre": "review", "kind": "clean_negative", "text": "รีวิวหนังสือแนวพัฒนาตนเองเล่มนี้ ราคา {price} หนา {number} หน้า อ่านง่าย มีตัวอย่างเยอะ ให้คะแนนความคุ้มค่า {percent}"}
+{"template_id": "TMP-review-05", "genre": "review", "kind": "clean_negative", "text": "รีวิวเที่ยวจังหวัด{province} โรงแรมบรรยากาศดีมาก ห้องคู่คืนละ {price} อาหารเช้าบุฟเฟต์มี {items} เมนู ไปหน้าหนาวน่าจะดีที่สุด"}
+{"template_id": "TMP-review-06", "genre": "review", "kind": "clean_negative", "text": "สูตรขนมครกกะทิโบราณ ผสมแป้งข้าวเจ้ากับกะทิ {count} ถ้วย ตั้งทิ้งไว้ {minutes} นาที โรยต้นหอมซอยนิดหน่อย ทำได้ประมาณ {items} ชิ้น"}
+{"template_id": "TMP-review-07", "genre": "review", "kind": "clean_negative", "text": "รีวิวโทรศัพท์รุ่นนี้ แบตอยู่ได้ทั้งวันจริงๆ กล้องดีในที่แสงน้อย ราคา {price} ใช้มาประมาณ {months} เดือนยังลื่นเหมือนเดิม"}
+{"template_id": "TMP-review-08", "genre": "review", "kind": "clean_negative", "text": "รีวิวกาแฟคั่วอ่อนจากเชียงใหม่ ซื้อมา {count} ถุง รสโทนผลไม้ ถุงละ {price} ส่งเร็วมาก ซื้อซ้ำแน่นอน ให้คะแนนความอร่อย {percent}"}
+{"template_id": "TMP-review-09", "genre": "review", "kind": "clean_negative", "text": "รีวิวคอร์สทำอาหารออนไลน์ ค่าเรียน {price} มีวิดีโอ {count} บท ทำตามได้จริง เริ่มเรียนวันที่ {date} ใช้เวลาดูเต็มๆ ประมาณ {hours} ชั่วโมง"}

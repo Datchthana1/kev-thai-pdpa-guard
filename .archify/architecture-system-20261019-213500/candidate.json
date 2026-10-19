@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "kev-thai-pdpa-guard: system architecture",
+    "locale": "en",
+    "output": "docs/architecture/system-architecture.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "fakers", "type": "backend", "label": "fakers.py", "sublabel": "Thai IDs, Luhn cards", "pos": [520, 40], "size": [140, 60] },
+    { "id": "taxonomy", "type": "security", "label": "taxonomy.py", "sublabel": "PDPA rules, risk 0-4", "pos": [760, 40], "size": [140, 60] },
+
+    { "id": "writers", "type": "external", "label": "Haiku writers", "sublabel": "templates, long-form", "pos": [40, 190], "size": [140, 60] },
+    { "id": "templates", "type": "database", "label": "Templates", "sublabel": "A train/dev, B test", "pos": [280, 190], "size": [140, 60] },
+    { "id": "generate", "type": "backend", "label": "generate.py", "sublabel": "fill, label, split", "pos": [520, 190], "size": [140, 60] },
+    { "id": "qa", "type": "security", "label": "qa_dataset.py", "sublabel": "checksum, leak, dedupe", "pos": [760, 190], "size": [140, 60] },
+    { "id": "dataset", "type": "database", "label": "Frozen dataset", "sublabel": "2741 / 450 / 735", "pos": [1000, 190], "size": [140, 60] },
+
+    { "id": "app", "type": "external", "label": "Your app / CLI", "sublabel": "Thai or English text", "pos": [280, 350], "size": [140, 60] },
+    { "id": "guard", "type": "frontend", "label": "PDPAGuard", "sublabel": "check() 11 answers", "pos": [520, 350], "size": [140, 60] },
+    { "id": "adapter", "type": "database", "label": "runs/pdpa-4b", "sublabel": "LoRA + head.pt", "pos": [760, 350], "size": [140, 60] },
+    { "id": "train", "type": "backend", "label": "train.py", "sublabel": "QLoRA NF4, LoRA r16", "pos": [1000, 350], "size": [140, 60] },
+
+    { "id": "openthai", "type": "cloud", "label": "OpenThai-SystemOne", "sublabel": "iapp 0.8B baseline", "pos": [520, 510], "size": [140, 60] },
+    { "id": "evaluate", "type": "backend", "label": "evaluate.py", "sublabel": "same state, questions", "pos": [760, 510], "size": [140, 60] },
+    { "id": "hub", "type": "cloud", "label": "Hugging Face Hub", "sublabel": "kev-4b, Qwen3.5-4B", "pos": [1000, 510], "size": [140, 60] },
+
+    { "id": "compare", "type": "backend", "label": "compare.py", "sublabel": "table and charts", "pos": [760, 660], "size": [140, 60] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Dataset pipeline (CPU)", "wraps": ["fakers", "taxonomy", "writers", "templates", "generate", "qa", "dataset"] },
+    { "kind": "security-group", "label": "Local GPU: RTX 4060 8 GB, 4-bit", "wraps": ["guard", "adapter", "train"] }
+  ],
+  "connections": [
+    { "id": "write-templates", "from": "writers", "to": "templates", "label": "write" },
+    { "id": "fill-slots", "from": "templates", "to": "generate", "label": "fill slots", "variant": "emphasis" },
+    { "id": "fake-values", "from": "fakers", "to": "generate", "label": "fake PII", "variant": "security" },
+    { "id": "rules-to-qa", "from": "taxonomy", "to": "qa", "label": "recompute" },
+    { "id": "gen-to-qa", "from": "generate", "to": "qa", "label": "JSONL", "variant": "emphasis" },
+    { "id": "qa-freeze", "from": "qa", "to": "dataset", "label": "freeze", "variant": "emphasis" },
+    { "id": "train-split", "from": "dataset", "to": "train", "label": "train split", "variant": "emphasis" },
+    { "id": "init-from", "from": "hub", "to": "train", "label": "init_from" },
+    { "id": "save-run", "from": "train", "to": "adapter", "label": "save", "variant": "emphasis" },
+    { "id": "load-run", "from": "adapter", "to": "guard", "label": "load 4-bit", "variant": "emphasis" },
+    { "id": "app-check", "from": "app", "to": "guard", "label": "check(text)", "variant": "emphasis" },
+    { "id": "eval-tuned", "from": "adapter", "to": "evaluate", "label": "kev-pdpa" },
+    { "id": "eval-openthai", "from": "openthai", "to": "evaluate", "label": "baseline" },
+    { "id": "eval-base", "from": "hub", "to": "evaluate", "label": "kev-base" },
+    { "id": "eval-compare", "from": "evaluate", "to": "compare", "label": "metrics" }
+  ],
+  "cards": [
+    { "dot": "emerald", "title": "Dataset", "items": ["Fake PII from fakers.py: mod-11 national IDs, Luhn cards, real provinces", "Labels come from taxonomy.py code, never from a writer", "Test uses held-out B templates by different authors"] },
+    { "dot": "violet", "title": "Model", "items": ["Kev-4B: Qwen3.5-4B-Base + LoRA + pointer head", "Backbone loaded in 4-bit NF4 to fit 8 GB", "One prefill pass scores 11 typed questions, no text generated"] },
+    { "dot": "amber", "title": "Evaluation", "items": ["Three systems get identical state and questions", "Accuracy, F1, risk MAE, Brier, ECE, latency", "Results land in results/comparison.md"] }
+  ]
+}

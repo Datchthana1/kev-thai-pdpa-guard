@@ -1,0 +1,4 @@
+{"template_id": "TMP-school_record-01", "genre": "school_record", "kind": "positive", "text": "บันทึกโรงเรียน\nนักเรียน: {first_name}\nผู้ปกครองติดต่อได้ที่ {phone}\nบันทึกครูประจำชั้น: {special} (ห้ามเปิดเผยต่อบุคคลภายนอก)"}
+{"template_id": "TMP-school_record-02", "genre": "school_record", "kind": "positive", "text": "รหัสเข้าระบบ e-Learning ของ {first_name} คือ {password} ระบบบังคับเปลี่ยนรหัสทุก {months} เดือน โปรดอย่าแชร์ให้เพื่อนในห้องนะ"}
+{"template_id": "TMP-school_record-03", "genre": "school_record", "kind": "positive", "text": "รหัสนักศึกษา {student_id} ยื่นคำร้องเปลี่ยนกลุ่มเรียนวิชาคณิตศาสตร์พื้นฐาน ตอนนี้ยังรอผลพิจารณาจากฝ่ายทะเบียนอยู่ค่ะ"}
+{"template_id": "TMP-school_record-04", "genre": "school_record", "kind": "positive", "text": "{name} รหัสนักศึกษา {student_id} ผ่านวิชาภาษาอังกฤษเรียบร้อยแล้ว ประกาศผลวันที่ {date} ดูได้ในระบบ ไม่ต้องรอเอกสารจากคณะนะ"}

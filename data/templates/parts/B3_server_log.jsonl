@@ -1,0 +1,4 @@
+{"template_id": "TMP-server_log-01", "genre": "server_log", "kind": "clean_negative", "text": "[INFO] {date} {time} batch job report-export เสร็จสิ้น ประมวลผล {items} รายการ ใช้เวลา {number} ms\n[INFO] order sync ok ref {order_no}"}
+{"template_id": "TMP-server_log-02", "genre": "server_log", "kind": "clean_negative", "text": "[WARN] cache hit ratio ต่ำกว่า {percent} ที่ endpoint /api/products\n[INFO] deploy version 2.{count}.0 ขึ้น staging เมื่อ {time}"}
+{"template_id": "TMP-server_log-03", "genre": "server_log", "kind": "clean_negative", "text": "[ERROR] payment gateway timeout หลังจาก 30 วินาที trace {tracking_no}\n[INFO] retry queue มี {items} งานค้างอยู่ สถานะ: รอดำเนินการ"}
+{"template_id": "TMP-server_log-04", "genre": "server_log", "kind": "clean_negative", "text": "monitoring summary {date}: uptime {percent} เฉลี่ย {number} ms ต่อ request\nกลุ่มเซิร์ฟเวอร์ภาค {province} ไม่มีเหตุการณ์ผิดปกติ"}

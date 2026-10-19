@@ -1,0 +1,5 @@
+{"template_id": "TMP-ecommerce_delivery-01", "genre": "ecommerce_delivery", "kind": "positive", "text": "จัดส่งถึง {name} เบอร์ {phone} ที่อยู่ {address} ฝากกล่องไว้กับ รปภ. หน้าคอนโดได้เลยนะคะ ถ้าไม่อยู่ให้โทรก่อนเข้ามา"}
+{"template_id": "TMP-ecommerce_delivery-02", "genre": "ecommerce_delivery", "kind": "positive", "text": "ผู้รับ: {first_name}\nโทร: {phone}\nสินค้า: {grocery} ส่งแบบด่วนภายใน {minutes} นาที รบกวนรับสายด้วยค่ะ"}
+{"template_id": "TMP-ecommerce_delivery-03", "genre": "ecommerce_delivery", "kind": "positive", "text": "ร้านแจ้งว่าเบอร์ {phone} ของลูกค้า {name} ติดต่อไม่ได้ตอนส่งพัสดุ ขอให้ลองโทรใหม่ภายใน {minutes} นาทีก่อนตีกลับคลัง"}
+{"template_id": "TMP-ecommerce_delivery-04", "genre": "ecommerce_delivery", "kind": "positive", "text": "ระบบแจ้งรหัส OTP ยืนยันการรับของส่งไปที่ {phone} แล้ว คือ {otp} ใช้ได้ภายใน {minutes} นาที ถ้าไม่ได้ขอเอง อย่าบอกใครนะคะ"}
+{"template_id": "TMP-ecommerce_delivery-05", "genre": "ecommerce_delivery", "kind": "positive", "text": "ทะเบียนรถคนขับ {plate} ถึงจุดรับของแล้ว รอหน้าปากซอย {minutes} นาทีนะคะ ถ้าเกินเวลาแจ้งในแชทได้เลยค่ะ"}

@@ -1,0 +1,8 @@
+{"template_id": "TMP-social_post-01", "genre": "social_post", "kind": "positive", "text": "ตามหาเจ้าของกระเป๋าสตางค์สีน้ำตาลที่เก็บได้แถวสถานีอารีย์ เห็นชื่อในบัตรเป็น {first_name} ใครรู้จักช่วยทักมาหน่อยนะคะ เดี๋ยวเอาไปคืนให้"}
+{"template_id": "TMP-social_post-02", "genre": "social_post", "kind": "positive", "text": "รถหายตั้งแต่เมื่อคืนที่ลานจอดตลาดนัดรัชดา ทะเบียน {plate} สีขาว ใครเห็นหรือผ่านแถวนั้นทักมาที่ {phone} ด่วนเลยค่ะ ขอบคุณล่วงหน้า"}
+{"template_id": "TMP-social_post-03", "genre": "social_post", "kind": "positive", "text": "ขอแชร์กำลังใจให้คุณแม่ {first_name} ตอนนี้ {health} ช่วยกดไลก์ให้กำลังใจด้วยนะ ขอบคุณทุกคนมาก"}
+{"template_id": "TMP-social_post-04", "genre": "social_post", "kind": "positive", "text": "หาบ้านให้น้องหมาชื่อ Mochi ค่ะ ติดต่อ{name} โทร {phone} ไลน์ {line_id} อยู่แถวบางแค {address} ไปดูน้องได้วันหยุดนะ"}
+{"template_id": "TMP-social_post-05", "genre": "social_post", "kind": "positive", "text": "{name} ({special}) จะจัดเลี้ยงที่ศาลาในซอยข้างบ้าน ใครสนใจร่วมบริจาคทักมาได้เลยนะ"}
+{"template_id": "TMP-social_post-06", "genre": "social_post", "kind": "hard_negative", "text": "นายกรัฐมนตรี {public_figure} พูดในงานสัมมนาเมื่อ {date} เรื่องเศรษฐกิจปีหน้า ดูคลิปเต็มได้ที่ {url} ใครเห็นด้วยบ้างคะ"}
+{"template_id": "TMP-social_post-07", "genre": "social_post", "kind": "hard_negative", "text": "โชว์ใบเสร็จค่าโอนมัดจำร้านคาเฟ่ บัญชี {masked_account} จ่ายไป {price} ใครเคยไปแล้วบ้าง ข้อมูลน่าสนใจ: {health_stat} แชร์ให้คนรู้เยอะๆ"}
+{"template_id": "TMP-social_post-08", "genre": "social_post", "kind": "clean_negative", "text": "วันนี้อากาศดีมาก ใครอยากไปเที่ยวดอยสุเทพช่วงสงกรานต์บ้าง ลองไปปั่นจักรยานขึ้นดอยแล้วชิลมาก 555 เดี๋ยวจัดทริปให้"}

@@ -1,0 +1,4 @@
+{"template_id": "TMP-bank_loan-01", "genre": "bank_loan", "kind": "clean_negative", "text": "สินเชื่อส่วนบุคคลดอกเบี้ยเริ่มต้น {percent} ต่อปี วงเงินสูงสุด {amount} บาท\nระยะผ่อน {months} เดือน ยื่นคำขอได้ที่เว็บไซต์ {url}"}
+{"template_id": "TMP-bank_loan-02", "genre": "bank_loan", "kind": "clean_negative", "text": "ธนาคารขยายเวลาปิดยอดสินเชื่อบ้านถึง {date} ค่ะ ลูกค้าที่ยังไม่ได้ชำระงวดเดือน {date2} สามารถติดต่อสาขา {province} เพื่อขอผ่อนผัน"}
+{"template_id": "TMP-bank_loan-03", "genre": "bank_loan", "kind": "clean_negative", "text": "สรุปข้อมูลสินเชื่อรถยนต์ของ {company}: ปล่อยสินเชื่อรถ {items} คันในไตรมาสนี้ อัตราอนุมัติ {percent} ของคำขอทั้งหมด"}
+{"template_id": "TMP-bank_loan-04", "genre": "bank_loan", "kind": "clean_negative", "text": "ทบทวนนโยบายสินเชื่อรายย่อยประจำปี ยอดคงค้างรวม {amount} ล้านบาท ผู้กู้เฉลี่ยอายุ {age} ปี\nสัดส่วนหนี้เสียราว {percent} เป็นภาพรวมทั้งพอร์ต ไม่มีข้อมูลเฉพาะราย"}

@@ -1,0 +1,3 @@
+{"template_id": "TMP-school_record-01", "genre": "school_record", "kind": "positive", "text": "บันทึกการให้คำปรึกษา ห้องแนะแนว\nนักเรียน: {first_name} รหัสนักเรียน {student_id}\nสรุป: นักเรียนเล่าว่า {special} ทำให้ไม่อยากเข้าห้องเรียนช่วงเช้า นัดติดตามผลอีก {weeks} สัปดาห์"}
+{"template_id": "TMP-school_record-02", "genre": "school_record", "kind": "positive", "text": "ครูคะ ขอคุยเรื่อง {name} หน่อย เขาบอกเพื่อน {name2} ว่า {special} แล้วโดนแซวกันทั้งห้อง หนูกลัวจะมีคนรู้เพิ่ม ขอให้ช่วยดูแลด้วยค่ะ"}
+{"template_id": "TMP-school_record-03", "genre": "school_record", "kind": "positive", "text": "ใบรับรองการศึกษาสำหรับ {first_name} รหัสนักศึกษา {student_id} สถานะ ลงทะเบียนแล้ว ชั้นปีที่ {number} คณะวิศวกรรม ขอออกเอกสารภายในสัปดาห์นี้"}

@@ -1,0 +1,9 @@
+{"template_id": "TMP-line_chat-01", "genre": "line_chat", "kind": "clean_negative", "text": "เสาร์นี้ไปตลาดน้ำที่{province}กันไหม ได้ยินว่าลดเหลือ {amount} บาทต่อคน เดี๋ยวนัดเจอกันตอน {time} หน้าสถานีเลย 555"}
+{"template_id": "TMP-line_chat-02", "genre": "line_chat", "kind": "clean_negative", "text": "เห็นข่าวว่าฝนจะตกหนักช่วง {date} ถึง {date2} นะ วันนั้นเลื่อนบาร์บีคิวไปก่อนดีไหม ถ้าไม่ได้ก็ทำแค่ {count} คนพอ จ้า"}
+{"template_id": "TMP-line_chat-03", "genre": "line_chat", "kind": "clean_negative", "text": "ใครว่างตอน {time} วันเสาร์บ้าง ทำ{food_item}กินกันที่บ้านเราดีกว่า ซื้อมาแค่ {count} กล่องก็พอแล้วมั้ง"}
+{"template_id": "TMP-line_chat-04", "genre": "line_chat", "kind": "clean_negative", "text": "แชร์ร้านกาแฟใหม่แถว{province} เมนูอร่อยมาก แก้วละ {price} ยังไม่รวมโปรโมชั่น {percent} ถ้าไปกันหลายคนน่าจะคุ้ม"}
+{"template_id": "TMP-line_chat-05", "genre": "line_chat", "kind": "clean_negative", "text": "วันอาทิตย์จะทำอะไรดี ดูหนังโรงใหม่รอบ {time} ก็ได้ หรือจะไปวิ่งที่สวนสาธารณะ{province}กัน อากาศวันนั้นประมาณ {temp} องศาพอดีเลย"}
+{"template_id": "TMP-line_chat-06", "genre": "line_chat", "kind": "clean_negative", "text": "ตอนนี้ออกจากบ้านแล้ว\nรอบ {time} นะ\nจะแวะซื้อ {grocery} ที่ห้าง {company} สาขา{province} เผื่อใครอยากได้บอกมาเลย"}
+{"template_id": "TMP-line_chat-07", "genre": "line_chat", "kind": "clean_negative", "text": "เฮ้ย ลืมบอก พรุ่งนี้ชมรมวิ่งนัดวันที่ {date} ตอน {time} ค่าสมัคร {price} ปั่นจักรยานต่ออีก {count} รอบ ใครไปบ้าง"}
+{"template_id": "TMP-line_chat-08", "genre": "line_chat", "kind": "clean_negative", "text": "ขอบคุณที่แบ่งขนมนะ ครั้งหน้าเลี้ยงคืน {count} กล่องแน่นอน ร้านนั้นลด {percent} วันจันทร์ด้วย ไปกันแถว{province}ได้เลย 55555"}
+{"template_id": "TMP-line_chat-09", "genre": "line_chat", "kind": "clean_negative", "text": "กลุ่มนี้คุยเรื่องทริปทะเลช่วง {date} กันหน่อย ที่พักคืนละ {price} พักรวม {count} คืนกำลังดี ใครโอเคบ้าง"}

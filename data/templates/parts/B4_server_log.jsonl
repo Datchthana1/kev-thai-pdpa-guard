@@ -1,0 +1,3 @@
+{"template_id": "TMP-server_log-01", "genre": "server_log", "kind": "positive", "text": "# .env ของโปรเจกต์ backend\nDB_USER={first_name}\nAPI_TOKEN={api_key}\nNODE_ENV=production\nLOG_LEVEL=info"}
+{"template_id": "TMP-server_log-02", "genre": "server_log", "kind": "positive", "text": "[INFO] cctv-admin login user={name} pass={password} src=wifi-shop status=ok\n[INFO] รหัสเราเตอร์ร้านส่งให้ {first_name} ไปตั้งที่บ้านด้วย"}
+{"template_id": "TMP-server_log-03", "genre": "server_log", "kind": "positive", "text": "[WARN] login fail from {ip} user={first_name} attempts={count} account locked until {time}"}

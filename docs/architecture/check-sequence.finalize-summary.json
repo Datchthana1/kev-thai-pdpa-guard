@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "sequence",
+  "quality": "showcase",
+  "specification": {
+    "path": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\.archify\\sequence-check-20261019-214500\\candidate.json",
+    "sha256": "4e1a2d3dbab03becb3d45caba16e26d32a1c57301dfd371de68d3d136d8bf0ad",
+    "bytes": 3658
+  },
+  "artifact": {
+    "path": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\docs\\architecture\\check-sequence.html",
+    "sha256": "6c52c9286a200c2e31559a2edbb54ead15f857bbef8792604b579ec8ffa7a1e9",
+    "bytes": 820398
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\docs\\architecture\\check-sequence.finalize.json",
+    "summaryReceipt": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\docs\\architecture\\check-sequence.finalize-summary.json",
+    "browserCheckReceipt": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\docs\\architecture\\check-sequence.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-19T14:20:36.292Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 5904,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  }
+}

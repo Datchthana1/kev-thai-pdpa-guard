@@ -1,0 +1,7 @@
+{"template_id": "TMP-school_record-01", "genre": "school_record", "kind": "positive", "text": "ใบรายงานการเข้าเรียน\nนักเรียน ด.ช. {name}\nรหัสนักเรียน {student_id}\nมาสายบ่อยในเดือนนี้ ครูประจำชั้นขอให้ผู้ปกครองมาพบ"}
+{"template_id": "TMP-school_record-02", "genre": "school_record", "kind": "positive", "text": "แบบบันทึกสุขภาพนักเรียน ประจำปี\nชื่อ {name} ชั้น ป.5\nแพ้อาหารทะเล และมี {health}\nโรงเรียนจะแจ้งครูพละให้ทราบ"}
+{"template_id": "TMP-school_record-03", "genre": "school_record", "kind": "positive", "text": "ทะเบียนผู้ปกครองห้อง ม.2/3\nนักเรียน: {name}\nผู้ปกครอง: {name2} โทร {phone}\nที่อยู่ {address}\nบัญชีรับเงินค่าบำรุง {bank_account}"}
+{"template_id": "TMP-school_record-04", "genre": "school_record", "kind": "positive", "text": "บันทึกการขอลาเข้าร่วมพิธีทางศาสนา\nนักเรียน {first_name} นับถือ {special} ขอลาวันพระเพื่อไปวัด\nผู้ปกครองลงชื่อแล้ว ติดต่อ {phone}"}
+{"template_id": "TMP-school_record-05", "genre": "school_record", "kind": "hard_negative", "text": "สถิติโรงเรียนปีการศึกษานี้\nนักเรียนทั้งหมด {people} คน\n{special_stat}\nข้อมูลรวบรวมจาก {company}"}
+{"template_id": "TMP-school_record-06", "genre": "school_record", "kind": "hard_negative", "text": "ใบเสร็จค่าบำรุงการศึกษา เลขที่ {invoice_no}\nจำนวน {amount} บาท\nชำระผ่านบัญชี {masked_account}\nส่งคืนได้ภายใน {date}"}
+{"template_id": "TMP-school_record-07", "genre": "school_record", "kind": "clean_negative", "text": "ประกาศจากฝ่ายกิจกรรม\nงานกีฬาสีจะจัดวันศุกร์ที่ {date} เวลา {time}\nนำน้ำดื่มและผ้าเช็ดตัวมาเองนะคะ"}

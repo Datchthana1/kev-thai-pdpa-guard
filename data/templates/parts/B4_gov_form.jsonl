@@ -1,0 +1,2 @@
+{"template_id": "TMP-gov_form-01", "genre": "gov_form", "kind": "positive", "text": "แบบบันทึกการยืนยันตัวตน KYC\nชื่อ: {name}\nเลขบัตร: {national_id}\nข้อมูลไบโอเมตริก: {special}\nผู้ตรวจ: เจ้าหน้าที่ประจำสาขา"}
+{"template_id": "TMP-gov_form-02", "genre": "gov_form", "kind": "positive", "text": "หมายเหตุด่านตรวจคนเข้าเมือง ผู้เดินทาง {name} หนังสือเดินทาง {passport} ข้อมูลสัญชาติและเชื้อชาติ {special} ส่งต่อให้ฝ่ายพิสูจน์ตัวตน"}

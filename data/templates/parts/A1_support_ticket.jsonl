@@ -1,0 +1,19 @@
+{"template_id": "TMP-support_ticket-01", "genre": "support_ticket", "kind": "positive", "text": "เรื่อง: ระบบแจ้งเตือนส่งซ้ำ\nผู้แจ้ง: {name}\nเลขที่เคส: {case_no}\nสถานะ: รอเจ้าหน้าที่ตอบกลับ"}
+{"template_id": "TMP-support_ticket-02", "genre": "support_ticket", "kind": "positive", "text": "ขอแก้ไขวันเกิดในบัญชีจากเดิมให้เป็น {dob} ค่ะ ชื่อผู้ใช้ {first_name} ไม่ได้เปลี่ยนนะคะ ขอบคุณค่ะ"}
+{"template_id": "TMP-support_ticket-03", "genre": "support_ticket", "kind": "positive", "text": "ลูกค้า: {name}\nเบอร์: {phone}\nปัญหา: แอปเข้าไม่ได้ตั้งแต่เมื่อวาน ขึ้นว่าเซสชันหมดอายุทุกครั้ง"}
+{"template_id": "TMP-support_ticket-04", "genre": "support_ticket", "kind": "positive", "text": "ลูกค้า {name} กับ {name2} ใช้อีเมล {email} ร่วมกันมาตลอด ตอนนี้เข้าไม่ได้แล้ว รบกวนแยกบัญชีให้ด้วยค่ะ"}
+{"template_id": "TMP-support_ticket-05", "genre": "support_ticket", "kind": "positive", "text": "ชื่อ-นามสกุล: {name}\nที่อยู่จัดส่งใบแจ้งหนี้: {address}\nหัวข้อ: ขอใบกำกับภาษีใหม่ เดิมออกให้ชื่อผิด"}
+{"template_id": "TMP-support_ticket-06", "genre": "support_ticket", "kind": "positive", "text": "ยืนยันตัวตนไม่ผ่านค่ะ ใช้เลขบัตร {national_id} ตอนสมัครแล้วขึ้นว่าซ้ำ ช่วยดูให้หน่อยได้ไหมคะ"}
+{"template_id": "TMP-support_ticket-07", "genre": "support_ticket", "kind": "positive", "text": "ลูกค้าแจ้งว่าเงินคืนยังไม่เข้า บัญชี {bank_account} ชื่อ {name} ค่ะ ทำรายการไปตั้งแต่ต้นเดือนก่อน"}
+{"template_id": "TMP-support_ticket-08", "genre": "support_ticket", "kind": "positive", "text": "บัตรเครดิต {card} ถูกตัดเงินซ้ำสองครั้ง ชื่อบนบัตร {name} ค่ะ รบกวนขอคืนเงินส่วนเกินด้วย"}
+{"template_id": "TMP-support_ticket-09", "genre": "support_ticket", "kind": "positive", "text": "ลูกค้า {name} แจ้งว่า {health} จึงขอให้ช่วยเลื่อนกำหนดส่งเอกสารไปอีก 7 วันค่ะ ขอบคุณมาก"}
+{"template_id": "TMP-support_ticket-10", "genre": "support_ticket", "kind": "positive", "text": "ลูกค้าส่งรหัส OTP {otp} มาในแชทเมื่อสักครู่ รบกวนแจ้งให้ลบข้อความออกด้วย ชื่อ {first_name} ค่ะ"}
+{"template_id": "TMP-support_ticket-11", "genre": "support_ticket", "kind": "positive", "text": "ผู้แจ้ง: {name}\nโทร: {phone}\nอีเมล: {email}\nบ้านเลขที่: {address}\nเลขบัตรประชาชน: {national_id}\nขอให้ติดต่อกลับภายในวันนี้"}
+{"template_id": "TMP-support_ticket-12", "genre": "support_ticket", "kind": "hard_negative", "text": "เรื่อง: ขอคืนเงินค่าสินค้า\nเลขคำสั่งซื้อ: {order_no}\nสถานะ: รอตรวจสอบ\nเลขที่เคส: {case_no}"}
+{"template_id": "TMP-support_ticket-13", "genre": "support_ticket", "kind": "hard_negative", "text": "บัตรเครดิตเลขท้าย {masked_card} ถูกตัดเงินซ้ำ ไม่แน่ใจว่าเกิดจากร้านไหน รบกวนดูให้หน่อยค่ะ"}
+{"template_id": "TMP-support_ticket-14", "genre": "support_ticket", "kind": "hard_negative", "text": "ติดต่อฝ่ายบริการลูกค้าของ {company} ที่ {company_phone} ได้ตลอด 24 ชั่วโมง ยังไม่ได้ลองโทรเลย"}
+{"template_id": "TMP-support_ticket-15", "genre": "support_ticket", "kind": "hard_negative", "text": "ระบบส่งอีเมลยืนยันไปที่ {company_email} ไม่เข้า ช่วยเช็คเซิร์ฟเวอร์ให้หน่อย ลูกค้าแจ้งมาหลายคนแล้วค่ะ"}
+{"template_id": "TMP-support_ticket-16", "genre": "support_ticket", "kind": "clean_negative", "text": "เรื่อง: แอปค้างตอนเปิดหน้าโปรโมชัน\nอุปกรณ์: iPhone รุ่นเก่า iOS 17\nขั้นตอน: เปิดแอป > กดแท็บโปรโมชัน > ค้าง\nผลที่คาดหวัง: แสดงรายการโปรโมชัน"}
+{"template_id": "TMP-support_ticket-17", "genre": "support_ticket", "kind": "clean_negative", "text": "ขอให้ทีมช่วยเพิ่มฟีเจอร์ค้นหาตามหมวดหมู่สินค้า จะได้หาของเร็วขึ้นค่ะ ขอบคุณทีมพัฒนาทุกคน"}
+{"template_id": "TMP-support_ticket-18", "genre": "support_ticket", "kind": "clean_negative", "text": "ปัญหา: ตัวหนังสือภาษาไทยแสดงผลเป็นกล่องสี่เหลี่ยมในไฟล์รายงาน PDF\nเวอร์ชัน: 2.4.1\nแนบภาพหน้าจอมาแล้ว"}
+{"template_id": "TMP-support_ticket-19", "genre": "support_ticket", "kind": "clean_negative", "text": "ระบบจะปิดปรับปรุงวันเสาร์ เวลา 02:00-05:00 น. ขออภัยในความไม่สะดวก ทีมงานจะแจ้งอีกครั้งเมื่อกลับมาใช้งานได้"}

@@ -1,0 +1,1 @@
+{"template_id": "TMP-hospital_note-01", "genre": "hospital_note", "kind": "positive", "text": "บันทึกการนัดหมาย (ตัวอย่าง)\nผู้ป่วย {first_name} ติดต่อกลับได้ที่ {phone}\nข้อมูลเสริมที่ผู้ป่วยแจ้งไว้: {special} ขอให้ทีมพยาบาลคำนึงถึงตอนจัดตารางค่ะ"}

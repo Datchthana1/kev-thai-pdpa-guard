@@ -1,0 +1,4 @@
+{"template_id": "TMP-ecommerce_delivery-01", "genre": "ecommerce_delivery", "kind": "positive", "text": "ไรเดอร์หมายเหตุ: ผู้รับชื่อ {name} เบอร์ {phone} ที่อยู่ {address} ฝากไว้หน้าประตูได้ ไม่ต้องโทรก่อนนะ"}
+{"template_id": "TMP-ecommerce_delivery-02", "genre": "ecommerce_delivery", "kind": "positive", "text": "รับพัสดุที่เคาน์เตอร์ไปรษณีย์ได้เลยค่ะ ชื่อผู้รับ {first_name} โทร {phone} ยื่นใบแจ้งรับพัสดุได้เลย"}
+{"template_id": "TMP-ecommerce_delivery-03", "genre": "ecommerce_delivery", "kind": "positive", "text": "เปลี่ยนที่อยู่จัดส่งจ้า ผู้รับ {name} ส่งต่อให้ {name2} อีเมล {email} ที่อยู่ใหม่คือ {address} ขอบคุณค่ะ"}
+{"template_id": "TMP-ecommerce_delivery-04", "genre": "ecommerce_delivery", "kind": "positive", "text": "ไรเดอร์ติดต่อผู้รับไม่ได้ ไลน์ {line_id} ชื่อ {first_name} ฝากพัสดุไว้ที่ป้อมยามได้เลยค่ะ"}

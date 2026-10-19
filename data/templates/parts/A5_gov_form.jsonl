@@ -1,0 +1,3 @@
+{"template_id": "TMP-gov_form-01", "genre": "gov_form", "kind": "positive", "text": "แบบฟอร์มคำร้อง\nผู้ยื่น: {name}\nที่อยู่: {address}\nสถานะที่แจ้งไว้ในเอกสาร: {special}\nลงชื่อ ____________ ผู้ยื่นคำร้อง"}
+{"template_id": "TMP-gov_form-02", "genre": "gov_form", "kind": "positive", "text": "แบบฟอร์มเปลี่ยนรหัสผ่านระบบบริการประชาชน\nชื่อผู้ใช้: {name}\nรหัสผ่านใหม่: {password}\nยืนยันรหัสผ่านอีกครั้ง: {password}\nวันที่ยื่น: {date}"}
+{"template_id": "TMP-gov_form-03", "genre": "gov_form", "kind": "positive", "text": "ขอแจ้งเปลี่ยนที่อยู่ตามทะเบียนบ้าน\nชื่อ-สกุล: {name}\nที่อยู่ใหม่: {address}\nเจ้าหน้าที่จะติดต่อกลับทางเอกสารแนบภายใน {days} วัน"}

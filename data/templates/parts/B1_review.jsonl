@@ -1,0 +1,7 @@
+{"template_id": "TMP-review-01", "genre": "review", "kind": "positive", "text": "รีวิวร้านซ่อมมือถือ บริการดีมาก ช่างใจดี\nลูกค้าที่รีวิวชื่อ {name} เบอร์ {phone} ใครสงสัยทักมาได้เลยนะ\nให้ 5 ดาว"}
+{"template_id": "TMP-review-02", "genre": "review", "kind": "positive", "text": "รีวิวรถรับจ้างแอปหนึ่ง คนขับ {name} ทะเบียน {plate}\nขับเร็วมากบนทางด่วน ไม่สวมหมวกกันน็อคให้ด้วย ไม่แนะนำนะ"}
+{"template_id": "TMP-review-03", "genre": "review", "kind": "positive", "text": "ร้านก๋วยเตี๋ยวเรือ รสชาติโอเค แต่น้อง {first_name} ที่ปรุงให้บริการดีมาก\nมีเรื่องอยากถามเพิ่มทักไลน์ {line_id} ได้ค่ะ"}
+{"template_id": "TMP-review-04", "genre": "review", "kind": "positive", "text": "รีวิวคลินิกนวด ผม{name} เป็น {health} จึงไปนวดที่นี่ตามคำแนะนำหมอ\nนวดแรงไปหน่อยแต่หายปวดดี ถ้าจะจองโทร {phone} นะ"}
+{"template_id": "TMP-review-05", "genre": "review", "kind": "hard_negative", "text": "รีวิวหูฟังไร้สาย ราคา {amount} บาท\nแบตอยู่ได้ประมาณ {hours} ชั่วโมง ลดไป {percent} คุ้มมาก\nสั่งเลข {order_no} ได้รับของวันที่ {date} ดีค่ะ"}
+{"template_id": "TMP-review-06", "genre": "review", "kind": "hard_negative", "text": "รีวิวแอปจองโรงแรม\nจ่ายด้วยบัตร {masked_card} ตอนชำระเงินเรียบร้อย ไม่มีค่าธรรมเนียมซ่อน\nทีมงาน {company_email} ตอบเร็วมาก\nดูเว็บไซต์ {url}"}
+{"template_id": "TMP-review-07", "genre": "review", "kind": "clean_negative", "text": "รีวิวร้านกาแฟย่านเก่า\nบรรยากาศชิลมาก เก้าอี้นั่งสบาย แต่ที่จอดรถหายาก\nแนะนำให้มาช่วงเช้าวันธรรมดา กาแฟอร์ดเดิมอร่อย 555"}

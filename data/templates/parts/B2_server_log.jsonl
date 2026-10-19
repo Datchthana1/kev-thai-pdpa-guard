@@ -1,0 +1,8 @@
+{"template_id": "TMP-server_log-01", "genre": "server_log", "kind": "positive", "text": "2026-10-18 09:14:52 INFO auth user_ref={line_id} login_ok src_ip={ip} agent=LINE-iOS/14.2 session=new"}
+{"template_id": "TMP-server_log-02", "genre": "server_log", "kind": "positive", "json": {"event": "profile_update", "actor": "{name}", "email": "{email}", "phone": "{phone}", "changed_fields": ["phone"], "source": "web"}}
+{"template_id": "TMP-server_log-03", "genre": "server_log", "kind": "positive", "json": {"service": "kyc-verify", "customer": {"full_name": "{name}", "national_id": "{national_id}", "dob": "{dob}"}, "status": "pending_review", "retry": 0}}
+{"template_id": "TMP-server_log-04", "genre": "server_log", "kind": "positive", "json": {"gateway": "omise-sandbox", "payer": "{name}", "card": "{card_full}", "result": "declined", "code": "insufficient_funds"}}
+{"template_id": "TMP-server_log-05", "genre": "server_log", "kind": "positive", "json": {"route": "/auth/reset", "user": "{email}", "otp": "{otp}", "pin": "{pin}", "attempt": 2}}
+{"template_id": "TMP-server_log-06", "genre": "server_log", "kind": "hard_negative", "json": {"service": "billing", "card": "{masked_card}", "invoice": "{invoice_no}", "amount": "{amount}", "currency": "THB", "status": "settled"}}
+{"template_id": "TMP-server_log-07", "genre": "server_log", "kind": "hard_negative", "text": "2026-10-18T10:02:11 WARN upstream timeout after 3000 ms case={case_no} svc=order-api host=app-03 retries=2\n2026-10-18T10:02:14 INFO retry ok status=200 latency=118ms"}
+{"template_id": "TMP-server_log-08", "genre": "server_log", "kind": "clean_negative", "text": "deploy build 482 ok: 14 tests passed, 0 failed, duration 3m12s\nrollback: not needed\ncache warmed, workers=4"}

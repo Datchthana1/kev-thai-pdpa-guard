@@ -1,0 +1,7 @@
+{"template_id": "TMP-support_ticket-01", "genre": "support_ticket", "kind": "positive", "text": "ชื่อผู้แจ้ง: {name}\nอีเมล: {email}\nปัญหา: แอปธนาคารเด้งออกทุกครั้งที่เปิดกล้อง ช่วยดูให้หน่อยค่ะ"}
+{"template_id": "TMP-support_ticket-02", "genre": "support_ticket", "kind": "positive", "text": "ผมกรอกบัตรผิดตอนเติมเงินในเกม ใส่เป็น {card_full} แล้วเงินไม่เข้า ช่วยยกเลิกให้ทีครับ ชื่อ {first_name} ครับ"}
+{"template_id": "TMP-support_ticket-03", "genre": "support_ticket", "kind": "positive", "text": "สวัสดีค่ะ พี่{first_name} ลองล็อกอินแอปแล้วขึ้นว่ารหัสผิด\nใช้รหัส {password} ตามที่ตั้งไว้ตอนสมัคร\nช่วยรีเซ็ตให้หน่อยนะคะ"}
+{"template_id": "TMP-support_ticket-04", "genre": "support_ticket", "kind": "positive", "text": "แก้ชื่อในระบบสมาชิก\nผู้ขอแก้: {name} เกิด {dob}\nเลขบัตร {national_id}\nชื่อเดิมพิมพ์ผิด ขอเปลี่ยนเป็นชื่อในบัตรนะคะ รบกวนเร็วด้วย"}
+{"template_id": "TMP-support_ticket-05", "genre": "support_ticket", "kind": "hard_negative", "text": "Ticket: {case_no}\nสินค้า {gadget} ไม่ตรงกับรูปในแอป\nใบแจ้งหนี้ {invoice_no} ยอด {price}\nบริษัทติดต่อกลับทางเบอร์ {company_phone} ได้เลยนะคะ"}
+{"template_id": "TMP-support_ticket-06", "genre": "support_ticket", "kind": "hard_negative", "text": "ทดสอบระบบจ่ายเงินในโหมด sandbox\nใช้การ์ด {fake_card} ได้ error code 402\nเบอร์ทดสอบ {masked_phone}\nสถานะ: รอทีม dev ตรวจค่ะ"}
+{"template_id": "TMP-support_ticket-07", "genre": "support_ticket", "kind": "clean_negative", "text": "อยากถามว่าแอปนี้รองรับ iOS รุ่นเก่าหรือเปล่าคะ\nตอนนี้ยังใช้เครื่องเดิมอยู่ ยังไม่อยากอัปเดตระบบ\nขอบคุณล่วงหน้าค่ะ"}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "91f5543a-e095-45d0-b4e4-76ac05612003",
+  "status": "current",
+  "command": "deliver",
+  "type": "sequence",
+  "input": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\.archify\\sequence-check-20261019-214500\\candidate.json",
+  "output": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\docs\\architecture\\check-sequence.html",
+  "specification": {
+    "sha256": "4e1a2d3dbab03becb3d45caba16e26d32a1c57301dfd371de68d3d136d8bf0ad",
+    "bytes": 3658
+  },
+  "artifact": {
+    "sha256": "6c52c9286a200c2e31559a2edbb54ead15f857bbef8792604b579ec8ffa7a1e9",
+    "bytes": 820398
+  }
+}

@@ -1,0 +1,4 @@
+{"template_id": "TMP-line_chat-01", "genre": "line_chat", "kind": "positive", "text": "{first_name} บอกว่า {special} จ้า แต่อย่าไปพูดในกลุ่มใหญ่นะ เดี๋ยวมีคนไม่พอใจ ฮ่าๆ เดี๋ยวพี่ส่งรายชื่อให้อีกที"}
+{"template_id": "TMP-line_chat-02", "genre": "line_chat", "kind": "positive", "text": "เฮ้ย ส่งผิดห้องแน่ะ รหัสเว็บของ {first_name} คือ {password} รีบลบข้อความด้วยจ้า"}
+{"template_id": "TMP-line_chat-03", "genre": "line_chat", "kind": "positive", "text": "[ข้อความจากธนาคาร] รหัส OTP ของคุณ {name} คือ {otp} ห้ามบอกใคร เดี๋ยวส่งต่อให้ {name2} ก่อนนะ"}
+{"template_id": "TMP-line_chat-04", "genre": "line_chat", "kind": "positive", "text": "ประกาศกลุ่มหมู่บ้านนะคะ ถ้าใครเห็นรถแปลกจอดหน้าบ้านของ {name} ที่อยู่ {address} ติดต่อเจ้าของโทร {phone} ได้เลย"}

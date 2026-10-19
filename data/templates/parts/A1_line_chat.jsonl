@@ -1,0 +1,19 @@
+{"template_id": "TMP-line_chat-01", "genre": "line_chat", "kind": "positive", "text": "พี่{first_name} ฝากบอกน้องทีมด้วยนะ พรุ่งนี้ประชุมเช้า 9 โมง อย่าลืมเอาไฟล์งบมาด้วย"}
+{"template_id": "TMP-line_chat-02", "genre": "line_chat", "kind": "positive", "text": "add line มาเลย {line_id} เดี๋ยวส่งรูปที่ถ่ายไว้ให้ดู ตอนนี้ยังไม่ได้ลบนะ 555"}
+{"template_id": "TMP-line_chat-03", "genre": "line_chat", "kind": "positive", "text": "{name} บอกว่า {name2} ยังไม่ได้ส่งสไลด์เลย ฝากเตือนหน่อยนะ เดี๋ยวบ่ายสองต้องใช้แล้ว"}
+{"template_id": "TMP-line_chat-04", "genre": "line_chat", "kind": "positive", "text": "ชื่อ {name} เบอร์ {phone} นะคะ ร้านจะโทรยืนยันออเดอร์พรุ่งนี้เช้า ถ้าไม่รับสายทักมาในไลน์ก่อน"}
+{"template_id": "TMP-line_chat-05", "genre": "line_chat", "kind": "positive", "text": "จ้า ส่งเมลมาที่ {email} ได้เลย วันนี้ออกจากออฟฟิศช้าหน่อย ตอบช้านิดนึงนะ"}
+{"template_id": "TMP-line_chat-06", "genre": "line_chat", "kind": "positive", "text": "ขอที่อยู่หน่อยดิ ส่งของมาที่ {address} ใช่ไหม ป้าบอกว่าเมื่อวานมีพัสดุมาส่งแล้วด้วย"}
+{"template_id": "TMP-line_chat-07", "genre": "line_chat", "kind": "positive", "text": "พี่ส่งรูปบัตรให้แล้วนะ เลข {national_id} ตรงกับที่กรอกในใบสมัครใช่ไหม ช่วยเช็คให้หน่อย"}
+{"template_id": "TMP-line_chat-08", "genre": "line_chat", "kind": "positive", "text": "โอนค่ามัดจำมาบัญชี {bank_account} ชื่อ {name} นะคะ โอนแล้วส่งสลิปมาในแชทนี้ด้วย"}
+{"template_id": "TMP-line_chat-09", "genre": "line_chat", "kind": "positive", "text": "เมื่อวาน{name} บอกว่า {health} เลยไม่ได้มาวิ่งด้วยกัน ฝากถามอาการหน่อยนะ 555"}
+{"template_id": "TMP-line_chat-10", "genre": "line_chat", "kind": "positive", "text": "อย่าเอาเรื่องที่ {name} {special} ไปพูดต่อในกลุ่มนะ เค้าไม่ได้อยากให้คนอื่นรู้ ไม่รุ้ว่าใครรู้แล้วบ้าง"}
+{"template_id": "TMP-line_chat-11", "genre": "line_chat", "kind": "positive", "text": "ชื่อ {name} เบอร์ {phone} อีเมล {email} ที่อยู่ {address} เดี๋ยวแอดไว้ก่อนนะ เผื่อต้องส่งเอกสารให้"}
+{"template_id": "TMP-line_chat-12", "genre": "line_chat", "kind": "hard_negative", "text": "เบอร์ที่โทรมาเมื่อวานขึ้นว่า {masked_phone} ใครรู้บ้างว่าเป็นเบอร์ใคร เห็นแล้วรำคาญมาก"}
+{"template_id": "TMP-line_chat-13", "genre": "line_chat", "kind": "hard_negative", "text": "เห็นข่าว {public_figure} พูดเรื่องน้ำท่วมเมื่อคืนไหม 555 ฟังแล้วก็งงๆ เหมือนกัน"}
+{"template_id": "TMP-line_chat-14", "genre": "line_chat", "kind": "hard_negative", "text": "ลองโทรไปเบอร์ {company_phone} ของ {company} แล้วนะ สายไม่ว่างเลย เดี๋ยวลองใหม่พรุ่งนี้"}
+{"template_id": "TMP-line_chat-15", "genre": "line_chat", "kind": "hard_negative", "text": "พัสดุเลข {tracking_no} สถานะยังค้างอยู่เลยอ่ะ ใครเคยเจอแบบนี้บ้าง 555 ตั้งแต่วันอังคารแล้ว"}
+{"template_id": "TMP-line_chat-16", "genre": "line_chat", "kind": "clean_negative", "text": "เย็นนี้กินอะไรดีอ่ะ ร้านข้างออฟฟิศปิดแล้วหรอ เดินไปร้านหน้าปากซอยดีไหม"}
+{"template_id": "TMP-line_chat-17", "genre": "line_chat", "kind": "clean_negative", "text": "วันนี้ฝนตกหนักมากเลย รถติดยาวมาก กว่าจะถึงบ้านก็สองทุ่มแล้ว เหนื่อยสุดๆ"}
+{"template_id": "TMP-line_chat-18", "genre": "line_chat", "kind": "clean_negative", "text": "ใครมีสายชาร์จ type-C ยืมหน่อยได้ไหม มือถือจะดับแล้วอ่ะ ขอบคุณล่วงหน้า"}
+{"template_id": "TMP-line_chat-19", "genre": "line_chat", "kind": "clean_negative", "text": "ดูซีรีส์เรื่องที่เพื่อนแนะนำแล้ว สนุกมากกก ใครดูยังบ้าง ห้ามสปอยนะ 😂"}

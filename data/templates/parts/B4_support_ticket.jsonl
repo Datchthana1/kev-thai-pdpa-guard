@@ -1,0 +1,5 @@
+{"template_id": "TMP-support_ticket-01", "genre": "support_ticket", "kind": "positive", "text": "ลูกค้า {name} แจ้งว่าลืม PIN ของบัตรเดบิต เขาเผลอพิมพ์ไว้ในโน้ตแล้วคือ {pin} ขอให้ช่วยล็อกบัตรให้หน่อยครับ"}
+{"template_id": "TMP-support_ticket-02", "genre": "support_ticket", "kind": "positive", "text": "แก้ไขปัญหาเข้าสู่ระบบไม่ได้ ลูกค้า {first_name} ส่ง OTP มาให้ดูคือ {otp} กับเบอร์ {phone} ช่วยดูหน่อยค่ะ"}
+{"template_id": "TMP-support_ticket-03", "genre": "support_ticket", "kind": "positive", "text": "ticket ค้างจากทีมพัฒนา ใส่ key ผิดตอนเรียก payment API ค่า api_key={api_key} ของ {name} ถูกแปะไว้ในแชทแล้ว"}
+{"template_id": "TMP-support_ticket-04", "genre": "support_ticket", "kind": "positive", "text": "แมวหาย ชื่อ {first_name} อยู่แถว {address} ใครเจอโทร {phone} มีรางวัลตอบแทนนะคะ"}
+{"template_id": "TMP-support_ticket-05", "genre": "support_ticket", "kind": "positive", "text": "แจ้งของหาย กระเป๋าใส่หูฟังสีดำ พบที่สถานีรถไฟ ผู้แจ้ง {name} ติดต่อกลับที่ {phone} หรืออีเมล {email} ค่ะ"}

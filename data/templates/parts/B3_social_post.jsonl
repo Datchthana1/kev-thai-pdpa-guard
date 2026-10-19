@@ -1,0 +1,4 @@
+{"template_id": "TMP-social_post-01", "genre": "social_post", "kind": "clean_negative", "text": "ใครเคยไปคาเฟ่ที่ {province} บ้างง เมนู {menu_item} อร่อยมาก ราคาแค่ {amount} บาท 555"}
+{"template_id": "TMP-social_post-02", "genre": "social_post", "kind": "clean_negative", "text": "ใครเป็นแฟนหนังชุด {fictional} บ้าง วันนี้ดูรอบ {time} ที่ {company} คนน้อยมาก สบายจริง"}
+{"template_id": "TMP-social_post-03", "genre": "social_post", "kind": "clean_negative", "text": "ปีนี้คนไทยเดินทางท่องเที่ยวเพิ่มขึ้นราว {percent} จากปีก่อน ใครวางแผนไปเที่ยว {province} ช่วง {date} บ้าง\nแชร์ประสบการณ์กันหน่อยนะ"}
+{"template_id": "TMP-social_post-04", "genre": "social_post", "kind": "clean_negative", "text": "ฟังเพลงของ {public_figure} มาทั้งวัน คอนเสิร์ตรอบ {date} ที่ {company} ตั๋วหมดไป {items} ใบแล้ว ใครไปด้วยกันไหม"}

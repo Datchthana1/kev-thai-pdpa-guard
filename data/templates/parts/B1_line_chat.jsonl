@@ -1,0 +1,7 @@
+{"template_id": "TMP-line_chat-01", "genre": "line_chat", "kind": "positive", "text": "กลุ่มหอพักซอยวัดใหม่\nพี่{first_name3} ห้องชั้นสาม เบอร์ {phone} นะคะ ฝากเรื่องค่าน้ำด้วยค่ะ\nโอนมาที่ {first_name} ได้เลย 555"}
+{"template_id": "TMP-line_chat-02", "genre": "line_chat", "kind": "positive", "text": "ร้านยาหน้าปากซอย ค่ะ\nฝากยาให้{name} เกิด {dob} หน่อยนะคะ\nเขาเป็น {health} หมอสั่งห้ามซื้อยาแก้ปวดกลุ่มนี้เองนะ\nเดี๋ยวบ่ายโทรเบอร์ {phone} ถามอีกที"}
+{"template_id": "TMP-line_chat-03", "genre": "line_chat", "kind": "positive", "text": "กลุ่มติวเข้ม ม.6 ของพี่{first_name3}\nน้อง {first_name} รหัสนักเรียน {student_id} ไลน์ {line_id}\nเอาเอกสารมาส่งที่บ้านได้มั้ยคะ เบอร์ {phone} จ้า"}
+{"template_id": "TMP-line_chat-04", "genre": "line_chat", "kind": "positive", "text": "น้องไรเดอร์ที่รับงานตอนเช้า ทะเบียน {plate} ใช่ไหมครับ\nลูกค้าเบอร์ {phone} ของ{name}\nฝากส่งกล่องให้หน้าร้านข้าวมันไก่ด้วยนะครับ ขอบคุณ"}
+{"template_id": "TMP-line_chat-05", "genre": "line_chat", "kind": "hard_negative", "text": "ขอเช็คสถานะพัสดุหน่อยค่ะ เลข {tracking_no}\nร้าน {company} บอกว่าส่งแล้วตั้งแต่เมื่อวาน\nเดี๋ยวดูอีกทีพรุ่งนี้ตอนประมาณ {time} ค่ะ"}
+{"template_id": "TMP-line_chat-06", "genre": "line_chat", "kind": "hard_negative", "text": "ยอดโอนวันที่ {date} {amount} บาทแล้วนะ\nบัตรที่ใช้จ่ายเป็น {masked_card} ค่ะ\nรหัสสั่งซื้อ {order_no} ถ้าจะเคลมบอกมาได้เลย"}
+{"template_id": "TMP-line_chat-07", "genre": "line_chat", "kind": "clean_negative", "text": "ใครว่าง 555 เย็นนี้ไปกินข้าวแถวตลาดนัดมั้ยคะ\nเดี๋ยวลองร้านที่รีวิวดีแล้วนะ ฝนคงไม่ตกแล้วมั้ง\nเจอกันหน้าสถานีนะจ้า"}

@@ -1,0 +1,7 @@
+{"template_id": "TMP-bank_loan-01", "genre": "bank_loan", "kind": "positive", "text": "สหกรณ์ออมทรัพย์ครูประจำจังหวัด ใบคำขอกู้\nผู้กู้: {name}\nบัญชีรับเงินกู้ {bank_account}\nเบอร์ติดต่อ {phone}\nวงเงินที่ขอ {amount} บาท"}
+{"template_id": "TMP-bank_loan-02", "genre": "bank_loan", "kind": "positive", "text": "ขอเพิ่มวงเงินบัตรเครดิต ลูกค้า {first_name}\nใช้บัตร {card_full} ที่ออกจากร้านค้าพาร์ทเนอร์\nจะให้เจ้าหน้าที่โทรกลับเบอร์เดิมนะคะ"}
+{"template_id": "TMP-bank_loan-03", "genre": "bank_loan", "kind": "positive", "text": "ใบสมัครสินเชื่อส่วนบุคคล\nชื่อ {name} เลขประชาชน {national_id}\nที่อยู่ตามทะเบียนบ้าน {address}\nมือถือ {phone} อีเมล {email}"}
+{"template_id": "TMP-bank_loan-04", "genre": "bank_loan", "kind": "positive", "text": "ผ่อนมอเตอร์ไซค์ ไฟแนนซ์ของร้าน\nลูกค้า{name} ทะเบียน {plate}\nอีเมลแจ้งยอดผ่อนให้ {email} นะคะ งวดละ {amount} บาท"}
+{"template_id": "TMP-bank_loan-05", "genre": "bank_loan", "kind": "hard_negative", "text": "ตัวอย่างการคิดดอกเบี้ย\nวงเงิน {amount} บาท อัตรา {percent} ต่อปี ผ่อน {months} งวด\nเลขที่ใบแจ้งหนี้ {invoice_no}\nบริการโดย {company}"}
+{"template_id": "TMP-bank_loan-06", "genre": "bank_loan", "kind": "hard_negative", "text": "สรุปการผ่อนชำระ\nบัญชีที่ลงท้ายด้วย {masked_account}\nบัตรหลัก {masked_card}\nหากมีข้อสงสัยโทร {company_phone}"}
+{"template_id": "TMP-bank_loan-07", "genre": "bank_loan", "kind": "clean_negative", "text": "ดอกเบี้ยทบต้นคืออะไร ทำไมคนถึงบอกว่าออมเร็วขึ้นได้\nถ้าเงินต้นเท่ากัน ยิ่งทบบ่อยยิ่งได้มาก แต่ต้องดูอัตราด้วย\nปีหน้าจะลองเขียนเทียบให้ดูนะ"}

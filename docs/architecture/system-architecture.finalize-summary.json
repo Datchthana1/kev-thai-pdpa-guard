@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\.archify\\architecture-system-20261019-213500\\candidate.json",
+    "sha256": "78db7cdc508ff7e2fbaa7f8dd20d8b03413a4b03c4556de4f1e3e2920eca5103",
+    "bytes": 4807
+  },
+  "artifact": {
+    "path": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\docs\\architecture\\system-architecture.html",
+    "sha256": "878f1fe60af9f14cb9a32e373ed21f4cf36553b79aa54f6c493f78706aebe9f3",
+    "bytes": 839916
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\docs\\architecture\\system-architecture.finalize.json",
+    "summaryReceipt": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\docs\\architecture\\system-architecture.finalize-summary.json",
+    "browserCheckReceipt": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\docs\\architecture\\system-architecture.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-19T14:20:36.292Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 4266,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  }
+}

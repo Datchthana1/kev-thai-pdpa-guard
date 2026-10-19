@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "dataflow",
+  "quality": "showcase",
+  "specification": {
+    "path": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\.archify\\dataflow-dataset-20261019-215000\\candidate.json",
+    "sha256": "ee83810e78b248701d70f081edf060df5d66cb6a654f91ff8ae28e520ebd3684",
+    "bytes": 3341
+  },
+  "artifact": {
+    "path": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\docs\\architecture\\dataset-dataflow.html",
+    "sha256": "152e698e5ae01cafcdd0d3123590c778ff326638575dcca422f1106c555f3bca",
+    "bytes": 820836
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\docs\\architecture\\dataset-dataflow.finalize.json",
+    "summaryReceipt": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\docs\\architecture\\dataset-dataflow.finalize-summary.json",
+    "browserCheckReceipt": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\docs\\architecture\\dataset-dataflow.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-19T14:20:36.292Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 3843,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  }
+}

@@ -1,0 +1,4 @@
+{"template_id": "TMP-line_chat-01", "genre": "line_chat", "kind": "clean_negative", "text": "ใครว่างไปกินข้าวที่ {company} บ่ายนี้บ้าง เห็นโปรโมชันลด {percent} ช่วงนี้\nเราจองโต๊ะไว้ {time} ได้ แต่ต้องใช้ตังค์ {price} ต่อคนนะ 555 เดี๋ยวค่อยกดหาร"}
+{"template_id": "TMP-line_chat-02", "genre": "line_chat", "kind": "clean_negative", "text": "แม่ฝากบอกว่าพรุ่งนี้มี {grocery} ลดราคาที่ห้าง จะไปซื้อไหม\nป้าเห็นมีลดเหลือ {amount2} บาท จากเดิม {amount} บาท ลูกว่าไงจ๊ะ"}
+{"template_id": "TMP-line_chat-03", "genre": "line_chat", "kind": "clean_negative", "text": "ขอบคุณที่แจ้งนะ ออเดอร์ {order_no} ของเราถึงจุดรับแล้วจ้า เดี๋ยวจัดส่งวันที่ {date}\nถ้ามีคำถามทักมาได้เลย ของทั้งหมด {items} ชิ้นแพ็กมาครบแล้ว"}
+{"template_id": "TMP-line_chat-04", "genre": "line_chat", "kind": "clean_negative", "text": "วันนี้อากาศร้อนมาก ไปดื่มชานมไข่มุกที่ {province} กันไหม 55555\nช่วง {time} น่าจะไม่คนเยอะ มีลด {percent} ด้วย ไปกันเลย"}

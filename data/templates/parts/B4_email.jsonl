@@ -1,0 +1,6 @@
+{"template_id": "TMP-email-01", "genre": "email", "kind": "positive", "text": "เรื่อง: สรุปการประชุมสมาชิกสหภาพแรงงาน\nเรียน {name} ผู้ร่วมประชุม {name2} ยืนยันแล้วว่า {special} รบกวนส่งต่อให้ทีมด้วยนะ ติดต่อกลับที่ {email}"}
+{"template_id": "TMP-email-02", "genre": "email", "kind": "positive", "text": "เรียนทีมจัดตั้ง ตามรายชื่อสมาชิกพรรค {name} โทร {phone} สถานะปัจจุบัน: {special} รอบประชุมเขต {time} ขอให้เตรียมเอกสารให้ครบ"}
+{"template_id": "TMP-email-03", "genre": "email", "kind": "positive", "text": "Subject: ยินดีต้อนรับพนักงานใหม่\nสวัสดีคุณ {name} บัญชีเข้าระบบของคุณคือ {email} รหัสผ่านชั่วคราว {password} กรุณาเปลี่ยนภายในวันแรกที่เข้างาน"}
+{"template_id": "TMP-email-04", "genre": "email", "kind": "positive", "text": "ทีม IT ส่งรหัส VPN ให้ {first_name} ข้อมูลอ้างอิง {employee_id} รหัสผ่าน {password} อย่าส่งต่อทางแชทนะ"}
+{"template_id": "TMP-email-05", "genre": "email", "kind": "positive", "text": "เรียนคุณ {name} มีลูกค้าสนใจจ้างทำเว็บไซต์ ขอให้ติดต่อกลับที่ {email} หรือโทร {phone} ภายในสัปดาห์นี้นะคะ"}
+{"template_id": "TMP-email-06", "genre": "email", "kind": "positive", "text": "เรื่อง: ขอสิทธิ์เข้าระบบ เรียนแผนก HR ส่งคำขอของ {first_name} ข้อมูลพนักงาน {employee_id} ต้องการสิทธิ์เข้าโฟลเดอร์โครงการ อนุมัติด้วยนะคะ"}

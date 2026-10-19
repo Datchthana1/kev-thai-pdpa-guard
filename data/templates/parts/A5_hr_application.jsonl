@@ -1,0 +1,4 @@
+{"template_id": "TMP-hr_application-01", "genre": "hr_application", "kind": "positive", "text": "ใบสมัครงาน\nชื่อ-สกุล: {name}\nเบอร์โทร: {phone}\nหมายเหตุผู้สัมภาษณ์: ผู้สมัครแจ้งว่า {special} ให้ตรวจสอบเพิ่มเติมก่อนพิจารณาเข้าทำงานนะคะ"}
+{"template_id": "TMP-hr_application-02", "genre": "hr_application", "kind": "positive", "text": "ผู้สมัครชื่อ {first_name} อีเมล {email} เอกสารแนบระบุไว้ว่า {special} ฝ่ายบุคคลช่วยเก็บข้อมูลนี้เป็นความลับด้วยนะคะ ขอบคุณค่ะ"}
+{"template_id": "TMP-hr_application-03", "genre": "hr_application", "kind": "positive", "text": "แจ้งฝ่ายบุคคลค่ะ รหัสพนักงาน {employee_id} ขอลาพักร้อน {days} วัน ส่งใบลาให้หัวหน้าทีมเซ็นแล้ว รบกวนอัปเดตระบบด้วยนะ"}
+{"template_id": "TMP-hr_application-04", "genre": "hr_application", "kind": "positive", "text": "{name} ใช้รหัสพนักงาน {employee_id} ยื่นขอปรับตำแหน่งจากพนักงานปฏิบัติการไปเป็นหัวหน้ากะ รอฝ่ายบุคคลตรวจเอกสารประกอบก่อนนะ"}

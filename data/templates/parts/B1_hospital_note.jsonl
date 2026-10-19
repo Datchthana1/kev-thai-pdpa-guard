@@ -1,0 +1,7 @@
+{"template_id": "TMP-hospital_note-01", "genre": "hospital_note", "kind": "positive", "text": "ผู้ป่วย: {name}\nวันเกิด: {dob}\nการวินิจฉัย: {health}\nนัดติดตามอาการอีกสองสัปดาห์ ญาติติดต่อกลับทาง {phone}"}
+{"template_id": "TMP-hospital_note-02", "genre": "hospital_note", "kind": "positive", "text": "แบบฟอร์มลงทะเบียนผู้ป่วยนอก\nชื่อ-สกุล {name}\nเลขบัตรประชาชน {national_id}\nโทรศัพท์ {phone}\nแพทย์ผู้ตรวจ: ยังไม่ระบุ"}
+{"template_id": "TMP-hospital_note-03", "genre": "hospital_note", "kind": "positive", "text": "พยาบาลเวรดึก บันทึก\nน้อง {first_name} มาคลินิกตอนตีสองบ่นท้องเสีย\nอยู่แถว {address}\nมีประวัติ {health} ให้ระวังยาแก้ท้องเสียบางตัวด้วย"}
+{"template_id": "TMP-hospital_note-04", "genre": "hospital_note", "kind": "positive", "text": "{name} มีนัดตรวจสุขภาพประจำปี วันที่ {date} เวลา {time}\nถ้าจะเลื่อนโทร {phone} ก่อนวันนัดนะคะ"}
+{"template_id": "TMP-hospital_note-05", "genre": "hospital_note", "kind": "hard_negative", "text": "{company} ประชาสัมพันธ์\n{health_stat}\nสอบถามคลินิกโทร {company_phone}\nอ่านเพิ่มเติมที่ {url}"}
+{"template_id": "TMP-hospital_note-06", "genre": "hospital_note", "kind": "hard_negative", "text": "ใบรับรองการตรวจ เลขที่ {case_no}\nบัตรประชาชนที่แสดงถูกปิดบาง {masked_id}\nวันที่ออกเอกสาร {date}\nอนุญาตให้ผู้รับใช้เอกสารแทนได้"}
+{"template_id": "TMP-hospital_note-07", "genre": "hospital_note", "kind": "clean_negative", "text": "เคล็ดลับดูแลตัวเองช่วงหน้าฝน\nดื่มน้ำอุ่นบ่อย ๆ ล้างมือก่อนกินข้าว\nถ้ามีไข้เกินสามวันค่อยไปพบแพทย์นะคะ"}

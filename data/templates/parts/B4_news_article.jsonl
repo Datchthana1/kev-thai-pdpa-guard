@@ -1,0 +1,2 @@
+{"template_id": "TMP-news_article-01", "genre": "news_article", "kind": "positive", "text": "ศาลจังหวัดนัดฟังคำพิพากษาคดีของ {name} ในวันที่ {date} ก่อนหน้านี้เคยถูกบันทึกว่า {special} ทนายขอยื่นลดโทษต่อศาล"}
+{"template_id": "TMP-news_article-02", "genre": "news_article", "kind": "positive", "text": "ข่าวท้องถิ่น {first_name} วัย {age} ปี ชาวบ้านใน {province} ให้ข้อมูลว่า {special} ตำรวจยังไม่ออกแถลงการณ์อย่างเป็นทางการ"}

@@ -1,0 +1,19 @@
+{"template_id": "TMP-ecommerce_delivery-01", "genre": "ecommerce_delivery", "kind": "positive", "text": "จัดส่งถึง: {name}\nสถานะ: กำลังนำจ่าย (รถมอเตอร์ไซค์)\nคาดว่าถึงภายในวันนี้ก่อน 18:00 น."}
+{"template_id": "TMP-ecommerce_delivery-02", "genre": "ecommerce_delivery", "kind": "positive", "text": "สินค้ากลุ่มเครื่องดื่มมีแอลกอฮอล์ ต้องยืนยันอายุก่อนส่ง ผู้รับ {first_name} วันเกิด {dob} รับได้ค่ะ"}
+{"template_id": "TMP-ecommerce_delivery-03", "genre": "ecommerce_delivery", "kind": "positive", "text": "ใบจัดส่ง\nผู้รับ: {name}\nโทร: {phone}\nจำนวน: {items} ชิ้น\nราคาสินค้า: {price}"}
+{"template_id": "TMP-ecommerce_delivery-04", "genre": "ecommerce_delivery", "kind": "positive", "text": "ส่งไปที่: {address}\nหมายเหตุ: ฝากไว้กับ รปภ. ได้เลยถ้าไม่มีคนอยู่ ขอบคุณค่ะ"}
+{"template_id": "TMP-ecommerce_delivery-05", "genre": "ecommerce_delivery", "kind": "positive", "text": "ผู้สั่ง: {name}\nผู้รับ: {name2}\nโทรผู้รับ: {phone}\nสินค้า: {gadget}\nส่งที่: เซ็นทรัลลาดพร้าว ตึก B ชั้น 2"}
+{"template_id": "TMP-ecommerce_delivery-06", "genre": "ecommerce_delivery", "kind": "positive", "text": "คืนเงินเข้าบัญชี {bank_account}\nชื่อบัญชี: {name}\nเหตุผล: สินค้าชำรุด ส่งคืนแล้วเมื่อวันที่ {date}"}
+{"template_id": "TMP-ecommerce_delivery-07", "genre": "ecommerce_delivery", "kind": "positive", "text": "ชำระปลายทางไม่ได้ จึงชำระด้วยบัตร {card} ชื่อบัตร {name}\nยอดรวม {price} ขอบคุณที่ใช้บริการค่ะ"}
+{"template_id": "TMP-ecommerce_delivery-08", "genre": "ecommerce_delivery", "kind": "positive", "text": "ฝากเก็บข้อมูลบัตรไว้ในแชทนี้ {card_full} ชื่อ {name} ใช้ตอนต่ออายุสมาชิกนะ อย่าลืมลบทีหลัง"}
+{"template_id": "TMP-ecommerce_delivery-09", "genre": "ecommerce_delivery", "kind": "positive", "text": "ของที่สั่งคือ {otc_medicine} ใช้สำหรับคนไข้ชื่อ {name} ที่ {health} รบกวนส่งแบบกล่องไม่มีโลโก้ค่ะ"}
+{"template_id": "TMP-ecommerce_delivery-10", "genre": "ecommerce_delivery", "kind": "positive", "text": "รหัสรับของ PIN {pin} ผู้รับคือ {first_name} ใช้ยืนยันตอนรับกล่องที่หน้าเคาน์เตอร์ ขอบคุณค่ะ"}
+{"template_id": "TMP-ecommerce_delivery-11", "genre": "ecommerce_delivery", "kind": "positive", "text": "ใบสั่งซื้อ\nชื่อ: {name}\nโทร: {phone}\nอีเมล: {email}\nที่อยู่: {address}\nเลขบัตรประชาชน: {national_id}\nออกใบกำกับภาษีในนาม {name}"}
+{"template_id": "TMP-ecommerce_delivery-12", "genre": "ecommerce_delivery", "kind": "hard_negative", "text": "เลขพัสดุ {tracking_no}\nสถานะ: ถึงศูนย์คัดแยกแล้ว\nอัปเดตเมื่อ: {time} น."}
+{"template_id": "TMP-ecommerce_delivery-13", "genre": "ecommerce_delivery", "kind": "hard_negative", "text": "ใบเสร็จเลขที่ {invoice_no}\nราคา {price}\nจัดส่งฟรีเมื่อซื้อครบ {price}"}
+{"template_id": "TMP-ecommerce_delivery-14", "genre": "ecommerce_delivery", "kind": "hard_negative", "text": "ร้านส่งของจาก {province} ใช้บริการขนส่งของ {company} ค่าส่งเริ่มต้น {price} ยังไม่รวม VAT"}
+{"template_id": "TMP-ecommerce_delivery-15", "genre": "ecommerce_delivery", "kind": "hard_negative", "text": "หมายเลขคำสั่งซื้อ {order_no}\nเลขบัตรที่ใช้ชำระ {masked_card}\nสถานะ: ชำระแล้ว"}
+{"template_id": "TMP-ecommerce_delivery-16", "genre": "ecommerce_delivery", "kind": "clean_negative", "text": "รายการสินค้า\n1. เสื้อยืดคอกลม ไซซ์ M จำนวน 2 ตัว\n2. กางเกงขาสั้นผ้าร่ม จำนวน 1 ตัว\nค่าจัดส่ง 40 บาท รวม 490 บาท"}
+{"template_id": "TMP-ecommerce_delivery-17", "genre": "ecommerce_delivery", "kind": "clean_negative", "text": "ร้านเปิดให้บริการทุกวัน 9:00-21:00 น. วันหยุดนักขัตฤกษ์จัดส่งตามปกติ สั่งก่อน 14:00 น. ส่งวันเดียวกันได้เลย"}
+{"template_id": "TMP-ecommerce_delivery-18", "genre": "ecommerce_delivery", "kind": "clean_negative", "text": "ช่วงนี้รถส่งของช้ากว่าปกติ เนื่องจากฝนตกต่อเนื่องในหลายจังหวัด ขออภัยในความล่าช้า ทีมกำลังเร่งส่งให้ที่สุด"}
+{"template_id": "TMP-ecommerce_delivery-19", "genre": "ecommerce_delivery", "kind": "clean_negative", "text": "วิธีจัดส่ง\nส่งธรรมดา 3-5 วันทำการ\nส่งด่วน 1-2 วันทำการ\nรับที่ร้าน ฟรี ไม่มีค่าใช้จ่ายเพิ่ม"}

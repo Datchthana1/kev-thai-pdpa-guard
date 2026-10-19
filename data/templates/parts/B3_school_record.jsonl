@@ -1,0 +1,4 @@
+{"template_id": "TMP-school_record-01", "genre": "school_record", "kind": "clean_negative", "text": "ประกาศโรงเรียน: กิจกรรมวันกีฬาสีประจำปี จัดวันที่ {date} เวลา {time}\nนักเรียนชั้น ม.3 ต้องนำชุดกีฬาสีมาด้วย ขอความร่วมมือทุกคน"}
+{"template_id": "TMP-school_record-02", "genre": "school_record", "kind": "clean_negative", "text": "ผลการสอบกลางภาคของวิชาวิทยาศาสตร์ ค่าเฉลี่ยห้องอยู่ที่ {percent} ของคะแนนเต็ม จากข้อสอบ {items} ข้อ\nนักเรียนที่มีข้อสงสัยมาพบครูได้ตอนพักเที่ยงของวันที่ {date}"}
+{"template_id": "TMP-school_record-03", "genre": "school_record", "kind": "clean_negative", "text": "ทัศนศึกษาที่ {province} ค่าใช้จ่ายคนละ {amount} บาท รวมรถบัสและอาหารกลางวัน\nนักเรียนต้องนำเงินมาส่งภายในวันที่ {date} ที่ฝ่ายการเงินของโรงเรียน"}
+{"template_id": "TMP-school_record-04", "genre": "school_record", "kind": "clean_negative", "text": "หนังสือเรียนชุดนี้ มีจำนวน {items} เล่ม สำหรับชั้นประถมศึกษาปีที่ 4\nหนังสือเป็นของโรงเรียน กรุณาคืนก่อนสิ้นภาคเรียน"}

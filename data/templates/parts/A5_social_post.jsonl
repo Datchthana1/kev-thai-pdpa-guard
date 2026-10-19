@@ -1,0 +1,5 @@
+{"template_id": "TMP-social_post-01", "genre": "social_post", "kind": "positive", "text": "โพสต์นี้ไม่ได้ตั้งใจจะประจาน ใครรู้จัก {first_name} ช่วยบอกหน่อยว่า {special} เขาเพิ่งเล่าให้เราฟังเมื่อคืน อยากให้กำลังใจ ติดต่อได้ที่ {phone} ค่ะ"}
+{"template_id": "TMP-social_post-02", "genre": "social_post", "kind": "positive", "text": "ใครเจอโค้ดนี้บ้างไหม ลองแชร์ให้เฉยๆ นะ api key ของโปรเจกต์ที่ {name2} ทำอยู่คือ {api_key} อย่าเอาไปใช้ต่อเด็ดขาด เดี๋ยวโดนแบนทั้งทีม ฮ่าๆ"}
+{"template_id": "TMP-social_post-03", "genre": "social_post", "kind": "positive", "text": "ใครแถวอ่อนนุชเจอกระเป๋าสตางค์สีน้ำตาลบ้าง ตกไว้ที่ป้ายรถเมล์ ติดต่อ {name} ที่ {phone} ได้เลยนะ ขอบคุณล่วงหน้าเลยค่ะ"}
+{"template_id": "TMP-social_post-04", "genre": "social_post", "kind": "positive", "text": "หาเพื่อนร่วมรุ่นค่ะ {name} ย้ายมาอยู่ {address} แล้วแต่ติดต่อไม่ได้ ใครสนิทกันช่วยส่ง {email} ให้หน่อย จะได้ชวนมาเจอกันตอนรียูเนียน"}
+{"template_id": "TMP-social_post-05", "genre": "social_post", "kind": "positive", "text": "ส่งของไวมากเลย แต่ตอนติดต่อ {name} ให้ไลน์ไอดี {line_id} มาบอกว่าจะส่งต่อให้ พอทักไปกลับไม่ตอบเลย ใครเคยเจอแบบนี้ไหมคะ"}

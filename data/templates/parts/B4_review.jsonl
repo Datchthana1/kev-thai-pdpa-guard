@@ -1,0 +1,2 @@
+{"template_id": "TMP-review-01", "genre": "review", "kind": "positive", "text": "รีวิวติวเตอร์ อาจารย์ {name} สอนสนุกมากค่ะ ถ้าใครสนใจติดต่อ {phone} ได้เลย ราคาคุยกันได้ประมาณ {price} ต่อชั่วโมง"}
+{"template_id": "TMP-review-02", "genre": "review", "kind": "positive", "text": "ใช้บริการดีไซเนอร์ {first_name} ส่งงานตรงเวลามาก ทักติดต่อที่ {email} ได้ค่ะ ให้ {rating} ดาวเลย"}

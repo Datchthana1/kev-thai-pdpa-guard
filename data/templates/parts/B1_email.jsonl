@@ -1,0 +1,7 @@
+{"template_id": "TMP-email-01", "genre": "email", "kind": "positive", "text": "เรื่อง: ขอใบเสนอราคาติดตั้งแอร์\nสวัสดีครับ ผม{name} เจ้าของบ้านในซอยเดียวกับโครงการ\nติดต่อกลับได้ที่ {phone} หรือ {email}\n{address}"}
+{"template_id": "TMP-email-02", "genre": "email", "kind": "positive", "text": "เรื่อง: ส่งเอกสารสมัครงานฝั่งทีมแปล\nแนบสำเนาพาสปอร์ต {passport} ของ{name} ตามที่ HR ขอ\nเวลาสะดวกนัดสัมภาษณ์ช่วงบ่าย ขอบคุณครับ"}
+{"template_id": "TMP-email-03", "genre": "email", "kind": "positive", "text": "Fwd: รหัสยืนยันจากแอปกู้\nสวัสดีค่ะ {first_name} รหัส OTP ของคุณคือ {otp}\nรหัสนี้หมดอายุใน 5 นาที อย่าให้ใครเด็ดขาดนะคะ"}
+{"template_id": "TMP-email-04", "genre": "email", "kind": "positive", "text": "เรียน{name}\nผู้เช่าห้องที่อยู่ {address}\nหลักฐานการโอนประกันมัดจำ ติดต่อกลับเบอร์ {phone} หรืออีเมล {email} ได้ค่ะ"}
+{"template_id": "TMP-email-05", "genre": "email", "kind": "hard_negative", "text": "ขอบคุณที่สมัครรับข่าวสารค่ะ\nโปรโมชั่น {gadget} ลด {percent} ถึงวันที่ {date}\nดูรายละเอียดที่ {url}\nติดต่อทีมงาน {company_email}"}
+{"template_id": "TMP-email-06", "genre": "email", "kind": "hard_negative", "text": "ยืนยันคำสั่งซื้อ {order_no}\nพัสดุ {tracking_no} กำลังจัดส่ง\nชำระด้วยบัตร {masked_card} จำนวน {amount} บาท\nขอบคุณที่ใช้บริการ {company}"}
+{"template_id": "TMP-email-07", "genre": "email", "kind": "clean_negative", "text": "เรียนทีมงาน\nประชุมวางแผนงานไตรมาสหน้าเปลี่ยนเป็นวันพฤหัสบดีนะครับ\nช่วยเตรียม slide ที่ค้างไว้มาให้ครบด้วย\nขอบคุณครับ"}

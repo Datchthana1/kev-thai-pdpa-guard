@@ -1,0 +1,2 @@
+{"template_id": "TMP-realestate_contract-01", "genre": "realestate_contract", "kind": "positive", "text": "ผู้ซื้อ {name} ที่อยู่ตามทะเบียน {address} ติดต่อได้ทาง {email} ค่ะ ชำระค่ามัดจำ {amount} บาท ภายในวันที่ {date} ตามที่ตกลงกันไว้"}
+{"template_id": "TMP-realestate_contract-02", "genre": "realestate_contract", "kind": "positive", "text": "ข้อตกลงเช่าห้องชุด\nผู้ให้เช่า: {name2}\nผู้เช่า: {name}\nสถานที่ติดต่อ/ที่พัก: {address}\nลงชื่อพยานแล้ว"}

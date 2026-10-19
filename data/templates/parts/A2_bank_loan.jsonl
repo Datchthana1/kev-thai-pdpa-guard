@@ -1,0 +1,19 @@
+{"template_id": "TMP-bank_loan-01", "genre": "bank_loan", "kind": "positive", "text": "สวัสดีค่ะ ดิฉัน {name} สนใจสินเชื่อส่วนบุคคล ไม่ทราบว่าต้องใช้เอกสารอะไรบ้างคะ"}
+{"template_id": "TMP-bank_loan-02", "genre": "bank_loan", "kind": "positive", "text": "{name} โทร {phone} ขอสอบถามสินเชื่อบ้าน วงเงินประมาณ {price} ติดต่อกลับได้ทั้งวันเลยค่ะ"}
+{"template_id": "TMP-bank_loan-03", "genre": "bank_loan", "kind": "positive", "text": "ใบคำขอสินเชื่อ\nชื่อ: {name}\nที่อยู่ตามทะเบียนบ้าน: {address}\nแจ้งผลทางโทรศัพท์ได้เลยนะคะ"}
+{"template_id": "TMP-bank_loan-04", "genre": "bank_loan", "kind": "positive", "text": "ยื่นกู้ส่วนบุคคลออนไลน์ ชื่อ {name} เลขบัตรประชาชน {national_id} ทางแอปจะส่งรหัสยืนยันไปที่เบอร์เดิมค่ะ"}
+{"template_id": "TMP-bank_loan-05", "genre": "bank_loan", "kind": "positive", "text": "หมายเหตุฝ่ายสินเชื่อ: โอนเงินกู้เข้าบัญชี {bank_account} ชื่อบัญชี {name} รอเจ้าหน้าที่ตรวจสลิปเงินเดือนก่อนนะครับ"}
+{"template_id": "TMP-bank_loan-06", "genre": "bank_loan", "kind": "positive", "text": "อัปเดตวงเงินบัตรเครดิต ผู้ถือบัตร {name} หมายเลข {card} ขอเพิ่มลิมิตเป็นเท่าไรก็ได้ที่สมเหตุสมผลนะ"}
+{"template_id": "TMP-bank_loan-07", "genre": "bank_loan", "kind": "positive", "text": "[SCB-Loan] รหัส OTP {otp} สำหรับยืนยันคำขอสินเชื่อของ {name} หมดอายุภายในห้านาที ห้ามบอกใครนะ"}
+{"template_id": "TMP-bank_loan-08", "genre": "bank_loan", "kind": "positive", "text": "ล็อกอินเว็บสินเชื่อไม่ได้ ใช้อีเมล {email} รหัสผ่าน {password} ช่วยรีเซ็ตให้หน่อยครับ ชื่อ {name}"}
+{"template_id": "TMP-bank_loan-09", "genre": "bank_loan", "kind": "positive", "text": "จ่ายค่างวดผ่านบัตรของ {name} ตามนี้ {card_full} ตัดยอดวันที่สิบห้าของทุกเดือนนะ อย่าลืมเช็กยอดด้วย"}
+{"template_id": "TMP-bank_loan-10", "genre": "bank_loan", "kind": "positive", "text": "ฝากบอกแฟนว่า PIN ของ {name} คือ {pin} แต่ห้ามเอาไปบอกใครอีกนะ เดี๋ยวเงินค่าผ่อนรถหาย"}
+{"template_id": "TMP-bank_loan-11", "genre": "bank_loan", "kind": "positive", "text": "คำขอสินเชื่อเพื่อธุรกิจ ผู้กู้ {name}\nเลขบัตรประชาชน {national_id}\nเบอร์โทร {phone}\nที่อยู่ {address}\nบัญชีรับเงิน {bank_account}\nผู้ค้ำประกัน {name2} โทร {phone2}"}
+{"template_id": "TMP-bank_loan-12", "genre": "bank_loan", "kind": "hard_negative", "text": "รายการบัตร {masked_card} ยอดคงค้าง {price} ชำระขั้นต่ำก่อนวันที่ {date} หากชำระเกินกำหนดจะคิดค่าปรับตามเงื่อนไข"}
+{"template_id": "TMP-bank_loan-13", "genre": "bank_loan", "kind": "hard_negative", "text": "ทดสอบระบบชำระเงินของร้านค้า ใช้เลขบัตรทดสอบ {fake_card} ไม่ใช่บัตรจริงนะ ทีม dev ช่วยเช็กการตอบกลับของระบบด้วย"}
+{"template_id": "TMP-bank_loan-14", "genre": "bank_loan", "kind": "hard_negative", "text": "{company} ประกาศลดดอกเบี้ยสินเชื่อบ้านเหลือ {percent} ต่อปีในช่วงโปรโมชันถึง {date} สอบถามที่ {company_phone}"}
+{"template_id": "TMP-bank_loan-15", "genre": "bank_loan", "kind": "hard_negative", "text": "งวดที่ {months} ของสัญญาเช่าซื้อรถเลขที่ {order_no} ยอดชำระ {price} ระบบตัดอัตโนมัติทุกวันที่หนึ่งของเดือน"}
+{"template_id": "TMP-bank_loan-16", "genre": "bank_loan", "kind": "clean_negative", "text": "สินเชื่อส่วนบุคคลคืออะไร คือเงินกู้ที่ไม่ต้องมีหลักประกัน โดยพิจารณาจากรายได้และประวัติการชำระหนี้ ดอกเบี้ยขึ้นกับความเสี่ยงของผู้กู้แต่ละราย"}
+{"template_id": "TMP-bank_loan-17", "genre": "bank_loan", "kind": "clean_negative", "text": "เคล็ดลับก่อนขอสินเชื่อ เช็กเครดิตบูโรของตัวเองก่อน จัดงบให้ค่างวดไม่เกินหนึ่งในสามของรายได้ และอ่านเงื่อนไขค่าปรับก่อนเซ็นทุกครั้ง"}
+{"template_id": "TMP-bank_loan-18", "genre": "bank_loan", "kind": "clean_negative", "text": "ธนาคารเปิดให้ยื่นกู้บ้านผ่านแอปได้แล้ว ขั้นตอนไม่ยุ่งยาก ตรวจสอบเอกสารออนไลน์ และรอผลภายในไม่กี่วันทำการ"}
+{"template_id": "TMP-bank_loan-19", "genre": "bank_loan", "kind": "clean_negative", "text": "ข้อแตกต่างระหว่างสินเชื่อรถยนต์กับสินเชื่อส่วนบุคคล รถยนต์มีตัวรถเป็นหลักประกัน ดอกเบี้ยมักต่ำกว่า แต่ถ้าผ่อนไม่ไหวอาจถูกยึดรถได้"}

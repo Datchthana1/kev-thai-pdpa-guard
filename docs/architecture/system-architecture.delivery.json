@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "80cacb8f-1d0b-4576-97c6-9b54dd2d7a83",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\.archify\\architecture-system-20261019-213500\\candidate.json",
+  "output": "D:\\OneFile\\WorkOnly\\AllCode\\KEV-Tuning\\docs\\architecture\\system-architecture.html",
+  "specification": {
+    "sha256": "78db7cdc508ff7e2fbaa7f8dd20d8b03413a4b03c4556de4f1e3e2920eca5103",
+    "bytes": 4807
+  },
+  "artifact": {
+    "sha256": "878f1fe60af9f14cb9a32e373ed21f4cf36553b79aa54f6c493f78706aebe9f3",
+    "bytes": 839916
+  }
+}

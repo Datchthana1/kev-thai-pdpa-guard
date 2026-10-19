@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "Synthetic Thai PDPA dataset: how a record is made",
+    "locale": "en",
+    "output": "docs/architecture/dataset-dataflow.html",
+    "quality_profile": "showcase"
+  },
+  "stages": [
+    { "label": "Sources" },
+    { "label": "Long-form" },
+    { "label": "Assemble" },
+    { "label": "Check" },
+    { "label": "Output" }
+  ],
+  "nodes": [
+    { "id": "templates", "type": "database", "label": "Templates", "sublabel": "686 slot texts", "stage": 0, "row": 0, "tag": "A + B" },
+    { "id": "fakers", "type": "security", "label": "fakers.py", "sublabel": "fake Thai PII", "stage": 0, "row": 2, "tag": "valid IDs" },
+    { "id": "writers", "type": "external", "label": "Haiku writers", "sublabel": "free-form text", "stage": 1, "row": 1, "tag": "300-1200 chars" },
+    { "id": "packs", "type": "backend", "label": "make_value_packs", "sublabel": "PII per record", "stage": 1, "row": 2 },
+    { "id": "generate", "type": "backend", "label": "generate.py", "sublabel": "fill, label, split", "stage": 2, "row": 0, "tag": "seed 42" },
+    { "id": "ingest", "type": "backend", "label": "ingest_longform", "sublabel": "verbatim check", "stage": 2, "row": 1 },
+    { "id": "qa", "type": "security", "label": "qa_dataset.py", "sublabel": "fails on any error", "stage": 3, "row": 0, "tag": "gate" },
+    { "id": "taxonomy", "type": "backend", "label": "taxonomy.py", "sublabel": "risk 0-4 rules", "stage": 3, "row": 1 },
+    { "id": "kevfiles", "type": "database", "label": "kev/*.jsonl", "sublabel": "train 2741, dev 450", "stage": 4, "row": 0, "tag": "frozen" },
+    { "id": "testfile", "type": "database", "label": "test.jsonl", "sublabel": "735 + meta", "stage": 4, "row": 1, "tag": "held out" }
+  ],
+  "flows": [
+    { "id": "tpl-in", "from": "templates", "to": "generate", "label": "slot templates", "variant": "emphasis" },
+    { "id": "fake-packs", "from": "fakers", "to": "packs", "label": "fake PII values", "variant": "security" },
+    { "id": "fake-slots", "from": "fakers", "to": "generate", "label": "slot values", "variant": "security" },
+    { "id": "packs-writers", "from": "packs", "to": "writers", "label": "value packs" },
+    { "id": "writers-ingest", "from": "writers", "to": "ingest", "label": "long-form texts" },
+    { "id": "ingest-generate", "from": "ingest", "to": "generate", "label": "kept records" },
+    { "id": "gen-qa", "from": "generate", "to": "qa", "label": "3 splits", "variant": "emphasis" },
+    { "id": "rules-qa", "from": "taxonomy", "to": "qa", "label": "recomputed labels" },
+    { "id": "qa-kev", "from": "qa", "to": "kevfiles", "label": "Kev format", "variant": "emphasis" },
+    { "id": "qa-test", "from": "qa", "to": "testfile", "label": "eval split" }
+  ],
+  "cards": [
+    { "dot": "emerald", "title": "Labels from code", "items": ["Every record keeps its PII spans", "taxonomy.py turns spans into 11 labels", "No writer ever chooses a label"] },
+    { "dot": "rose", "title": "Fake but valid", "items": ["National IDs pass the mod-11 checksum", "Card numbers pass Luhn with real prefixes", "Look-alikes that fail them are hard negatives"] },
+    { "dot": "amber", "title": "No leakage", "items": ["Test uses B templates by other authors", "0 near-duplicates across splits", "sha256 of each file in FROZEN.sha256"] }
+  ]
+}

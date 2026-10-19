@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "PDPAGuard.check(): one call, eleven answers",
+    "locale": "en",
+    "output": "docs/architecture/check-sequence.html",
+    "quality_profile": "showcase"
+  },
+  "participants": [
+    { "id": "app", "type": "external", "label": "Your app", "sublabel": "text to check" },
+    { "id": "guard", "type": "frontend", "label": "PDPAGuard", "sublabel": "guard.py" },
+    { "id": "tax", "type": "security", "label": "taxonomy.py", "sublabel": "PDPA questions" },
+    { "id": "system", "type": "backend", "label": "KevSystem", "sublabel": "systems.py" },
+    { "id": "api", "type": "backend", "label": "kev.api", "sublabel": "to_record()" },
+    { "id": "model", "type": "backend", "label": "Qwen3.5-4B NF4", "sublabel": "+ LoRA adapter" },
+    { "id": "head", "type": "database", "label": "Pointer head", "sublabel": "head.pt, T" }
+  ],
+  "segments": [
+    { "from": 150, "to": 236, "label": "Build questions" },
+    { "from": 242, "to": 512, "label": "Score on GPU, one prefill" },
+    { "from": 518, "to": 600, "label": "Result" }
+  ],
+  "messages": [
+    { "id": "call-check", "from": "app", "to": "guard", "y": 165, "label": "check(text)", "variant": "emphasis" },
+    { "id": "ask-questions", "from": "guard", "to": "tax", "y": 192, "label": "canonical_questions(th)" },
+    { "id": "questions-back", "from": "tax", "to": "guard", "y": 220, "label": "11 questions", "variant": "return" },
+    { "id": "predict", "from": "guard", "to": "system", "y": 255, "label": "predict(state, questions)", "variant": "emphasis" },
+    { "id": "to-record", "from": "system", "to": "api", "y": 285, "label": "to_record()", "note": "validate; JSON state to text" },
+    { "id": "record-back", "from": "api", "to": "system", "y": 340, "label": "record + option keys", "variant": "return" },
+    { "id": "prefill", "from": "system", "to": "model", "y": 370, "label": "encode + prefill", "variant": "emphasis", "note": "the state runs once; each of the 11 questions is a row on its cache" },
+    { "id": "hidden", "from": "model", "to": "head", "y": 425, "label": "hidden states" },
+    { "id": "probs", "from": "head", "to": "system", "y": 453, "label": "softmax(logits / T)", "variant": "return", "note": "calibrated probability per option" },
+    { "id": "answers", "from": "system", "to": "guard", "y": 500, "label": "answers, latency", "variant": "return" },
+    { "id": "result", "from": "guard", "to": "app", "y": 535, "label": "PDPAResult", "variant": "return", "note": "is_sensitive, risk 0-4, primary category, 8 type flags" }
+  ],
+  "activations": [
+    { "participant": "guard", "from": 160, "to": 541, "type": "frontend" },
+    { "participant": "tax", "from": 187, "to": 226, "type": "security" },
+    { "participant": "system", "from": 250, "to": 506, "type": "backend" },
+    { "participant": "api", "from": 280, "to": 346, "type": "backend" },
+    { "participant": "model", "from": 365, "to": 431, "type": "backend" },
+    { "participant": "head", "from": 420, "to": 459, "type": "database" }
+  ],
+  "cards": [
+    { "dot": "violet", "title": "Input", "items": ["A Thai or English string, or a JSON object/array", "Questions are fixed: is_sensitive, risk_level, primary_category, 8 has_* flags"] },
+    { "dot": "emerald", "title": "Output", "items": ["p_sensitive and is_sensitive at threshold 0.5", "risk_level 0-4 plus expected risk_score", "primary_category with probabilities, 8 flag probabilities"] },
+    { "dot": "amber", "title": "No generation", "items": ["The model never writes text, so nothing to parse or hallucinate", "All answers come from one forward pass"] }
+  ]
+}

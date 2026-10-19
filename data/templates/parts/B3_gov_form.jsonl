@@ -1,0 +1,4 @@
+{"template_id": "TMP-gov_form-01", "genre": "gov_form", "kind": "clean_negative", "text": "ประกาศกรมการขนส่งทางบก\nการชำระภาษีรถประจำปี เริ่มวันที่ {date} ถึง {date2}\nค่าธรรมเนียมตามขนาดเครื่องยนต์ เริ่มต้นที่ {amount} บาท"}
+{"template_id": "TMP-gov_form-02", "genre": "gov_form", "kind": "clean_negative", "text": "แบบฟอร์มคำขอข้อมูลข่าวสาร (ตัวอย่างเพื่อการศึกษา)\nหมวด: การจัดซื้อจัดจ้าง\nจำนวนโครงการที่เปิดประมูล {items} โครงการ\nงบประมาณรวม {amount} บาท อัตราความสำเร็จ {percent}"}
+{"template_id": "TMP-gov_form-03", "genre": "gov_form", "kind": "clean_negative", "text": "ประกาศรับชำระค่าปรับ โดยหมายเลขอ้างอิง {case_no} ใช้ได้ถึงวันที่ {date}\nชำระได้ที่เคาน์เตอร์ของเทศบาล {province} ทุกวันทำการ เวลา {time}"}
+{"template_id": "TMP-gov_form-04", "genre": "gov_form", "kind": "clean_negative", "text": "สรุปการให้บริการประจำเดือน: จำนวนคำขอ {items} รายการ ใช้เวลาดำเนินการเฉลี่ย {workdays2} วันทำการ\nเอกสารประกอบตามรายการที่กำหนดไว้ใน {url}"}

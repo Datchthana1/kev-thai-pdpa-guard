@@ -1,0 +1,19 @@
+{"template_id": "TMP-server_log-01", "genre": "server_log", "kind": "positive", "text": "2026-10-19 09:14:22 INFO profile updated by {name} (ref {case_no})"}
+{"template_id": "TMP-server_log-02", "genre": "server_log", "kind": "positive", "json": {"event": "user_created", "source": "web", "user": {"name": "{name}", "email": "{email}", "phone": "{phone}"}}}
+{"template_id": "TMP-server_log-03", "genre": "server_log", "kind": "positive", "text": "WARN failed login attempt for {email} from ip {ip} count=3 lock=false"}
+{"template_id": "TMP-server_log-04", "genre": "server_log", "kind": "positive", "json": {"event": "kyc_submitted", "status": "pending", "applicant": {"name": "{name}", "national_id": "{national_id}"}}}
+{"template_id": "TMP-server_log-05", "genre": "server_log", "kind": "positive", "json": {"event": "api_request", "method": "POST", "path": "/v1/payments", "client_ip": "{ip}", "headers": {"x-api-key": "{api_key}"}}}
+{"template_id": "TMP-server_log-06", "genre": "server_log", "kind": "positive", "text": "ERROR auth reset password failed user={email} password={password} reason=policy_mismatch"}
+{"template_id": "TMP-server_log-07", "genre": "server_log", "kind": "positive", "json": {"event": "charge_failed", "customer": "{name}", "card": "{card_full}", "amount": "{amount}", "retry": 2}}
+{"template_id": "TMP-server_log-08", "genre": "server_log", "kind": "positive", "json": {"event": "audit_update", "actor": {"name": "{name}", "ip": "{ip}", "email": "{email}"}, "target": {"phone": "{phone}", "address": "{address}"}, "order_no": "{order_no}"}}
+{"template_id": "TMP-server_log-09", "genre": "server_log", "kind": "positive", "json": {"event": "transfer_pending", "from": {"name": "{name}", "bank_account": "{bank_account}"}, "to": {"name": "{name2}", "phone": "{phone2}"}, "tracking_no": "{tracking_no}"}}
+{"template_id": "TMP-server_log-10", "genre": "server_log", "kind": "positive", "json": {"event": "clinic_sync_error", "patient": "{name}", "dob": "{dob}", "diagnosis": "{health}", "retry": 3}}
+{"template_id": "TMP-server_log-11", "genre": "server_log", "kind": "positive", "text": "DEBUG sms otp sent to {phone} code={otp} ttl=300 user={first_name}"}
+{"template_id": "TMP-server_log-12", "genre": "server_log", "kind": "hard_negative", "text": "2026-10-19 10:02:11 INFO order created order_no={order_no} status=PAID"}
+{"template_id": "TMP-server_log-13", "genre": "server_log", "kind": "hard_negative", "json": {"event": "shipment_update", "status": "in_transit", "tracking_no": "{tracking_no}", "card": "{masked_card}", "invoice_no": "{invoice_no}"}}
+{"template_id": "TMP-server_log-14", "genre": "server_log", "kind": "hard_negative", "text": "WARN rate limit exceeded for route /api/search, retry after 30s, request_id {case_no}"}
+{"template_id": "TMP-server_log-15", "genre": "server_log", "kind": "hard_negative", "json": {"event": "checkout_declined", "card": "{fake_card}", "contact": "{masked_phone}", "amount": "{amount}", "order_no": "{order_no}"}}
+{"template_id": "TMP-server_log-16", "genre": "server_log", "kind": "clean_negative", "text": "INFO cache warmup completed in 320 ms, 1204 keys loaded, no errors"}
+{"template_id": "TMP-server_log-17", "genre": "server_log", "kind": "clean_negative", "json": {"event": "healthcheck", "status": "ok", "uptime_sec": 86400, "service": "catalog"}}
+{"template_id": "TMP-server_log-18", "genre": "server_log", "kind": "clean_negative", "text": "DEBUG retry scheduler tick, queue_depth=0, next_run=in 60s"}
+{"template_id": "TMP-server_log-19", "genre": "server_log", "kind": "clean_negative", "json": {"event": "deploy", "version": "2.4.1", "region": "ap-southeast", "status": "succeeded"}}

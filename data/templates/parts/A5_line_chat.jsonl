@@ -1,0 +1,8 @@
+{"template_id": "TMP-line_chat-01", "genre": "line_chat", "kind": "positive", "text": "พี่ครับ ช่วยเก็บเรื่องนี้ไว้ก่อนนะ {first_name} เขาบอกว่า {special} ห้ามเอาไปพูดในกลุ่มงานเด็ดขาด ติดต่อกลับเบอร์ {phone} ได้เลยจ้า"}
+{"template_id": "TMP-line_chat-02", "genre": "line_chat", "kind": "positive", "text": "เมื่อวาน {name} ถามถึง {name2} ว่าเรื่อง {special} จริงไหม เราบอกไม่รู้ ฝากถามตรงๆ หน่อยนะ ฮ่าๆ เดี๋ยวตอบกลับในกลุ่มนี้เลย"}
+{"template_id": "TMP-line_chat-03", "genre": "line_chat", "kind": "positive", "text": "รหัส OTP ของ {name} คือ {otp} ห้ามส่งให้ใครนะ เดี๋ยวโดนดูดเงินไปอีก ส่งผ่านแชทนี้ไม่ได้จ้า"}
+{"template_id": "TMP-line_chat-04", "genre": "line_chat", "kind": "positive", "text": "มึงๆ ลืม pin แอปธนาคารอีกแล้ว pin คือ {pin} ใช่ไหม ฝากจดไว้ให้หน่อย เดี๋ยวลืมอีกฮ่าๆ"}
+{"template_id": "TMP-line_chat-05", "genre": "line_chat", "kind": "positive", "text": "พี่{first_name} เอาที่อยู่ใหม่มาลงให้หน่อย {address} ส่งของบ่ายนี้เลยนะ เดี๋ยวเราไปรับเองที่ป้อมยาม"}
+{"template_id": "TMP-line_chat-06", "genre": "line_chat", "kind": "positive", "text": "ฝาก {name} ติดต่อกลับหน่อย โทร {phone} ด่วนๆ เรื่องงานค้างตั้งแต่เมื่อวาน ถ้าไม่รับสายทักไลน์มาก็ได้"}
+{"template_id": "TMP-line_chat-07", "genre": "line_chat", "kind": "positive", "text": "ไลน์ไอดีของฝ่ายขาย {line_id} ตอบช้ามากกก ฝากตามให้หน่อยนะ ลูกค้ารอใบเสนอราคาอยู่ตั้งแต่บ่ายแล้ว"}
+{"template_id": "TMP-line_chat-08", "genre": "line_chat", "kind": "positive", "text": "พี่{first_name} ไลน์ไอดี {line_id} ใช่ไหม ขอแอดด้วยนะ เรื่องเอกสารที่ค้างอยู่ทักมาตอนไหนก็ได้เลย"}

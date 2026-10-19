@@ -1,0 +1,5 @@
+{"template_id": "TMP-server_log-01", "genre": "server_log", "kind": "positive", "text": "[{time}] WARN auth-svc login failed user={first_name} password={password} reason=invalid_credentials retry_count={count}"}
+{"template_id": "TMP-server_log-02", "genre": "server_log", "kind": "positive", "text": "[{time}] ERROR api_client key={api_key} owner={name} rejected by gateway, rotating token now"}
+{"template_id": "TMP-server_log-03", "genre": "server_log", "kind": "positive", "text": "[{time}] INFO mailer sent receipt to {email} for account owner {name} status=delivered"}
+{"template_id": "TMP-server_log-04", "genre": "server_log", "kind": "positive", "text": "[{time}] WARN firewall blocked repeated login attempts from ip={ip} after {count} tries"}
+{"template_id": "TMP-server_log-05", "genre": "server_log", "kind": "positive", "text": "[{time}] INFO vpn session user={first_name} src_ip={ip} established on tunnel gw-main"}
