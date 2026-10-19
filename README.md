@@ -162,6 +162,45 @@ Every metric below is computed by comparing **the model's answer** with **the co
 
 ![headline](results/bar_headline.png)
 
+### What each row in the table measures
+
+Each row measures **a different ability** of the model. The columns are always **Kev-4B base / this model / OpenThai**.
+
+#### 1. `is_sensitive F1`: 0.890 / **0.990** / 0.442
+- **Measures:** whether the model can tell "**this text contains personal data**" from "**no, it doesn't**". It's the yes/no question that acts as the first gate.
+- **Why F1:** this question has two kinds of mistakes and both matter: **missing** sensitive data (recall), where it leaks out unnoticed, and **false alarms** (precision), where clean text gets blocked unnecessarily. F1 is only high when both are rare.
+- **Reading it:** this model almost never misses and almost never false-alarms. OpenThai misses about **71%** of sensitive texts (recall 0.287).
+
+#### 2. `risk_level exact accuracy`: 0.476 / **0.912** / 0.524
+- **Measures:** whether the model rates the **risk level 0–4 exactly right** (0 none · 1 low · 2 medium · 3 high · 4 critical).
+- **Why it matters:** this is what decides **how strictly to handle the text**. Level 4 should be blocked immediately; level 1 might just be logged.
+- **Reading it:** base got it exactly right in under half the texts (47.6%); this model gets 91.2%. **The biggest improvement**, because base Kev has never learned the PDPA risk rules.
+
+#### 3. `primary_category accuracy`: 0.638 / **0.946** / 0.463
+- **Measures:** whether the model can say **which type of data in the text is the riskiest**, choosing 1 of 10 categories (none, name, contact, address, national_id, financial, credential, health, special_category, other_identifier).
+- **Example:** "นายสมชาย เป็นเบาหวาน โทร 081..." contains a name, a phone number and health data. The correct answer is **health**, because health data is the riskiest (section 26).
+- **Why it matters:** it tells you which legal basis or policy applies. For example, health data requires explicit consent.
+
+#### 4. `has_* macro-F1`: 0.649 / **0.934** / 0.620
+- **Measures:** whether the model can **detect every type of data that appears**, not just the riskiest one. There are 8 yes/no questions: `has_name`, `has_contact`, `has_address`, `has_national_id`, `has_financial`, `has_credential`, `has_health_or_special`, `has_other_identifier`.
+- **Why "macro":** F1 is computed separately for each of the 8 types, then averaged with **equal weight**. Rare types like passwords count as much as common ones like names, so a model that only handles common types can't look good overall.
+- **Why it matters:** it's needed to decide **what to redact** and to build a data inventory (ROPA).
+
+#### 5. `ECE (calibration)`: 0.032 / **0.011** / 0.063 (**lower is better**)
+- **Measures:** not whether answers are right, but **whether the model's confidence can be trusted**. If the model says "95% sure" 100 times, it should be right about 95 of those times. ECE is the average gap between the confidence it claims and how often it's actually right.
+- **Why it matters:** in practice you set thresholds on the probability, e.g. p > 0.95 block automatically · 0.5–0.95 send to a person · p < 0.5 let it through. If the confidence is unreliable, those thresholds don't work.
+- **Reading it:** this model is off by only about 1.1%, so its probabilities can be used directly. OpenThai is off by 6.3%.
+
+#### Summary
+
+| Row | Question it answers | Best | This model vs base |
+|---|---|---|---|
+| is_sensitive F1 | Is this text sensitive? | 1.0 | +0.100 |
+| risk_level accuracy | How risky is it (0–4)? | 1.0 | **+43.6 pp** (biggest gain) |
+| primary_category accuracy | What's the riskiest data type in it? | 1.0 | +30.8 pp |
+| has_* macro-F1 | Which data types does it contain (all 8)? | 1.0 | +0.285 |
+| ECE | Can its confidence be trusted? | **0** | about 3× better |
+
 ### Accuracy per question
 
 | Question | base | **pdpa-guard** | OpenThai |
