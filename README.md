@@ -368,8 +368,11 @@ Risk distribution in test: 0 = 313 · 1 = 55 · 2 = 60 · 3 = 87 · 4 = 220 (the
 Reproduce:
 ```bash
 bash scripts/setup_env.sh
+# the dataset lives on HF (not in git, because GitHub push protection blocks the fake API keys in the credential examples)
+hf download Datchthana/thai-pdpa-pii-synthetic --repo-type dataset --local-dir data/processed
 bash scripts/run_pipeline.sh            # train + eval + compare
 ```
+> To regenerate the data from scratch: `python src/pdpa_guard/generate.py` (needs `data/longform/` from the long-form step) then `python scripts/qa_dataset.py`
 
 ---
 

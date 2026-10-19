@@ -30,7 +30,7 @@ def stage_model(run: Path, dst: Path) -> None:
         src = ROOT / sub
         if src.exists():
             for f in src.glob(pattern):
-                if f.is_file() and not f.name.endswith(".db"):
+                if f.is_file() and not f.name.endswith((".db", "train_subset.jsonl")):
                     (dst / sub).mkdir(parents=True, exist_ok=True)
                     shutil.copy2(f, dst / sub / f.name)
     (dst / "src").mkdir()
