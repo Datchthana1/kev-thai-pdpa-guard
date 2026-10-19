@@ -123,6 +123,27 @@ Tested on the **test set of 735 records** (written by different authors from the
 - **kev-pdpa**: this model (fine-tuned)
 - **openthai**: [`iapp/OpenThai-SystemOne`](https://huggingface.co/iapp/OpenThai-SystemOne) (0.8B, a Thai Jev-style decision model)
 
+### What each metric means (read this first)
+
+Every metric below is computed by comparing **the model's answer** with **the correct answer** (computed by the rule code) on the 735 test records. There's a short example after each one, assuming a test set of 100 texts where 60 are truly sensitive and 40 are not.
+
+| Metric | Plain-language meaning | Ideal value | Example |
+|---|---|---|---|
+| **Accuracy** | The fraction of answers that were correct | 1.0 (100%) | It answered 91 out of 100 questions correctly → accuracy 0.91 |
+| **Precision** (is_sensitive) | Of the texts the model **flagged as sensitive**, how many really were. It measures **false alarms**. | 1.0 | It flagged 50 texts, 48 of which really were sensitive → precision 0.96 (2 false alarms) |
+| **Recall** (is_sensitive) | Of the texts that **really were sensitive**, how many the model caught. It measures **misses**. For PDPA this matters most, because a miss means personal data leaks. | 1.0 | 60 were truly sensitive and it caught 48 → recall 0.80 (12 missed) |
+| **F1** | A single number combining precision and recall (their harmonic mean). It's only high when **both** are good. | 1.0 | Precision 0.96 + recall 0.80 → F1 ≈ 0.87 |
+| **Macro-F1** (has_*, primary_category) | Compute F1 for **each type/category separately**, then take the plain average. Rare categories (e.g. credential) count as much as common ones (e.g. name), so the model can't look good just by getting the common categories right. | 1.0 | has_name F1 0.97 but has_credential F1 0.50 → the macro average gets pulled down |
+| **risk_level exact accuracy** | The fraction of texts where the predicted risk level **matched exactly** | 1.0 | True level 4, predicted 4 → correct. Predicted 3 → wrong. |
+| **risk_level ±1 accuracy** | The fraction of predictions **at most one level off** (counted as close enough) | 1.0 | True level 4, predicted 3 → still counts. Predicted 1 → doesn't count. |
+| **MAE** (Mean Absolute Error) of risk | **On average, how many levels off** the prediction is. Lower is better. | 0 | Off by 0, 1, 0, 2 → MAE = (0+1+0+2)/4 = 0.75 levels |
+| **MAE (expected)** | Same as above, but using the "expected value" from the probabilities (e.g. 60% level 4, 40% level 3 → 3.6) instead of the single most likely level | 0 | |
+| **Brier score** | How far the **probabilities** are from the truth, squared. It rewards confident correct answers and penalizes confident wrong ones heavily. Lower is better. | 0 | True "yes": saying 0.95 → small penalty; saying 0.10 → big penalty |
+| **ECE** (Expected Calibration Error) | **Whether the model's confidence can be trusted.** Group answers by confidence (e.g. all answers given at "90% sure") and check whether they're really ~90% correct. Lower is better. | 0 | If it says "90% sure" but is right only 70% of the time → large ECE (overconfident) |
+| **Latency** | Time per text, measured on an RTX 4060 Laptop. p50 = median, p95 = 95% of texts finish within this time. | Lower is better | 1.28 s per text = about 47 texts per minute |
+
+> **Why look at more than accuracy?** If 80% of texts aren't sensitive, a model that "always answers not sensitive" already scores 80% accuracy, yet catches nothing (recall = 0). So we look at **recall/F1** to see whether it catches the real cases, **macro-F1** to see whether it handles every category, and **Brier/ECE** to see whether its probabilities can be trusted for setting thresholds.
+
 ### Headline metrics
 
 | Metric | Kev-4B base | **kev-thai-pdpa-guard** | OpenThai-SystemOne | Change vs base |

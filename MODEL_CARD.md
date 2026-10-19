@@ -59,6 +59,15 @@ LoRA + pointer head on `Qwen/Qwen3.5-4B-Base`), trained on one **RTX 4060 Laptop
 Locked **test split, 735 records** (templates and long-form texts by different authors than train/dev; never trained
 on). All three systems received byte-identical states and questions (`input_sha` checked per record).
 
+**What the metrics mean.** *Accuracy*: share of answers that are correct. *Precision* (is_sensitive): of the texts the
+model flagged, how many really were sensitive (false alarms). *Recall*: of the truly sensitive texts, how many it caught
+(misses; the critical number for privacy). *F1*: harmonic mean of precision and recall, high only when both are.
+*Macro-F1*: F1 computed per category then averaged, so rare categories (credentials, s.26 data) count as much as
+common ones. *Risk exact / ±1*: risk level exactly right / at most one level off. *MAE*: average number of levels the
+risk prediction is off by. *Brier*: squared distance between the predicted probabilities and the truth (punishes
+confident mistakes). *ECE*: calibration, i.e. whether answers given with 90% confidence are right ~90% of the time.
+For all of these, higher is better except MAE, Brier, ECE and latency.
+
 | Metric (test, n=735) | Kev-4B base (zero-shot) | **kev-thai-pdpa-guard** | OpenThai-SystemOne 0.8B |
 |---|---|---|---|
 | is_sensitive F1 | 0.890 | **0.990** | 0.442 |
