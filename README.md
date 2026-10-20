@@ -117,16 +117,17 @@ Every call asks the same 11 questions (defined in [`src/pdpa_guard/taxonomy.py`]
 ## 4. Results and comparison
 
 <!-- RESULTS:START -->
-We compare **4 decision models** (System One / Jev-style: they read the text and return a probability for each option without generating text) on the **test set of 735 records**. It was written by different authors from the training data and never seen during training. Every model received **identical text + questions** (verified with an `input_sha` hash on every record).
+We compare **5 decision models** (System One / Jev-style: they read the text and return a probability for each option without generating text), **including the real Jev**, on the **test set of 735 records**. It was written by different authors from the training data and never seen during training. Every model received **identical text + questions** (verified with an `input_sha` hash on every record).
 
 | Code name | Model | Size | Notes |
 |---|---|---|---|
 | **kev-base** | [`jaredpalmer/kev-4b`](https://huggingface.co/jaredpalmer/kev-4b) | 4B | Kev before fine-tuning (zero-shot) |
 | **kev-pdpa** | **this model** `Datchthana/kev-thai-pdpa-guard` | 4B | Kev-4B + QLoRA on Thai PDPA data |
 | **openthai** | [`iapp/OpenThai-SystemOne`](https://huggingface.co/iapp/OpenThai-SystemOne) | 0.8B | A Thai decision model from iApp (zero-shot) |
-| **tev1** | [`togethercomputer/Tev1-4B-experimental`](https://huggingface.co/togethercomputer/Tev1-4B-experimental) | 4.3B | A 4B decision model from Together AI, the **closest in size and type** to ours (zero-shot, run through Ollama `/v1/systemone`, Q8_0) |
+| **tev1** | [`togethercomputer/Tev1-4B-experimental`](https://huggingface.co/togethercomputer/Tev1-4B-experimental) | 4.3B | A 4B decision model from Together AI, the closest in size and type (zero-shot, Ollama `/v1/systemone`, Q8_0) |
+| **jev** | **Jev (the original, by TypeSafe)** `typesafe-ai/jev` | not disclosed (hosted) | The original System One model that Kev reconstructs; called as an API through the Vercel AI Gateway (zero-shot, paid tier) |
 
-> Only kev-pdpa was trained on PDPA data. The other 3 are zero-shot, so this comparison shows **how much domain fine-tuning adds** over general-purpose decision models of similar size.
+> Only kev-pdpa was trained on PDPA data. The other 4 are zero-shot, so this comparison shows **how much domain fine-tuning adds** over general-purpose decision models, including the large hosted original.
 
 ### What each metric means (read this first)
 
@@ -144,136 +145,116 @@ Every metric below is computed by comparing **the model's answer** with **the co
 | **MAE** of risk | **On average, how many levels off** the prediction is | 0 | Off by 0, 1, 0, 2 → MAE = 0.75 levels |
 | **Brier score** | How far the **probabilities** are from the truth, squared; penalizes confident wrong answers heavily | 0 | True "yes": saying 0.95 → small penalty; saying 0.10 → big penalty |
 | **ECE** | **Whether the model's confidence can be trusted.** When it says "90% sure", is it really ~90% correct? | 0 | Says 90% but is right only 70% of the time → large ECE |
-| **Latency** | Time per text on an RTX 4060 Laptop (p50 = median, p95 = 95% finish within this time) | Lower is better | 1.28 s per text ≈ 47 texts per minute |
+| **Latency** | Time per text (local models on an RTX 4060 Laptop; Jev includes the network round trip to the API) | Lower is better | 1.28 s per text ≈ 47 texts per minute |
 
 > **Why look at more than accuracy?** If 80% of texts aren't sensitive, a model that "always answers not sensitive" already scores 80% accuracy, yet catches nothing (recall = 0). So we also look at recall/F1, macro-F1 and Brier/ECE.
 
-### Headline metrics (4 models)
+### Headline metrics (5 models)
 
-| Metric | Kev-4B base | **kev-thai-pdpa-guard** | OpenThai-SystemOne | Tev1-4B |
-|---|---|---|---|---|
-| is_sensitive F1 | 0.890 | **0.990** | 0.442 | 0.904 |
-| is_sensitive precision / recall | 0.876 / 0.905 | **0.993 / 0.988** | 0.968 / 0.287 | 0.866 / 0.945 |
-| has_* macro-F1 (8 types) | 0.649 | **0.934** | 0.620 | 0.671 |
-| primary_category accuracy | 0.638 | **0.946** | 0.463 | 0.559 |
-| primary_category macro-F1 | 0.565 | **0.931** | 0.436 | 0.520 |
-| risk_level exact accuracy | 0.476 | **0.912** | 0.524 | 0.486 |
-| risk_level ±1 accuracy | 0.703 | **0.977** | 0.702 | 0.702 |
-| risk_level MAE (↓) | 1.033 | **0.125** | 1.083 | 0.913 |
-| Brier, all questions (↓) | 0.247 | **0.040** | 0.295 | 0.253 |
-| ECE, calibration (↓) | 0.032 | **0.011** | 0.063 | 0.039 |
-| Latency per text, RTX 4060 (↓) | 1.31 s | 1.28 s | **0.12 s** | 3.27 s |
+| Metric | Kev-4B base | **kev-thai-pdpa-guard** | OpenThai-SystemOne | Tev1-4B | **Jev (original)** |
+|---|---|---|---|---|---|
+| is_sensitive F1 | 0.890 | **0.990** | 0.442 | 0.904 | 0.923 |
+| is_sensitive precision / recall | 0.876 / 0.905 | **0.993** / 0.988 | 0.968 / 0.287 | 0.866 / 0.945 | 0.864 / **0.991** |
+| has_* macro-F1 (8 types) | 0.649 | **0.934** | 0.620 | 0.671 | 0.764 |
+| primary_category accuracy | 0.638 | **0.946** | 0.463 | 0.559 | 0.732 |
+| primary_category macro-F1 | 0.565 | **0.931** | 0.436 | 0.520 | 0.736 |
+| risk_level exact accuracy | 0.476 | **0.912** | 0.524 | 0.486 | 0.597 |
+| risk_level ±1 accuracy | 0.703 | **0.977** | 0.702 | 0.702 | 0.797 |
+| risk_level MAE (↓) | 1.033 | **0.125** | 1.083 | 0.913 | 0.735 |
+| Brier, all questions (↓) | 0.247 | **0.040** | 0.295 | 0.253 | 0.197 |
+| ECE, calibration (↓) | 0.032 | **0.011** | 0.063 | 0.039 | 0.023 |
+| Latency per text (↓) | 1.31 s | 1.28 s | **0.12 s** | 3.27 s | 0.59 s (API) |
 
 ![headline](results/bar_headline.png)
 
 ### What each row in the table measures
 
-Each row measures **a different ability** of the model. Values are given as **Kev base / this model / OpenThai / Tev1-4B**.
+Each row measures **a different ability** of the model. Values are given as **Kev base / this model / OpenThai / Tev1-4B / Jev**.
 
-#### 1. `is_sensitive F1`: 0.890 / **0.990** / 0.442 / 0.904
+#### 1. `is_sensitive F1`: 0.890 / **0.990** / 0.442 / 0.904 / 0.923
 - **Measures:** whether the model can tell "**this text contains personal data**" from "**no, it doesn't**". It's the yes/no question that acts as the first gate.
 - **Why F1:** this question has two kinds of mistakes: **missing** sensitive data (recall), where it leaks out unnoticed, and **false alarms** (precision). F1 is only high when both are rare.
-- **Reading it:** this model almost never misses and almost never false-alarms. Tev1-4B has good recall (0.945) but more false alarms (precision 0.866). OpenThai misses about **71%** (recall 0.287).
+- **Reading it:** Jev has the highest recall (0.991, it almost never misses), but it **false-alarms often** (precision 0.864, about 14% of its alerts are false). This model is good on both sides (0.993 / 0.988), so its F1 is higher. OpenThai misses about 71%.
 
-#### 2. `risk_level exact accuracy`: 0.476 / **0.912** / 0.524 / 0.486
+#### 2. `risk_level exact accuracy`: 0.476 / **0.912** / 0.524 / 0.486 / 0.597
 - **Measures:** whether the model rates the **risk level 0–4 exactly right** (0 none · 1 low · 2 medium · 3 high · 4 critical).
 - **Why it matters:** this is what decides how strictly to handle the text. Level 4 should be blocked immediately; level 1 might just be logged.
-- **Reading it:** all 3 general-purpose models are only right about half the time (48–52%), because they don't know the PDPA risk rules. This model gets 91.2%, **the biggest gap of all**.
+- **Reading it:** even the real Jev gets only 59.7% (best among the zero-shot models). This model gets 91.2%, **31.5 points above Jev**, because Jev and the others don't know this project's PDPA risk rules (especially level 4 for section 26 data, where Jev scores 47.3%).
 
-#### 3. `primary_category accuracy`: 0.638 / **0.946** / 0.463 / 0.559
+#### 3. `primary_category accuracy`: 0.638 / **0.946** / 0.463 / 0.559 / 0.732
 - **Measures:** whether the model can say **which type of data in the text is the riskiest**, choosing 1 of 10 categories.
 - **Example:** "นายสมชาย เป็นเบาหวาน โทร 081..." contains a name, a phone number and health data. The correct answer is **health** (section 26 data is the riskiest).
-- **Why it matters:** it tells you which legal basis or policy applies. For example, health data requires explicit consent.
+- **Reading it:** Jev comes second (73.2%); this model gets 94.6%.
 
-#### 4. `has_* macro-F1`: 0.649 / **0.934** / 0.620 / 0.671
+#### 4. `has_* macro-F1`: 0.649 / **0.934** / 0.620 / 0.671 / 0.764
 - **Measures:** whether the model can **detect every type of data that appears**: 8 yes/no questions (name, contact, address, national ID, financial, credential, health/section 26, other identifiers).
 - **Why "macro":** F1 for each of the 8 types is averaged with equal weight, so a model that only handles common types can't look good overall.
 - **Why it matters:** it's needed to decide **what to redact** and to build a data inventory (ROPA).
 
-#### 5. `ECE (calibration)`: 0.032 / **0.011** / 0.063 / 0.039 (**lower is better**)
+#### 5. `ECE (calibration)`: 0.032 / **0.011** / 0.063 / 0.039 / 0.023 (**lower is better**)
 - **Measures:** **whether the model's confidence can be trusted.** If the model says "95% sure" 100 times, it should be right about 95 of those times.
 - **Why it matters:** in practice you set thresholds on the probability (e.g. > 0.95 block automatically · 0.5–0.95 send to a person). If the confidence is unreliable, those thresholds don't work.
-- **Reading it:** this model is off by about 1.1%. Tev1-4B's overall ECE is OK (0.039) but its ECE on the risk-score question is high (0.319), so its 0–4 probabilities can't be trusted.
+- **Reading it:** Jev's overall calibration is good (0.023, second place), but its ECE on the 0–4 risk-score question is high (0.282), so its risk probabilities can't be trusted. This model is off by about 1.1% overall and 4.3% on the risk score.
 
 #### Summary
 
-| Row | Question it answers | Best | Leader | This model vs the second-best |
+| Row | Question it answers | Best | Leader | This model vs the real Jev |
 |---|---|---|---|---|
-| is_sensitive F1 | Is this text sensitive? | 1.0 | **this model** | +0.086 (vs Tev1) |
-| risk_level accuracy | How risky is it (0–4)? | 1.0 | **this model** | **+38.8 pp** (vs OpenThai) |
-| primary_category accuracy | What's the riskiest data type in it? | 1.0 | **this model** | +30.8 pp (vs Kev base) |
-| has_* macro-F1 | Which data types does it contain (all 8)? | 1.0 | **this model** | +0.263 (vs Tev1) |
-| ECE | Can its confidence be trusted? | **0** | **this model** | about 3× better (vs Kev base) |
+| is_sensitive F1 | Is this text sensitive? | 1.0 | **this model** | +0.067 |
+| risk_level accuracy | How risky is it (0–4)? | 1.0 | **this model** | **+31.5 pp** |
+| primary_category accuracy | What's the riskiest data type in it? | 1.0 | **this model** | +21.4 pp |
+| has_* macro-F1 | Which data types does it contain (all 8)? | 1.0 | **this model** | +0.170 |
+| ECE | Can its confidence be trusted? | **0** | **this model** | about 2× better |
 
 ### Accuracy per question
 
-| Question | Kev base | **this model** | OpenThai | Tev1-4B |
-|---|---|---|---|---|
-| is_sensitive | 0.872 | **0.989** | 0.585 | 0.884 |
-| risk_level | 0.476 | **0.912** | 0.524 | 0.486 |
-| primary_category | 0.638 | **0.946** | 0.463 | 0.559 |
-| has_name | 0.959 | **0.969** | 0.824 | 0.963 |
-| has_contact | 0.927 | **0.992** | 0.917 | 0.950 |
-| has_address | 0.941 | **0.996** | 0.944 | 0.944 |
-| has_national_id | 0.966 | **0.997** | 0.946 | 0.973 |
-| has_financial | 0.863 | **0.993** | 0.899 | 0.871 |
-| has_credential | 0.811 | **0.992** | 0.898 | 0.906 |
-| has_health_or_special (s.26) | 0.718 | **0.985** | 0.884 | 0.736 |
-| has_other_identifier | 0.824 | **0.947** | 0.878 | 0.800 |
+| Question | Kev base | **this model** | OpenThai | Tev1-4B | Jev |
+|---|---|---|---|---|---|
+| is_sensitive | 0.872 | **0.989** | 0.585 | 0.884 | 0.905 |
+| risk_level | 0.476 | **0.912** | 0.524 | 0.486 | 0.597 |
+| primary_category | 0.638 | **0.946** | 0.463 | 0.559 | 0.732 |
+| has_name | 0.959 | **0.969** | 0.824 | 0.963 | 0.967 |
+| has_contact | 0.927 | **0.992** | 0.917 | 0.950 | 0.940 |
+| has_address | 0.941 | **0.996** | 0.944 | 0.944 | 0.988 |
+| has_national_id | 0.966 | **0.997** | 0.946 | 0.973 | 0.978 |
+| has_financial | 0.863 | **0.993** | 0.899 | 0.871 | 0.868 |
+| has_credential | 0.811 | **0.992** | 0.898 | 0.906 | 0.977 |
+| has_health_or_special (s.26) | 0.718 | **0.985** | 0.884 | 0.736 | 0.873 |
+| has_other_identifier | 0.824 | **0.947** | 0.878 | 0.800 | 0.785 |
 
 ### Accuracy by true risk level
 
-| True risk | n | Kev base | **this model** | OpenThai | Tev1-4B |
-|---|---|---|---|---|---|
-| 0 none | 313 | 0.709 | **0.981** | 0.840 | 0.668 |
-| 1 low | 55 | 0.327 | **0.927** | 0.200 | 0.273 |
-| 2 medium | 60 | 0.983 | 0.917 | 0.650 | **1.000** |
-| 3 high | 87 | 0.195 | **0.667** | 0.034 | 0.195 |
-| 4 critical | 220 | 0.155 | **0.905** | 0.314 | 0.255 |
-| Hard negatives (look sensitive but aren't) | 177 | 0.503 | **0.966** | 0.746 | 0.480 |
+| True risk | n | Kev base | **this model** | OpenThai | Tev1-4B | Jev |
+|---|---|---|---|---|---|---|
+| 0 none | 313 | 0.709 | **0.981** | 0.840 | 0.668 | 0.712 |
+| 1 low | 55 | 0.327 | **0.927** | 0.200 | 0.273 | 0.618 |
+| 2 medium | 60 | 0.983 | 0.917 | 0.650 | **1.000** | 0.967 |
+| 3 high | 87 | 0.195 | **0.667** | 0.034 | 0.195 | 0.230 |
+| 4 critical | 220 | 0.155 | **0.905** | 0.314 | 0.255 | 0.473 |
+| Hard negatives (look sensitive but aren't) | 177 | 0.503 | **0.966** | 0.746 | 0.480 | 0.503 |
 
 ### Calibration by question type (ECE, lower is better)
 
-| Question type | Kev base | **this model** | OpenThai | Tev1-4B |
-|---|---|---|---|---|
-| yes/no (noul) | 0.041 | **0.006** | 0.030 | 0.019 |
-| risk score 0–4 (score) | 0.121 | **0.043** | 0.230 | 0.319 |
-| category (choice) | 0.044 | **0.036** | 0.193 | 0.231 |
+| Question type | Kev base | **this model** | OpenThai | Tev1-4B | Jev |
+|---|---|---|---|---|---|
+| yes/no (noul) | 0.041 | **0.006** | 0.030 | 0.019 | 0.024 |
+| risk score 0–4 (score) | 0.121 | **0.043** | 0.230 | 0.319 | 0.282 |
+| category (choice) | 0.044 | **0.036** | 0.193 | 0.231 | 0.132 |
 
 ### Reading the results
-- **This model leads on every quality metric**, beating both models of the same size (Kev base, Tev1-4B) and the Thai model (OpenThai). The biggest gap is the 0–4 risk level: all 3 general-purpose models get only about half right, because they don't know the PDPA risk rules, especially level 4 (section 26 data), where they score only 16–31%.
-- **Tev1-4B (same size, 4.3B)** is a strong general model: is_sensitive F1 0.904 (above Kev base) and good recall. But it tends to **answer "2" for almost every risk level** (100% at level 2, but only 27% at level 1 and 26% at level 4), and it's the slowest (3.3 s per text), because Ollama asks the 11 questions one at a time.
-- **OpenThai-SystemOne** is the fastest (0.12 s, 10× faster) and very good on hard negatives (0.746), but it misses most sensitive texts (recall 0.287), and its answers are internally inconsistent (e.g. risk 4 but "not sensitive").
-- **Hard negatives** (data that looks sensitive but isn't): this model gets 0.966. The others score 0.48–0.75, so they're easily fooled by order numbers that look like ID numbers or by public figures in the news.
-- **Remaining weak spot of this model:** risk 3 (0.667). Of the 29 misses, 23 were predicted **lower** (mostly as 2), and almost all are cases of the **"3 or more types → +1"** escalation rule, e.g. name + phone + address. More training data for this rule, or computing the escalation in code after the model answers, would help. At level 2 it's slightly below base and Tev1, which tend to answer 2 for everything.
-- ⚠️ The test set comes from the same data generator family (different authors and templates), so these absolute numbers are **an optimistic estimate** of real-world use. The part to trust is the **comparison between models on identical records**. Also, only this model was trained on the task; the other 3 are zero-shot.
+- **This model leads on every quality metric, including against the real Jev.** Jev is the strongest of the 4 zero-shot models (it ranks second on almost every row), which matches its published lead over Kev-4B on general tasks. But fine-tuning on Thai PDPA data puts this 4B model well ahead: +31.5 pp on risk_level, +21.4 pp on primary_category, +0.17 on has_* macro-F1.
+- **Jev catches almost everything (recall 0.991) but false-alarms often (precision 0.864).** It's also easily fooled by hard negatives (0.503, the same as Kev base), e.g. order numbers that look like ID numbers, public figures in the news, or company contacts.
+- **The 0–4 risk level is the biggest gap.** It's a rule specific to this project (PDPA section 26 → level 4, 3+ types → +1), which no zero-shot model can know. Jev gets level 4 right only 47.3% of the time; this model gets 90.5%.
+- **Tev1-4B (same size)** tends to answer "2" for almost every risk level and is the slowest (3.3 s). **OpenThai** is the fastest (0.12 s) but misses most sensitive texts.
+- **Remaining weak spot of this model:** risk 3 (0.667). Of the 29 misses, 23 were predicted **lower** (mostly as 2), almost all cases of the **"3 or more types → +1"** escalation rule. More training data for this rule, or computing the escalation in code after the model answers, would help. (Every other model is even weaker here: 0.03–0.23.)
+- **Cost and speed:** Jev is a paid API (about $0.042 per million input tokens; this whole test cost only a few cents, but needs paid Vercel credits) and sends data out of your machine. This model runs **entirely locally** on an 8 GB laptop GPU, so personal data never leaves the machine, which itself matters for PDPA.
+- ⚠️ The test set comes from the same data generator family (different authors and templates), so these absolute numbers are **an optimistic estimate** of real-world use. The part to trust is the **comparison between models on identical records**. Also, only this model was trained on the task; the other 4 are zero-shot.
 
-### Comparison with the real Jev (TypeSafe)
+### Jev on general tasks (published, for context)
 
-**Jev** is the original System One model from TypeSafe. It's **API-only** (no public weights) and runs through the Vercel AI Gateway, which requires a credit card on file. So we haven't yet run Jev on our 735-record test set. Instead, here are the scores that were **published comparing Jev against Kev-4B (the base model we fine-tuned from) on identical items**. Source: the [Kev-4B model card](https://huggingface.co/jaredpalmer/kev-4b):
+The [Kev-4B card](https://huggingface.co/jaredpalmer/kev-4b) shows that on **general / English** tasks Jev is ahead of Kev-4B base (breadth-v1 test 0.757 vs 0.690; transfer-v4 dev 0.857 vs 0.817; MMLU-Pro 0.840 vs 0.565), while Kev-4B leads on the families it was trained for (hard-v1 0.786 vs 0.777, documents-v1 0.891 vs 0.868). Our result on the Thai PDPA task fits the same pattern: **a general model is strong on broad tasks, but domain fine-tuning beats it on the specific task.**
 
-| Test set (Kev-4B card, English) | Kev-4B base | Jev | Gap |
-|---|---|---|---|
-| breadth-v1 test: 14 public datasets never trained on (3,089 questions) | 0.690 | **0.757** | Jev +6.7 pp |
-| breadth-v1 test: chance-corrected index | 38.0 | **54.0** | Jev +16 |
-| transfer-v4 dev: out-of-domain tasks (656), accuracy / Brier | 0.817 / 0.243 | **0.857 / 0.211** | Jev +4.0 pp |
-| MMLU-Pro, 10 options (general knowledge) | 0.565 | **0.840** | Jev +27.5 pp |
-| Date arithmetic (deadline policy) | 0.65 | **0.95** | Jev +30 pp |
-| hard-v1 dev: reasoning skills Kev was trained on (1,083) | **0.786** | 0.777 | Kev +0.9 pp |
-| devtools-v1 dev (1,072) | **0.739** | 0.713 | Kev +2.6 pp |
-| documents-v1 dev: real CFPB complaint narratives (920) | **0.891** | 0.868 | Kev +2.3 pp |
-| Confident on unanswerable items (p ≥ 0.9, lower is better) | **0.00** | 0.09 | Kev is safer |
-
-And from the [OpenThai-SystemOne card](https://huggingface.co/iapp/OpenThai-SystemOne) (13 public subsets, Bespoke's benchmark): **Jev 76.0** · Nimble-9B 74.8 · OpenThai 0.8B 74.3 (macro average)
-
-**What this tells us:**
-- On **general / unfamiliar tasks** and **knowledge-heavy** ones, Jev is clearly better than Kev-4B base (about +4 to +7 pp on held-out tasks, +27 pp on MMLU-Pro), because Jev is a much larger hosted model.
-- On **tasks Kev was trained for specifically**, Kev-4B base actually **beats Jev** (hard-v1, devtools, documents). That shows **domain fine-tuning closes the gap with a large general model**.
-- On our Thai PDPA test, fine-tuning lifted Kev-4B from base by **+43.6 pp** on risk_level and **+0.100** on is_sensitive F1, far more than the 4–7 pp that Jev leads Kev-4B base by on general tasks. **So we'd expect this model to beat zero-shot Jev on the PDPA task too, but that's an inference, not a measurement.** Jev has to be run on the same 735 records to know for sure.
-
-⚠️ The numbers in this section come from **different test sets** than ours (English, general tasks), so they can't be placed in the same table as the PDPA results above.
-
-**To test Jev directly** (the code is ready): put `AI_GATEWAY_API_KEY=vck_...` in `.env` (Vercel gives $5 of free credit per month once a card is on file; the test costs about $0.05–0.10, with a $1 cap in the code), then run
+How to re-run the Jev comparison: put `AI_GATEWAY_API_KEY=vck_...` in `.env` (needs **paid** Vercel AI Gateway credits; Jev isn't available on the free tier), then
 ```bash
 cd tools/jev_worker && npm install && cd ../..
 python scripts/evaluate.py --system jev && python scripts/compare.py --systems kev-base,kev-pdpa,openthai,tev1,jev
@@ -533,5 +514,5 @@ Quality gates that were enforced: the PM rejected the first data round (unrealis
 ## License and acknowledgements
 - Adapter, head, code and dataset: **Apache-2.0**
 - Base model: [Qwen/Qwen3.5-4B-Base](https://huggingface.co/Qwen/Qwen3.5-4B-Base) (Apache-2.0); [Kev](https://github.com/jaredpalmer/kev) by Jared Palmer (Apache-2.0)
-- Compared against [iapp/OpenThai-SystemOne](https://huggingface.co/iapp/OpenThai-SystemOne) (Apache-2.0) and [togethercomputer/Tev1-4B-experimental](https://huggingface.co/togethercomputer/Tev1-4B-experimental)
+- Compared against [iapp/OpenThai-SystemOne](https://huggingface.co/iapp/OpenThai-SystemOne) (Apache-2.0) and [togethercomputer/Tev1-4B-experimental](https://huggingface.co/togethercomputer/Tev1-4B-experimental), and the hosted TypeSafe Jev (`typesafe-ai/jev`) via the Vercel AI Gateway
 - Diagrams by [archify](https://github.com/tt-a1i/archify) (MIT)

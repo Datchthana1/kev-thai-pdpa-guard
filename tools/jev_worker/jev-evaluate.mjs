@@ -15,7 +15,8 @@ for await (const line of input) {
       }])),
       maxRetries: 0,
       abortSignal: AbortSignal.timeout(60000),
-      providerOptions: { gateway: { zeroDataRetention: true } },
+      // zeroDataRetention is Pro/Enterprise only on AI Gateway; opt in with JEV_ZDR=1 (test data here is synthetic and public)
+      ...(process.env.JEV_ZDR === "1" ? { providerOptions: { gateway: { zeroDataRetention: true } } } : {}),
     });
     process.stdout.write(JSON.stringify({
       answers: result.answers,

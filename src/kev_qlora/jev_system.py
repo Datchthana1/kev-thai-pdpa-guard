@@ -1,7 +1,7 @@
 """Jev (TypeSafe's hosted System One model, `typesafe-ai/jev`) as an evaluation system, through the Vercel AI Gateway.
 
 Needs AI_GATEWAY_API_KEY in the environment (or in a git-ignored `.env` at the project root) and the Node worker in
-tools/jev_worker (`npm install` there). Each request is sent with zero data retention requested; every call is
+tools/jev_worker (`npm install` there). Zero data retention is requested only with JEV_ZDR=1 (a Pro/Enterprise feature); every call is
 counted against a USD budget at Jev's list price, and the run stops before the budget would be exceeded.
 
     answers, latency_s = JevSystem(budget_usd=1.0).predict(state, questions)
@@ -79,7 +79,7 @@ class JevSystem:
     def accounting(self):
         return {"model": self.name, "calls": self.calls, "input_tokens": self.input_tokens, "output_tokens": self.output_tokens,
                 "estimated_usd": round(self.input_tokens * PRICE_PER_MILLION / 1e6, 4), "budget_usd": self.budget,
-                "sdk": "ai@7.0.105 via Vercel AI Gateway", "zero_data_retention_requested": True}
+                "sdk": "ai@7.0.105 via Vercel AI Gateway", "zero_data_retention_requested": os.environ.get("JEV_ZDR") == "1"}
 
     def close(self):
         if self.proc.poll() is None:

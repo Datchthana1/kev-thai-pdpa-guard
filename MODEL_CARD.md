@@ -68,18 +68,18 @@ risk prediction is off by. *Brier*: squared distance between the predicted proba
 confident mistakes). *ECE*: calibration, i.e. whether answers given with 90% confidence are right ~90% of the time.
 For all of these, higher is better except MAE, Brier, ECE and latency.
 
-| Metric (test, n=735) | Kev-4B base (zero-shot) | **kev-thai-pdpa-guard** | OpenThai-SystemOne 0.8B | Tev1-4B (4.3B, zero-shot) |
-|---|---|---|---|---|
-| is_sensitive F1 | 0.890 | **0.990** | 0.442 | 0.904 |
-| is_sensitive precision / recall | 0.876 / 0.905 | **0.993 / 0.988** | 0.968 / 0.287 | 0.866 / 0.945 |
-| has_* macro-F1 (8 PII types) | 0.649 | **0.934** | 0.620 | 0.671 |
-| primary_category accuracy / macro-F1 | 0.638 / 0.565 | **0.946 / 0.931** | 0.463 / 0.436 | 0.559 / 0.520 |
-| risk_level exact accuracy | 0.476 | **0.912** | 0.524 | 0.486 |
-| risk_level within ±1 | 0.703 | **0.977** | 0.702 | 0.702 |
-| risk_level MAE | 1.033 | **0.125** | 1.083 | 0.913 |
-| Brier (all questions, lower is better) | 0.247 | **0.040** | 0.295 | 0.253 |
-| ECE (15 bins, lower is better) | 0.032 | **0.011** | 0.063 | 0.039 |
-| Mean latency, RTX 4060 Laptop | 1.31 s (4-bit) | 1.28 s (4-bit) | **0.12 s** (bf16) | 3.27 s (Ollama Q8_0) |
+| Metric (test, n=735) | Kev-4B base (zero-shot) | **kev-thai-pdpa-guard** | OpenThai-SystemOne 0.8B | Tev1-4B (4.3B, zero-shot) | Jev, TypeSafe hosted (zero-shot) |
+|---|---|---|---|---|---|
+| is_sensitive F1 | 0.890 | **0.990** | 0.442 | 0.904 | 0.923 |
+| is_sensitive precision / recall | 0.876 / 0.905 | **0.993 / 0.988** | 0.968 / 0.287 | 0.866 / 0.945 | 0.864 / 0.991 |
+| has_* macro-F1 (8 PII types) | 0.649 | **0.934** | 0.620 | 0.671 | 0.764 |
+| primary_category accuracy / macro-F1 | 0.638 / 0.565 | **0.946 / 0.931** | 0.463 / 0.436 | 0.559 / 0.520 | 0.732 / 0.736 |
+| risk_level exact accuracy | 0.476 | **0.912** | 0.524 | 0.486 | 0.597 |
+| risk_level within ±1 | 0.703 | **0.977** | 0.702 | 0.702 | 0.797 |
+| risk_level MAE | 1.033 | **0.125** | 1.083 | 0.913 | 0.735 |
+| Brier (all questions, lower is better) | 0.247 | **0.040** | 0.295 | 0.253 | 0.197 |
+| ECE (15 bins, lower is better) | 0.032 | **0.011** | 0.063 | 0.039 | 0.023 |
+| Mean latency, RTX 4060 Laptop | 1.31 s (4-bit) | 1.28 s (4-bit) | **0.12 s** (bf16) | 3.27 s (Ollama Q8_0) | 0.59 s (API) |
 
 Risk accuracy by gold level (n): 0 (313) 0.981 · 1 (55) 0.927 · 2 (60) 0.917 · 3 (87) 0.667 · 4 (220) 0.905
 (base: 0.709 / 0.327 / 0.983 / 0.195 / 0.155). Hard negatives: risk exact accuracy 0.966 (base 0.503).
@@ -95,13 +95,13 @@ text; the system-to-system comparison on identical items is the reliable signal.
 
 ![headline metrics](results/bar_headline.png)
 
-**Versus the real Jev (TypeSafe, hosted).** Jev is API-only and was not run on this test set. On the
-[Kev-4B card](https://huggingface.co/jaredpalmer/kev-4b), Jev leads our starting checkpoint Kev-4B on general held-out
-tasks (breadth-v1 test 0.757 vs 0.690; transfer-v4 dev 0.857 vs 0.817; MMLU-Pro 0.840 vs 0.565), while Kev-4B leads on
-the families it was trained for (hard-v1 0.786 vs 0.777, devtools-v1 0.739 vs 0.713, documents-v1 0.891 vs 0.868).
-Our PDPA fine-tune moves Kev-4B by +43.6 pp on risk_level, far more than Jev's general-task margin, so we expect it to
-beat zero-shot Jev on this task, but that is an inference, not a measurement. `python scripts/evaluate.py --system jev`
-runs the direct comparison (needs a Vercel AI Gateway key).
+**Versus the real Jev (TypeSafe, hosted).** Jev was run zero-shot on the same 735 records through the Vercel AI
+Gateway. It is the strongest of the zero-shot systems (second on almost every row) and has the best recall (0.991),
+but it false-alarms more (precision 0.864), is fooled by hard negatives (risk exact 0.503) and does not know the
+project's PDPA risk rules (risk exact 0.597; level 4 only 0.473). The fine-tuned 4B model beats it by +31.5 pp on
+risk_level, +21.4 pp on primary_category and +0.17 has_* macro-F1, while running entirely on a local 8 GB GPU so
+personal data never leaves the machine. (On general English tasks Jev leads Kev-4B base, per the
+[Kev-4B card](https://huggingface.co/jaredpalmer/kev-4b): breadth-v1 0.757 vs 0.690.)
 <!-- RESULTS:END -->
 
 ## Model details
