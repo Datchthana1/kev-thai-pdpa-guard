@@ -56,6 +56,10 @@ def get_system(name, run=None, device="cuda", load_4bit=True, **kw):
     if name == "openthai":
         from .openthai_adapter import OpenThaiSystem
         return OpenThaiSystem(backend="transformers", device=device, **kw)
+    if name == "jev":
+        # the real Jev (TypeSafe, hosted) through the Vercel AI Gateway; needs AI_GATEWAY_API_KEY
+        from .jev_system import JevSystem
+        return JevSystem(budget_usd=float(kw.pop("budget_usd", 1.0)))
     if name == "tev1":
         # togethercomputer/Tev1-4B-experimental (4.3B, Q8_0) through Ollama's /v1/systemone, which turns the model's
         # option-letter probabilities into choice / noul / score answers. Ollama decides GPU placement.

@@ -248,6 +248,37 @@ Each row measures **a different ability** of the model. Values are given as **Ke
 - **Remaining weak spot of this model:** risk 3 (0.667). Of the 29 misses, 23 were predicted **lower** (mostly as 2), and almost all are cases of the **"3 or more types → +1"** escalation rule, e.g. name + phone + address. More training data for this rule, or computing the escalation in code after the model answers, would help. At level 2 it's slightly below base and Tev1, which tend to answer 2 for everything.
 - ⚠️ The test set comes from the same data generator family (different authors and templates), so these absolute numbers are **an optimistic estimate** of real-world use. The part to trust is the **comparison between models on identical records**. Also, only this model was trained on the task; the other 3 are zero-shot.
 
+### Comparison with the real Jev (TypeSafe)
+
+**Jev** is the original System One model from TypeSafe. It's **API-only** (no public weights) and runs through the Vercel AI Gateway, which requires a credit card on file. So we haven't yet run Jev on our 735-record test set. Instead, here are the scores that were **published comparing Jev against Kev-4B (the base model we fine-tuned from) on identical items**. Source: the [Kev-4B model card](https://huggingface.co/jaredpalmer/kev-4b):
+
+| Test set (Kev-4B card, English) | Kev-4B base | Jev | Gap |
+|---|---|---|---|
+| breadth-v1 test: 14 public datasets never trained on (3,089 questions) | 0.690 | **0.757** | Jev +6.7 pp |
+| breadth-v1 test: chance-corrected index | 38.0 | **54.0** | Jev +16 |
+| transfer-v4 dev: out-of-domain tasks (656), accuracy / Brier | 0.817 / 0.243 | **0.857 / 0.211** | Jev +4.0 pp |
+| MMLU-Pro, 10 options (general knowledge) | 0.565 | **0.840** | Jev +27.5 pp |
+| Date arithmetic (deadline policy) | 0.65 | **0.95** | Jev +30 pp |
+| hard-v1 dev: reasoning skills Kev was trained on (1,083) | **0.786** | 0.777 | Kev +0.9 pp |
+| devtools-v1 dev (1,072) | **0.739** | 0.713 | Kev +2.6 pp |
+| documents-v1 dev: real CFPB complaint narratives (920) | **0.891** | 0.868 | Kev +2.3 pp |
+| Confident on unanswerable items (p ≥ 0.9, lower is better) | **0.00** | 0.09 | Kev is safer |
+
+And from the [OpenThai-SystemOne card](https://huggingface.co/iapp/OpenThai-SystemOne) (13 public subsets, Bespoke's benchmark): **Jev 76.0** · Nimble-9B 74.8 · OpenThai 0.8B 74.3 (macro average)
+
+**What this tells us:**
+- On **general / unfamiliar tasks** and **knowledge-heavy** ones, Jev is clearly better than Kev-4B base (about +4 to +7 pp on held-out tasks, +27 pp on MMLU-Pro), because Jev is a much larger hosted model.
+- On **tasks Kev was trained for specifically**, Kev-4B base actually **beats Jev** (hard-v1, devtools, documents). That shows **domain fine-tuning closes the gap with a large general model**.
+- On our Thai PDPA test, fine-tuning lifted Kev-4B from base by **+43.6 pp** on risk_level and **+0.100** on is_sensitive F1, far more than the 4–7 pp that Jev leads Kev-4B base by on general tasks. **So we'd expect this model to beat zero-shot Jev on the PDPA task too, but that's an inference, not a measurement.** Jev has to be run on the same 735 records to know for sure.
+
+⚠️ The numbers in this section come from **different test sets** than ours (English, general tasks), so they can't be placed in the same table as the PDPA results above.
+
+**To test Jev directly** (the code is ready): put `AI_GATEWAY_API_KEY=vck_...` in `.env` (Vercel gives $5 of free credit per month once a card is on file; the test costs about $0.05–0.10, with a $1 cap in the code), then run
+```bash
+cd tools/jev_worker && npm install && cd ../..
+python scripts/evaluate.py --system jev && python scripts/compare.py --systems kev-base,kev-pdpa,openthai,tev1,jev
+```
+
 More detail (by genre, confusion matrix, reliability diagrams): [`results/comparison.md`](results/comparison.md) · charts in `results/` (`bar_by_genre.png`, `risk_confusion_*.png`, `reliability_*.png`)
 <!-- RESULTS:END -->
 

@@ -1,0 +1,7 @@
+{
+  "name": "jev-worker",
+  "private": true,
+  "type": "module",
+  "description": "Line-delimited JSON worker that sends Kev/TypeSafe requests to typesafe-ai/jev through the Vercel AI Gateway (copied from jaredpalmer/kev playground/scripts/jev-evaluate.mjs).",
+  "dependencies": { "ai": "7.0.105" }
+}

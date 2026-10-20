@@ -94,6 +94,14 @@ text; the system-to-system comparison on identical items is the reliable signal.
 [`results/comparison.md`](results/comparison.md).
 
 ![headline metrics](results/bar_headline.png)
+
+**Versus the real Jev (TypeSafe, hosted).** Jev is API-only and was not run on this test set. On the
+[Kev-4B card](https://huggingface.co/jaredpalmer/kev-4b), Jev leads our starting checkpoint Kev-4B on general held-out
+tasks (breadth-v1 test 0.757 vs 0.690; transfer-v4 dev 0.857 vs 0.817; MMLU-Pro 0.840 vs 0.565), while Kev-4B leads on
+the families it was trained for (hard-v1 0.786 vs 0.777, devtools-v1 0.739 vs 0.713, documents-v1 0.891 vs 0.868).
+Our PDPA fine-tune moves Kev-4B by +43.6 pp on risk_level, far more than Jev's general-task margin, so we expect it to
+beat zero-shot Jev on this task, but that is an inference, not a measurement. `python scripts/evaluate.py --system jev`
+runs the direct comparison (needs a Vercel AI Gateway key).
 <!-- RESULTS:END -->
 
 ## Model details
