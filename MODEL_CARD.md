@@ -68,25 +68,26 @@ risk prediction is off by. *Brier*: squared distance between the predicted proba
 confident mistakes). *ECE*: calibration, i.e. whether answers given with 90% confidence are right ~90% of the time.
 For all of these, higher is better except MAE, Brier, ECE and latency.
 
-| Metric (test, n=735) | Kev-4B base (zero-shot) | **kev-thai-pdpa-guard** | OpenThai-SystemOne 0.8B |
-|---|---|---|---|
-| is_sensitive F1 | 0.890 | **0.990** | 0.442 |
-| is_sensitive precision / recall | 0.876 / 0.905 | **0.993 / 0.988** | 0.968 / 0.287 |
-| has_* macro-F1 (8 PII types) | 0.649 | **0.934** | 0.620 |
-| primary_category accuracy / macro-F1 | 0.638 / 0.565 | **0.946 / 0.931** | 0.463 / 0.436 |
-| risk_level exact accuracy | 0.476 | **0.912** | 0.524 |
-| risk_level within ±1 | 0.703 | **0.977** | 0.702 |
-| risk_level MAE | 1.033 | **0.125** | 1.083 |
-| Brier (all questions, lower is better) | 0.247 | **0.040** | 0.295 |
-| ECE (15 bins, lower is better) | 0.032 | **0.011** | 0.063 |
-| Mean latency, RTX 4060 Laptop | 1.31 s (4-bit) | 1.28 s (4-bit) | **0.12 s** (bf16) |
+| Metric (test, n=735) | Kev-4B base (zero-shot) | **kev-thai-pdpa-guard** | OpenThai-SystemOne 0.8B | Tev1-4B (4.3B, zero-shot) |
+|---|---|---|---|---|
+| is_sensitive F1 | 0.890 | **0.990** | 0.442 | 0.904 |
+| is_sensitive precision / recall | 0.876 / 0.905 | **0.993 / 0.988** | 0.968 / 0.287 | 0.866 / 0.945 |
+| has_* macro-F1 (8 PII types) | 0.649 | **0.934** | 0.620 | 0.671 |
+| primary_category accuracy / macro-F1 | 0.638 / 0.565 | **0.946 / 0.931** | 0.463 / 0.436 | 0.559 / 0.520 |
+| risk_level exact accuracy | 0.476 | **0.912** | 0.524 | 0.486 |
+| risk_level within ±1 | 0.703 | **0.977** | 0.702 | 0.702 |
+| risk_level MAE | 1.033 | **0.125** | 1.083 | 0.913 |
+| Brier (all questions, lower is better) | 0.247 | **0.040** | 0.295 | 0.253 |
+| ECE (15 bins, lower is better) | 0.032 | **0.011** | 0.063 | 0.039 |
+| Mean latency, RTX 4060 Laptop | 1.31 s (4-bit) | 1.28 s (4-bit) | **0.12 s** (bf16) | 3.27 s (Ollama Q8_0) |
 
 Risk accuracy by gold level (n): 0 (313) 0.981 · 1 (55) 0.927 · 2 (60) 0.917 · 3 (87) 0.667 · 4 (220) 0.905
 (base: 0.709 / 0.327 / 0.983 / 0.195 / 0.155). Hard negatives: risk exact accuracy 0.966 (base 0.503).
 
 **Reading.** Fine-tuning lifts every metric; the largest gain is the 0–4 risk score (+43.6 pp), especially PDPA s.26
 critical cases (0.155 → 0.905). OpenThai-SystemOne is ten times faster and reasonable on the per-type flags, but it is
-zero-shot on this task and misses most sensitive texts (recall 0.287). The remaining weakness is risk 3: 23 of its 29
+zero-shot on this task and misses most sensitive texts (recall 0.287). Tev1-4B (Together AI, the closest model in size and
+type) has good recall (0.945) but collapses the risk scale toward level 2 (risk 4 accuracy 0.255, score ECE 0.319). The remaining weakness is risk 3: 23 of its 29
 misses are under-predictions where the "three or more PII types → +1" escalation applies (e.g. name + phone + address).
 The test split comes from the same synthetic generator family, so absolute numbers are optimistic for real-world
 text; the system-to-system comparison on identical items is the reliable signal. Full tables:

@@ -117,11 +117,16 @@ Every call asks the same 11 questions (defined in [`src/pdpa_guard/taxonomy.py`]
 ## 4. Results and comparison
 
 <!-- RESULTS:START -->
-Tested on the **test set of 735 records** (written by different authors from the training data, never seen during training). All 3 systems received **identical text + questions** (verified by an `input_sha` hash on every record):
+We compare **4 decision models** (System One / Jev-style: they read the text and return a probability for each option without generating text) on the **test set of 735 records**. It was written by different authors from the training data and never seen during training. Every model received **identical text + questions** (verified with an `input_sha` hash on every record).
 
-- **kev-base**: `jaredpalmer/kev-4b` before fine-tuning (zero-shot)
-- **kev-pdpa**: this model (fine-tuned)
-- **openthai**: [`iapp/OpenThai-SystemOne`](https://huggingface.co/iapp/OpenThai-SystemOne) (0.8B, a Thai Jev-style decision model)
+| Code name | Model | Size | Notes |
+|---|---|---|---|
+| **kev-base** | [`jaredpalmer/kev-4b`](https://huggingface.co/jaredpalmer/kev-4b) | 4B | Kev before fine-tuning (zero-shot) |
+| **kev-pdpa** | **this model** `Datchthana/kev-thai-pdpa-guard` | 4B | Kev-4B + QLoRA on Thai PDPA data |
+| **openthai** | [`iapp/OpenThai-SystemOne`](https://huggingface.co/iapp/OpenThai-SystemOne) | 0.8B | A Thai decision model from iApp (zero-shot) |
+| **tev1** | [`togethercomputer/Tev1-4B-experimental`](https://huggingface.co/togethercomputer/Tev1-4B-experimental) | 4.3B | A 4B decision model from Together AI, the **closest in size and type** to ours (zero-shot, run through Ollama `/v1/systemone`, Q8_0) |
+
+> Only kev-pdpa was trained on PDPA data. The other 3 are zero-shot, so this comparison shows **how much domain fine-tuning adds** over general-purpose decision models of similar size.
 
 ### What each metric means (read this first)
 
@@ -130,112 +135,120 @@ Every metric below is computed by comparing **the model's answer** with **the co
 | Metric | Plain-language meaning | Ideal value | Example |
 |---|---|---|---|
 | **Accuracy** | The fraction of answers that were correct | 1.0 (100%) | It answered 91 out of 100 questions correctly → accuracy 0.91 |
-| **Precision** (is_sensitive) | Of the texts the model **flagged as sensitive**, how many really were. It measures **false alarms**. | 1.0 | It flagged 50 texts, 48 of which really were sensitive → precision 0.96 (2 false alarms) |
-| **Recall** (is_sensitive) | Of the texts that **really were sensitive**, how many the model caught. It measures **misses**. For PDPA this matters most, because a miss means personal data leaks. | 1.0 | 60 were truly sensitive and it caught 48 → recall 0.80 (12 missed) |
-| **F1** | A single number combining precision and recall (their harmonic mean). It's only high when **both** are good. | 1.0 | Precision 0.96 + recall 0.80 → F1 ≈ 0.87 |
-| **Macro-F1** (has_*, primary_category) | Compute F1 for **each type/category separately**, then take the plain average. Rare categories (e.g. credential) count as much as common ones (e.g. name), so the model can't look good just by getting the common categories right. | 1.0 | has_name F1 0.97 but has_credential F1 0.50 → the macro average gets pulled down |
-| **risk_level exact accuracy** | The fraction of texts where the predicted risk level **matched exactly** | 1.0 | True level 4, predicted 4 → correct. Predicted 3 → wrong. |
-| **risk_level ±1 accuracy** | The fraction of predictions **at most one level off** (counted as close enough) | 1.0 | True level 4, predicted 3 → still counts. Predicted 1 → doesn't count. |
-| **MAE** (Mean Absolute Error) of risk | **On average, how many levels off** the prediction is. Lower is better. | 0 | Off by 0, 1, 0, 2 → MAE = (0+1+0+2)/4 = 0.75 levels |
-| **MAE (expected)** | Same as above, but using the "expected value" from the probabilities (e.g. 60% level 4, 40% level 3 → 3.6) instead of the single most likely level | 0 | |
-| **Brier score** | How far the **probabilities** are from the truth, squared. It rewards confident correct answers and penalizes confident wrong ones heavily. Lower is better. | 0 | True "yes": saying 0.95 → small penalty; saying 0.10 → big penalty |
-| **ECE** (Expected Calibration Error) | **Whether the model's confidence can be trusted.** Group answers by confidence (e.g. all answers given at "90% sure") and check whether they're really ~90% correct. Lower is better. | 0 | If it says "90% sure" but is right only 70% of the time → large ECE (overconfident) |
-| **Latency** | Time per text, measured on an RTX 4060 Laptop. p50 = median, p95 = 95% of texts finish within this time. | Lower is better | 1.28 s per text = about 47 texts per minute |
+| **Precision** (is_sensitive) | Of the texts the model **flagged as sensitive**, how many really were. It measures **false alarms**. | 1.0 | It flagged 50 texts, 48 of which really were sensitive → precision 0.96 |
+| **Recall** (is_sensitive) | Of the texts that **really were sensitive**, how many the model caught. It measures **misses**. For PDPA this matters most, because a miss means personal data leaks. | 1.0 | 60 were truly sensitive and it caught 48 → recall 0.80 |
+| **F1** | A single number combining precision and recall. It's only high when **both** are good. | 1.0 | Precision 0.96 + recall 0.80 → F1 ≈ 0.87 |
+| **Macro-F1** | Compute F1 for **each type/category separately**, then take the plain average. Rare categories count as much as common ones. | 1.0 | has_name F1 0.97 but has_credential F1 0.50 → the average gets pulled down |
+| **risk exact accuracy** | The fraction of texts where the risk level **matched exactly** | 1.0 | True level 4, predicted 4 → correct. Predicted 3 → wrong. |
+| **risk ±1 accuracy** | The fraction of predictions **at most one level off** | 1.0 | True level 4, predicted 3 → still counts |
+| **MAE** of risk | **On average, how many levels off** the prediction is | 0 | Off by 0, 1, 0, 2 → MAE = 0.75 levels |
+| **Brier score** | How far the **probabilities** are from the truth, squared; penalizes confident wrong answers heavily | 0 | True "yes": saying 0.95 → small penalty; saying 0.10 → big penalty |
+| **ECE** | **Whether the model's confidence can be trusted.** When it says "90% sure", is it really ~90% correct? | 0 | Says 90% but is right only 70% of the time → large ECE |
+| **Latency** | Time per text on an RTX 4060 Laptop (p50 = median, p95 = 95% finish within this time) | Lower is better | 1.28 s per text ≈ 47 texts per minute |
 
-> **Why look at more than accuracy?** If 80% of texts aren't sensitive, a model that "always answers not sensitive" already scores 80% accuracy, yet catches nothing (recall = 0). So we look at **recall/F1** to see whether it catches the real cases, **macro-F1** to see whether it handles every category, and **Brier/ECE** to see whether its probabilities can be trusted for setting thresholds.
+> **Why look at more than accuracy?** If 80% of texts aren't sensitive, a model that "always answers not sensitive" already scores 80% accuracy, yet catches nothing (recall = 0). So we also look at recall/F1, macro-F1 and Brier/ECE.
 
-### Headline metrics
+### Headline metrics (4 models)
 
-| Metric | Kev-4B base | **kev-thai-pdpa-guard** | OpenThai-SystemOne | Change vs base |
+| Metric | Kev-4B base | **kev-thai-pdpa-guard** | OpenThai-SystemOne | Tev1-4B |
 |---|---|---|---|---|
-| is_sensitive F1 | 0.890 | **0.990** | 0.442 | +0.100 |
-| is_sensitive precision / recall | 0.876 / 0.905 | **0.993 / 0.988** | 0.968 / 0.287 | |
-| has_* macro-F1 (8 types) | 0.649 | **0.934** | 0.620 | +0.285 |
-| primary_category accuracy | 0.638 | **0.946** | 0.463 | +30.8 pp |
-| primary_category macro-F1 | 0.565 | **0.931** | 0.436 | +0.366 |
-| risk_level exact accuracy | 0.476 | **0.912** | 0.524 | **+43.6 pp** |
-| risk_level ±1 accuracy | 0.703 | **0.977** | 0.702 | +27.4 pp |
-| risk_level MAE (↓) | 1.033 | **0.125** | 1.083 | −88% |
-| Brier, all questions (↓) | 0.247 | **0.040** | 0.295 | −84% |
-| ECE, calibration (↓) | 0.032 | **0.011** | 0.063 | −66% |
-| Latency per text (RTX 4060, 4-bit) | 1.31 s | 1.28 s | **0.12 s** | |
+| is_sensitive F1 | 0.890 | **0.990** | 0.442 | 0.904 |
+| is_sensitive precision / recall | 0.876 / 0.905 | **0.993 / 0.988** | 0.968 / 0.287 | 0.866 / 0.945 |
+| has_* macro-F1 (8 types) | 0.649 | **0.934** | 0.620 | 0.671 |
+| primary_category accuracy | 0.638 | **0.946** | 0.463 | 0.559 |
+| primary_category macro-F1 | 0.565 | **0.931** | 0.436 | 0.520 |
+| risk_level exact accuracy | 0.476 | **0.912** | 0.524 | 0.486 |
+| risk_level ±1 accuracy | 0.703 | **0.977** | 0.702 | 0.702 |
+| risk_level MAE (↓) | 1.033 | **0.125** | 1.083 | 0.913 |
+| Brier, all questions (↓) | 0.247 | **0.040** | 0.295 | 0.253 |
+| ECE, calibration (↓) | 0.032 | **0.011** | 0.063 | 0.039 |
+| Latency per text, RTX 4060 (↓) | 1.31 s | 1.28 s | **0.12 s** | 3.27 s |
 
 ![headline](results/bar_headline.png)
 
 ### What each row in the table measures
 
-Each row measures **a different ability** of the model. The columns are always **Kev-4B base / this model / OpenThai**.
+Each row measures **a different ability** of the model. Values are given as **Kev base / this model / OpenThai / Tev1-4B**.
 
-#### 1. `is_sensitive F1`: 0.890 / **0.990** / 0.442
+#### 1. `is_sensitive F1`: 0.890 / **0.990** / 0.442 / 0.904
 - **Measures:** whether the model can tell "**this text contains personal data**" from "**no, it doesn't**". It's the yes/no question that acts as the first gate.
-- **Why F1:** this question has two kinds of mistakes and both matter: **missing** sensitive data (recall), where it leaks out unnoticed, and **false alarms** (precision), where clean text gets blocked unnecessarily. F1 is only high when both are rare.
-- **Reading it:** this model almost never misses and almost never false-alarms. OpenThai misses about **71%** of sensitive texts (recall 0.287).
+- **Why F1:** this question has two kinds of mistakes: **missing** sensitive data (recall), where it leaks out unnoticed, and **false alarms** (precision). F1 is only high when both are rare.
+- **Reading it:** this model almost never misses and almost never false-alarms. Tev1-4B has good recall (0.945) but more false alarms (precision 0.866). OpenThai misses about **71%** (recall 0.287).
 
-#### 2. `risk_level exact accuracy`: 0.476 / **0.912** / 0.524
+#### 2. `risk_level exact accuracy`: 0.476 / **0.912** / 0.524 / 0.486
 - **Measures:** whether the model rates the **risk level 0–4 exactly right** (0 none · 1 low · 2 medium · 3 high · 4 critical).
-- **Why it matters:** this is what decides **how strictly to handle the text**. Level 4 should be blocked immediately; level 1 might just be logged.
-- **Reading it:** base got it exactly right in under half the texts (47.6%); this model gets 91.2%. **The biggest improvement**, because base Kev has never learned the PDPA risk rules.
+- **Why it matters:** this is what decides how strictly to handle the text. Level 4 should be blocked immediately; level 1 might just be logged.
+- **Reading it:** all 3 general-purpose models are only right about half the time (48–52%), because they don't know the PDPA risk rules. This model gets 91.2%, **the biggest gap of all**.
 
-#### 3. `primary_category accuracy`: 0.638 / **0.946** / 0.463
-- **Measures:** whether the model can say **which type of data in the text is the riskiest**, choosing 1 of 10 categories (none, name, contact, address, national_id, financial, credential, health, special_category, other_identifier).
-- **Example:** "นายสมชาย เป็นเบาหวาน โทร 081..." contains a name, a phone number and health data. The correct answer is **health**, because health data is the riskiest (section 26).
+#### 3. `primary_category accuracy`: 0.638 / **0.946** / 0.463 / 0.559
+- **Measures:** whether the model can say **which type of data in the text is the riskiest**, choosing 1 of 10 categories.
+- **Example:** "นายสมชาย เป็นเบาหวาน โทร 081..." contains a name, a phone number and health data. The correct answer is **health** (section 26 data is the riskiest).
 - **Why it matters:** it tells you which legal basis or policy applies. For example, health data requires explicit consent.
 
-#### 4. `has_* macro-F1`: 0.649 / **0.934** / 0.620
-- **Measures:** whether the model can **detect every type of data that appears**, not just the riskiest one. There are 8 yes/no questions: `has_name`, `has_contact`, `has_address`, `has_national_id`, `has_financial`, `has_credential`, `has_health_or_special`, `has_other_identifier`.
-- **Why "macro":** F1 is computed separately for each of the 8 types, then averaged with **equal weight**. Rare types like passwords count as much as common ones like names, so a model that only handles common types can't look good overall.
+#### 4. `has_* macro-F1`: 0.649 / **0.934** / 0.620 / 0.671
+- **Measures:** whether the model can **detect every type of data that appears**: 8 yes/no questions (name, contact, address, national ID, financial, credential, health/section 26, other identifiers).
+- **Why "macro":** F1 for each of the 8 types is averaged with equal weight, so a model that only handles common types can't look good overall.
 - **Why it matters:** it's needed to decide **what to redact** and to build a data inventory (ROPA).
 
-#### 5. `ECE (calibration)`: 0.032 / **0.011** / 0.063 (**lower is better**)
-- **Measures:** not whether answers are right, but **whether the model's confidence can be trusted**. If the model says "95% sure" 100 times, it should be right about 95 of those times. ECE is the average gap between the confidence it claims and how often it's actually right.
-- **Why it matters:** in practice you set thresholds on the probability, e.g. p > 0.95 block automatically · 0.5–0.95 send to a person · p < 0.5 let it through. If the confidence is unreliable, those thresholds don't work.
-- **Reading it:** this model is off by only about 1.1%, so its probabilities can be used directly. OpenThai is off by 6.3%.
+#### 5. `ECE (calibration)`: 0.032 / **0.011** / 0.063 / 0.039 (**lower is better**)
+- **Measures:** **whether the model's confidence can be trusted.** If the model says "95% sure" 100 times, it should be right about 95 of those times.
+- **Why it matters:** in practice you set thresholds on the probability (e.g. > 0.95 block automatically · 0.5–0.95 send to a person). If the confidence is unreliable, those thresholds don't work.
+- **Reading it:** this model is off by about 1.1%. Tev1-4B's overall ECE is OK (0.039) but its ECE on the risk-score question is high (0.319), so its 0–4 probabilities can't be trusted.
 
 #### Summary
 
-| Row | Question it answers | Best | This model vs base |
-|---|---|---|---|
-| is_sensitive F1 | Is this text sensitive? | 1.0 | +0.100 |
-| risk_level accuracy | How risky is it (0–4)? | 1.0 | **+43.6 pp** (biggest gain) |
-| primary_category accuracy | What's the riskiest data type in it? | 1.0 | +30.8 pp |
-| has_* macro-F1 | Which data types does it contain (all 8)? | 1.0 | +0.285 |
-| ECE | Can its confidence be trusted? | **0** | about 3× better |
+| Row | Question it answers | Best | Leader | This model vs the second-best |
+|---|---|---|---|---|
+| is_sensitive F1 | Is this text sensitive? | 1.0 | **this model** | +0.086 (vs Tev1) |
+| risk_level accuracy | How risky is it (0–4)? | 1.0 | **this model** | **+38.8 pp** (vs OpenThai) |
+| primary_category accuracy | What's the riskiest data type in it? | 1.0 | **this model** | +30.8 pp (vs Kev base) |
+| has_* macro-F1 | Which data types does it contain (all 8)? | 1.0 | **this model** | +0.263 (vs Tev1) |
+| ECE | Can its confidence be trusted? | **0** | **this model** | about 3× better (vs Kev base) |
 
 ### Accuracy per question
 
-| Question | base | **pdpa-guard** | OpenThai |
-|---|---|---|---|
-| is_sensitive | 0.872 | **0.989** | 0.585 |
-| risk_level | 0.476 | **0.912** | 0.524 |
-| primary_category | 0.638 | **0.946** | 0.463 |
-| has_name | 0.959 | **0.969** | 0.824 |
-| has_contact | 0.927 | **0.992** | 0.917 |
-| has_address | 0.941 | **0.996** | 0.944 |
-| has_national_id | 0.966 | **0.997** | 0.946 |
-| has_financial | 0.863 | **0.993** | 0.899 |
-| has_credential | 0.811 | **0.992** | 0.898 |
-| has_health_or_special (s.26) | 0.718 | **0.985** | 0.884 |
-| has_other_identifier | 0.824 | **0.947** | 0.878 |
+| Question | Kev base | **this model** | OpenThai | Tev1-4B |
+|---|---|---|---|---|
+| is_sensitive | 0.872 | **0.989** | 0.585 | 0.884 |
+| risk_level | 0.476 | **0.912** | 0.524 | 0.486 |
+| primary_category | 0.638 | **0.946** | 0.463 | 0.559 |
+| has_name | 0.959 | **0.969** | 0.824 | 0.963 |
+| has_contact | 0.927 | **0.992** | 0.917 | 0.950 |
+| has_address | 0.941 | **0.996** | 0.944 | 0.944 |
+| has_national_id | 0.966 | **0.997** | 0.946 | 0.973 |
+| has_financial | 0.863 | **0.993** | 0.899 | 0.871 |
+| has_credential | 0.811 | **0.992** | 0.898 | 0.906 |
+| has_health_or_special (s.26) | 0.718 | **0.985** | 0.884 | 0.736 |
+| has_other_identifier | 0.824 | **0.947** | 0.878 | 0.800 |
 
 ### Accuracy by true risk level
 
-| True risk | n | base | **pdpa-guard** | OpenThai |
+| True risk | n | Kev base | **this model** | OpenThai | Tev1-4B |
+|---|---|---|---|---|---|
+| 0 none | 313 | 0.709 | **0.981** | 0.840 | 0.668 |
+| 1 low | 55 | 0.327 | **0.927** | 0.200 | 0.273 |
+| 2 medium | 60 | 0.983 | 0.917 | 0.650 | **1.000** |
+| 3 high | 87 | 0.195 | **0.667** | 0.034 | 0.195 |
+| 4 critical | 220 | 0.155 | **0.905** | 0.314 | 0.255 |
+| Hard negatives (look sensitive but aren't) | 177 | 0.503 | **0.966** | 0.746 | 0.480 |
+
+### Calibration by question type (ECE, lower is better)
+
+| Question type | Kev base | **this model** | OpenThai | Tev1-4B |
 |---|---|---|---|---|
-| 0 none | 313 | 0.709 | **0.981** | 0.840 |
-| 1 low | 55 | 0.327 | **0.927** | 0.200 |
-| 2 medium | 60 | **0.983** | 0.917 | 0.650 |
-| 3 high | 87 | 0.195 | **0.667** | 0.034 |
-| 4 critical | 220 | 0.155 | **0.905** | 0.314 |
+| yes/no (noul) | 0.041 | **0.006** | 0.030 | 0.019 |
+| risk score 0–4 (score) | 0.121 | **0.043** | 0.230 | 0.319 |
+| category (choice) | 0.044 | **0.036** | 0.193 | 0.231 |
 
 ### Reading the results
-- **Fine-tuning improved the model a lot on every metric.** The biggest gain is risk_level (47.6% → 91.2%): base Kev understands questions generally but doesn't know the PDPA risk rules, especially level 4 (section 26 data), where it scored only 15.5% and now scores 90.5%.
-- **Hard negatives** (data that looks sensitive but isn't): exact risk accuracy is 0.966, versus 0.503 for base. The model learned to tell an order number from an ID number, and a public figure from a private individual.
-- **Calibration got better too** (ECE 0.011). When the model says 0.9, it's right about 90% of the time, so you can set thresholds directly.
-- **OpenThai-SystemOne** is very fast (0.12 s, 10× faster) and decent on the individual has_* questions, but has very low is_sensitive recall (0.287): it misses about 71% of the sensitive texts. Its answers are also internally inconsistent, e.g. risk 4 but "not sensitive". It wasn't trained for PDPA (this is zero-shot), so the comparison shows what domain fine-tuning adds, not that OpenThai is a bad model.
-- **Remaining weak spots:** risk 3 (high), at 0.667. Of the 29 misses, 23 were predicted **lower** (mostly as 2), and almost all are cases of the **"3 or more types → +1"** escalation rule, e.g. name + phone + address, whose base is 2 but which escalates to 3. The model hasn't fully learned this counting rule yet. Training on more examples of it, or computing the escalation in code after the model answers, would help. Also risk 2, where it's slightly below base (0.917 vs 0.983); base tends to answer 2 for almost everything, so it happens to score well on this level.
-- ⚠️ The test set comes from the same data generator family (different authors and templates), so these absolute numbers are **an optimistic estimate** of real-world use. The part to trust is the **comparison between systems on identical records**.
+- **This model leads on every quality metric**, beating both models of the same size (Kev base, Tev1-4B) and the Thai model (OpenThai). The biggest gap is the 0–4 risk level: all 3 general-purpose models get only about half right, because they don't know the PDPA risk rules, especially level 4 (section 26 data), where they score only 16–31%.
+- **Tev1-4B (same size, 4.3B)** is a strong general model: is_sensitive F1 0.904 (above Kev base) and good recall. But it tends to **answer "2" for almost every risk level** (100% at level 2, but only 27% at level 1 and 26% at level 4), and it's the slowest (3.3 s per text), because Ollama asks the 11 questions one at a time.
+- **OpenThai-SystemOne** is the fastest (0.12 s, 10× faster) and very good on hard negatives (0.746), but it misses most sensitive texts (recall 0.287), and its answers are internally inconsistent (e.g. risk 4 but "not sensitive").
+- **Hard negatives** (data that looks sensitive but isn't): this model gets 0.966. The others score 0.48–0.75, so they're easily fooled by order numbers that look like ID numbers or by public figures in the news.
+- **Remaining weak spot of this model:** risk 3 (0.667). Of the 29 misses, 23 were predicted **lower** (mostly as 2), and almost all are cases of the **"3 or more types → +1"** escalation rule, e.g. name + phone + address. More training data for this rule, or computing the escalation in code after the model answers, would help. At level 2 it's slightly below base and Tev1, which tend to answer 2 for everything.
+- ⚠️ The test set comes from the same data generator family (different authors and templates), so these absolute numbers are **an optimistic estimate** of real-world use. The part to trust is the **comparison between models on identical records**. Also, only this model was trained on the task; the other 3 are zero-shot.
 
-More detail (by genre, calibration by question type, confusion matrix): [`results/comparison.md`](results/comparison.md) · charts: `results/risk_confusion_*.png`, `results/reliability_*.png`, `results/bar_by_genre.png`
+More detail (by genre, confusion matrix, reliability diagrams): [`results/comparison.md`](results/comparison.md) · charts in `results/` (`bar_by_genre.png`, `risk_confusion_*.png`, `reliability_*.png`)
 <!-- RESULTS:END -->
 
 ---
@@ -425,6 +438,29 @@ Risk distribution in test: 0 = 313 · 1 = 55 · 2 = 60 · 3 = 87 · 4 = 220 (the
 | Hardware | i5-12500H, 16 GB RAM, **RTX 4060 Laptop 8 GB** (peak VRAM ≈ 4.5 GB) |
 | Time | ≈ 3 hours |
 
+### Hyperparameter search (Optuna)
+
+We used [`scripts/tune_optuna.py`](scripts/tune_optuna.py) to look for the settings that give the **lowest dev loss (NLL)**. Train loss isn't used, because the lowest train loss comes from memorizing the training data (overfitting).
+- Sampler: TPE (seed 1) + MedianPruner (stops trials worse than the median early)
+- Each trial: 40 steps on a fixed subset of 1,200 train records, scored on 150 dev records
+- Trial 0 = the current recipe (the v1 model) as a baseline
+
+| trial | Status | dev NLL ↓ | lr | accum | regularizer | ord_w |
+|---|---|---|---|---|---|---|
+| 0 (v1 recipe) | complete | 0.183 | 2.0e-5 | 8 | none | 0.00 |
+| 3 | complete | 0.170 | 6.9e-5 | 4 | none | 0.17 |
+| **5 (best)** | complete | **0.090** | **9.3e-5** | **16** | none | **0.98** |
+| 7 | complete | 0.092 | 8.1e-5 | 16 | none | 0.65 |
+| 11 | complete | 0.099 | 6.7e-5 | 16 | none | 0.61 |
+| 1, 2 | complete | 0.300, 0.337 | ~1e-5 | 4 | label smoothing ~0.11 | |
+| 6, 8, 9, 10 | pruned | | | | | |
+
+**What we learned:** (1) a higher learning rate (7e-5 to 9e-5) works better than 2e-5 · (2) label smoothing and the Brier loss **hurt** (dev NLL roughly doubled) · (3) `ord_w` (an ordinal loss on the 0–4 risk score) helps, which should directly address the risk 3 weakness · (4) ⚠️ the accum 16 trials saw 4× more data in the same 40 steps, so part of their win comes from extra data, not just better settings.
+
+Status: the full retrain with the best params (v2) was **stopped to prioritize comparing against other models**. The published model is still **v1**. To run it: `bash scripts/overnight.sh` (Optuna → retrain → eval) or use the flags in `results/optuna/best_params.json`. Full table: [`results/optuna/trials.md`](results/optuna/trials.md)
+
+![optuna](results/optuna/optuna_history.png)
+
 Reproduce:
 ```bash
 bash scripts/setup_env.sh
@@ -466,5 +502,5 @@ Quality gates that were enforced: the PM rejected the first data round (unrealis
 ## License and acknowledgements
 - Adapter, head, code and dataset: **Apache-2.0**
 - Base model: [Qwen/Qwen3.5-4B-Base](https://huggingface.co/Qwen/Qwen3.5-4B-Base) (Apache-2.0); [Kev](https://github.com/jaredpalmer/kev) by Jared Palmer (Apache-2.0)
-- Compared against [iapp/OpenThai-SystemOne](https://huggingface.co/iapp/OpenThai-SystemOne) (Apache-2.0)
+- Compared against [iapp/OpenThai-SystemOne](https://huggingface.co/iapp/OpenThai-SystemOne) (Apache-2.0) and [togethercomputer/Tev1-4B-experimental](https://huggingface.co/togethercomputer/Tev1-4B-experimental)
 - Diagrams by [archify](https://github.com/tt-a1i/archify) (MIT)

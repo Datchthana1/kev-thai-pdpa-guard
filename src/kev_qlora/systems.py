@@ -56,4 +56,9 @@ def get_system(name, run=None, device="cuda", load_4bit=True, **kw):
     if name == "openthai":
         from .openthai_adapter import OpenThaiSystem
         return OpenThaiSystem(backend="transformers", device=device, **kw)
+    if name == "tev1":
+        # togethercomputer/Tev1-4B-experimental (4.3B, Q8_0) through Ollama's /v1/systemone, which turns the model's
+        # option-letter probabilities into choice / noul / score answers. Ollama decides GPU placement.
+        from .openthai_adapter import OpenThaiSystem
+        return OpenThaiSystem(backend="ollama", ollama_model="tev1:4b", **kw)
     raise ValueError(f"unknown system {name!r}")

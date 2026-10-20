@@ -43,7 +43,7 @@ from kev_qlora.metrics_pdpa import (  # noqa: E402
     noul_pred,
 )
 
-SYSTEMS = ("kev-base", "kev-pdpa", "openthai")
+SYSTEMS = ("kev-base", "kev-pdpa", "openthai", "tev1")
 QTYPES = ("noul", "score", "choice")
 
 
